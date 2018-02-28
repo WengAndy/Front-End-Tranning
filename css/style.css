@@ -1,0 +1,163 @@
+html, body {
+  height: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 150%;
+  background: #000000;
+  font-family: sans-serif, Arial, Helvetica;
+  color: #fff; }
+
+h1, p {
+  margin: 0;
+  padding: 0; }
+
+#header {
+  width: 980px;
+  margin: 0 auto;
+  letter-spacing: 1px; }
+
+#logo {
+  margin: 30px auto;
+  width: 20%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center; }
+
+.decoLine {
+  border-top: #fff thin double;
+  border-bottom: #fff thin double;
+  padding: 5px; }
+
+.slogan {
+  font-size: small; }
+
+#menu {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+#menu li {
+  margin: 14px;
+  padding: 0;
+  list-style: none; }
+
+#menu a {
+  color: #fff;
+  text-decoration: none; }
+
+#content {
+  width: 980px;
+  margin: 0 auto;
+  min-height: 100%; }
+
+#contentImg {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+#contentImg p {
+  width: 90%; }
+
+.btm {
+  margin: 10px auto 50px; }
+
+.btm a {
+  color: orange;
+  -webkit-text-decoration-line: none;
+  text-decoration-line: none; }
+
+.btm a:hover {
+  color: violet;
+  -webkit-text-decoration-line: none;
+  text-decoration-line: none; }
+
+.hour {
+  background-color: orange;
+  width: 230px;
+  height: 148px; }
+
+.hour p {
+  text-align: center;
+  font-size: x-large;
+  padding: 30px 15px 0 15px; }
+
+#footer {
+  background: #557277;
+  color: #d0d0d0; }
+  #footer .bottomInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center; }
+    #footer .bottomInfo .box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      display: -webkit-flex;
+      margin: 20px 0;
+      width: 980px; }
+      #footer .bottomInfo .box .contactUs {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1; }
+        #footer .bottomInfo .box .contactUs .title {
+          font-weight: bold; }
+        #footer .bottomInfo .box .contactUs .mail {
+          margin: 0 0 20px 0; }
+        #footer .bottomInfo .box .contactUs .link a {
+          padding: 10px;
+          color: #fff; }
+          #footer .bottomInfo .box .contactUs .link a i {
+            font-size: 22px; }
+            #footer .bottomInfo .box .contactUs .link a i:hover {
+              color: #999; }
+      #footer .bottomInfo .box .weAccept {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1; }
+        #footer .bottomInfo .box .weAccept img {
+          color: #fff;
+          margin: 10px 5px 0 0; }
+      #footer .bottomInfo .box .joinEmail {
+        -webkit-box-flex: 2;
+        -ms-flex: 2;
+        flex: 2; }
+        #footer .bottomInfo .box .joinEmail input {
+          padding: 5px 0; }
+        #footer .bottomInfo .box .joinEmail input[type=email] {
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          background: #d0d0d0;
+          margin: 10px 0;
+          padding: 10px; }
+        #footer .bottomInfo .box .joinEmail button {
+          border: 0;
+          width: 100%;
+          background: #38494d;
+          color: #fff;
+          padding: 10px; }
+  #footer .copyright {
+    font-size: 10px;
+    background: #545354;
+    padding: 1em 0;
+    text-align: center; }
+    #footer .copyright a {
+      color: #fff;
+      text-decoration: underline; }
