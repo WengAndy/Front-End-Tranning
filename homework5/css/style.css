@@ -222,35 +222,65 @@ body {
   width: 980px; 
 }
 
+#footer_left h3 {
+  color: #11a2ae;
+}
+
+#footer_right h3 {
+  color: #000000;
+}
+
+#footer_right i {
+  font-size:48px;
+  color: #3b5998;
+}
+
+#footer_right icon {
+  display: flex;
+  justify-content: center;
+}
+
 #footer_copyright {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: grid;
   margin: 45px auto;
   width: 980px; 
+  justify-content: center;
 }
 
 #footer_copyright a {
-  color: #fff
+  color: #555
 }
 
-#contact {
+#footer_left {
   display: grid;
   width: 40%; 
+  justify-content: center;
 }
 
 #footer p {
   margin: 0;
   padding: 0;
+  color: #555;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#openinghour {
-  display: grid;
-  width: 30%; }
+#footer_center {
+  border-left: #11a2ae thin double;
+  border-right: #11a2ae thin double;
+  display: flex;
+  justify-content: center;
+  width: 80%; 
+}
 
-#findus {
+#footer_center email {
+  margin: 3px 0 3px 0;
+}
+
+#footer_right {
   display: grid;
-  width: 40%; }
+  justify-content: center;
+  width: 40%; 
+}
 
 h3 {
   color: #BF9515; }
@@ -289,3 +319,55 @@ h3 {
   margin-right: 35px;
   width: 164px;
 }
+
+#link {
+  display: flex;
+  justify-content: center;
+  list-style: none; 
+}
+
+#link a{
+  color: #11a2ae;
+}
+
+.link_center {
+  margin: 0px 68px 21px 68px;
+}
+
+.input_left {
+  display: grid;
+  width: 50%;
+  margin: 35px 0 0 60px;
+  height: 65%;
+}
+
+.input_right {
+  border: 0;
+  width: 90%;
+  margin: 38px 0 0 10px;
+  height: 68px;
+  font-size: 14px;
+  resize: none;
+  display: grid;
+}
+.input_right button {
+  width: 18%;
+  height: 30px;
+  border-radius: 8px;
+  margin: 7px 0 0 160px;
+  color: #f1f1f1;
+  background: #11a2ae;
+}
+
+.input_right textarea {
+  border: 0;
+  width: 70%;
+  padding: 10px;
+  height: 68px;
+  font-size: 14px;
+  resize: none;
+  border-radius: 8px;
+}
+
+
+
