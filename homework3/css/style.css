@@ -10,11 +10,6 @@ body {
   font-family: sans-serif, Arial, Helvetica;
   color: #fff; }
 
-/* h1, p {
-  margin: 0;
-  padding: 0; 
-} */
-
 #header {
   width: 980px;
   margin: 0 auto;
@@ -152,7 +147,7 @@ body {
 }
 
 #footer_copyright a {
-  color: #fff;
+  color: #fff
 }
 
 #contact {
