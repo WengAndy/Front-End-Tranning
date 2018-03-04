@@ -43,21 +43,35 @@ body {
   background:#66c2c9;
 }
 
+.banner {
+  display: flex;
+  justify-content: center;
+}
+.banner_word {
+  font-size: 50px;
+  font-family: georgia, 'book antiqua', 'palatino linotype';
+  font-weight: bold;
+  color: #de5454;
+  line-height: 120%;
+  padding: 50px 200px;
+}
+
+.banner_name {
+  font-size: 13px;
+  color: #AAA8A8;
+}
+
 #logo {
   margin: 30px auto;
   width: 50%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   text-align: center; }
 
 .decoLine {
   border-top: #fff thin double;
   border-bottom: #fff thin double;
-  padding: 5px; }
-
-.slogan {
-  font-size: small; }
+  padding: 5px; 
+}
 
 #menu {
   width: 100%;
@@ -79,19 +93,63 @@ body {
   width: 980px;
   margin: 0 auto;
   min-height: 100%; 
+  background: #fff;
 }
 
-#contentImg {
+#content_introduction {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center; 
+}
 
-#contentImg p {
-  width: 90%; }
+.about_img {
+  width: 25%;
+  height: 100%;
+}
+
+.about_img p {
+  margin: 10px 0 0 0;
+  color: #999;
+  
+}
+
+.about_centent {
+  width: 25%;
+  border-left: 2px solid #999;
+}
+
+.about_centent p{
+  color: #999;
+  font-size: 13px;
+  width: 58%;
+  padding-left: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.classes_img {
+  
+  width: 25%;
+  height: 100%;
+}
+
+.classes_img h5{
+  color: #de5454;
+  font-size: 26px;
+  line-height: 30px;
+}
+
+.classes_content {
+  width: 25%;
+  border-left: 2px solid #de5454;
+}
+
+.classes_content p {
+    color: #de5454;
+    font-size: 13px;
+    width: 58%;
+    padding-left: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 .btm {
   margin: 10px auto 50px; }
@@ -230,8 +288,4 @@ h3 {
   font-size: 16px;
   margin-right: 35px;
   width: 164px;
-}
-
-#copyright_content {
-
 }
