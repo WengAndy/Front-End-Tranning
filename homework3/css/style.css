@@ -1,7 +1,5 @@
 @import url("../css/reset.css");
 body {
-  margin: 0;
-  padding: 0;
   background: #000;
   color: #fff;
   font-size: 15px;
@@ -13,12 +11,11 @@ body {
   margin: 0 auto; }
 
 #header {
-  width: 100%;
-  margin: 0 auto; }
+  width: 100%; }
 
 #logo {
   margin: 30px auto;
-  width: 30%;
+  width: 25%;
   text-align: center; }
 
 .decoLine {
@@ -28,12 +25,12 @@ body {
 
 .logoname {
   font-size: 50px;
-  line-height: 110%; }
+  line-height: 40px; }
 
 .slogan {
   color: #efefef;
   font-family: sans-serif;
-  margin: 10px; }
+  margin-top: 3px; }
 
 #menu {
   width: 100%;
@@ -56,12 +53,11 @@ body {
     display: -ms-flexbox;
     display: flex; }
   #menu li {
-    margin: 0 10px;
+    margin: 0 15px;
     list-style: none; }
 
 #content {
-  width: 100%;
-  margin: 0 auto; }
+  width: 100%; }
 
 #contentImg {
   width: 100%;
@@ -71,8 +67,15 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
-  #contentImg p {
-    width: 90%; }
+
+.imgDiv {
+  margin: 10px auto 50px; }
+  .imgDiv .imgTitle {
+    font-size: 24px;
+    line-height: 80px; }
+  .imgDiv p {
+    width: 90%;
+    margin-bottom: 10px; }
 
 .btm a {
   color: #b78a15;
@@ -83,11 +86,6 @@ body {
   color: #6f00d2;
   -webkit-text-decoration-line: none;
   text-decoration-line: none; }
-
-.imgDiv {
-  margin: 10px auto 50px; }
-  .imgDiv p {
-    margin-bottom: 10px; }
 
 .hour {
   background-color: #b78a15;
@@ -116,10 +114,10 @@ body {
   font-size: 30px; }
 
 .form {
-  width: 700px; }
+  width: 800px; }
 
 .formfill {
-  width: 150px;
+  width: 160px;
   height: 40px;
   padding-left: 1em;
   margin-right: 1em;
@@ -128,7 +126,7 @@ body {
   background-color: #000; }
 
 .formbtn {
-  width: 150px;
+  width: 160px;
   height: 40px;
   color: #fff;
   border: none;
@@ -137,41 +135,46 @@ body {
 
 #footer {
   width: 100%;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
-  #footer .footer_left {
-    display: grid;
-    width: 100%; }
-  #footer .footer_left_contact {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
-    #footer .footer_left_contact .contact {
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      width: 100%; }
-    #footer .footer_left_contact .openinghour {
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      width: 100%; }
-    #footer .footer_left_contact .findus {
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      width: 100%; }
-    #footer .footer_left_contact .copyright {
-      width: 100%;
-      margin: 35px 0 60px; }
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  margin-bottom: 50px; }
+
+.footer_left {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+  align-content: flex-start; }
+
+.contact, .openinghour {
+  width: 50%; }
+
+.copyright {
+  width: 100%;
+  margin-top: 50px; }
+
+.findus {
+  width: 50%; }
 
 .footer_title {
   color: #b78a15;
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
 
-.link {
+.sociallink {
   color: #fff;
   font-size: 20px;
   margin: 0 5px; }

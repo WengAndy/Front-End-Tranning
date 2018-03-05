@@ -7,10 +7,7 @@ $brown-color: #b78a15;
 $purple-color: #6f00d2;
 $lightgray-color: #efefef;
 
-
 body {
-  margin: 0;
-  padding: 0;
   background: $black-color;
   color: $white-color;
   font-size: 15px;
@@ -25,12 +22,11 @@ body {
 
 #header {
   width: 100%;
-  margin: 0 auto; 
 }
 
 #logo {
   margin: 30px auto;
-  width: 30%;
+  width: 25%;
   text-align: center; 
 }
 
@@ -42,13 +38,13 @@ body {
 
 .logoname {
   font-size: 50px;
-  line-height: 110%; 
+  line-height: 40px; 
 }
 
 .slogan {
   color: $lightgray-color;
   font-family: sans-serif;
-  margin: 10px; 
+  margin-top: 3px; 
 }
 
 #menu {
@@ -64,32 +60,39 @@ body {
       color: $brown-color;
       text-decoration-line: none;
     }
-
+     
     ul {
       display: flex;
     }
-
     li {
-      margin: 0 10px;
+      margin: 0 15px;
       list-style: none;
     }
 }
 
 #content {
   width: 100%;
-  margin: 0 auto;
 }
+
 #contentImg {
   width: 100%;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+}
+
+.imgDiv {
+  margin: 10px auto 50px;
+  
+  .imgTitle{
+    font-size: 24px;
+    line-height: 80px; 
+  }
   p {
     width: 90%;
+    margin-bottom: 10px;
   }
 }
- 
+
 .btm {
   a {
     color: $brown-color;
@@ -98,13 +101,6 @@ body {
   a:hover {
     color: $purple-color;
     text-decoration-line: none;
-  }
-}
-
-.imgDiv {
-  margin: 10px auto 50px;
-  p {
-    margin-bottom: 10px;
   }
 }
 
@@ -140,11 +136,11 @@ body {
 }
 
 .form {
-  width: 700px;
+  width: 800px;
 }
 
 .formfill{
-  width: 150px;
+  width: 160px;
   height: 40px;
   padding-left:1em;
   margin-right: 1em;
@@ -152,8 +148,9 @@ body {
   border: $white-color thin solid;
   background-color: $black-color; 
 }
+
 .formbtn{
-  width: 150px;
+  width: 160px;
   height: 40px; 
   color: $white-color; 
   border: none;
@@ -163,44 +160,38 @@ body {
 
 #footer {
   width: 100%;
-  margin: 0 auto;
   display: flex;
+  flex-direction: row;   
+  align-content:flex-start;
+  margin-bottom: 50px;
+}
 
-  .footer_left {
-    display: grid;
-    width: 100%;
-  }
-  
-  .footer_left_contact {
-    display: flex;
+.footer_left{
+  width: 50%;
+  display: flex;
+  flex-direction: row;   
+  flex-wrap: wrap;
+  align-content:flex-start;
+}
+.contact, .openinghour {
+  width: 50%;
+}
 
-    .contact {
-      justify-content: center;
-      width: 100%;
-    }
-    .openinghour {
-      justify-content: center;
-      width: 100%;
-    }
-    
-    .findus {
-      justify-content: center;
-      width: 100%;
-    }
-    
-    .copyright {
-      width: 100%;
-      margin: 35px 0 60px;
-    }
-  }
+.copyright {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.findus {
+  width: 50%;
 }
 
 .footer_title {
   color: $brown-color;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.link {
+.sociallink {
   color: $white-color;
   font-size: 20px;
   margin: 0 5px;
