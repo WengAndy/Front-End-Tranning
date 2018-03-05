@@ -1,22 +1,24 @@
+@import url("../css/reset.css");
 body {
   margin: 0;
   padding: 0;
-  background: #000000;
+  background: #000;
   color: #fff;
   font-size: 15px;
   line-height: 150%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
 
-#header {
+#container {
   width: 980px;
+  margin: 0 auto; }
+
+#header {
+  width: 100%;
   margin: 0 auto; }
 
 #logo {
   margin: 30px auto;
   width: 30%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   text-align: center; }
 
 .decoLine {
@@ -26,10 +28,10 @@ body {
 
 .logoname {
   font-size: 50px;
-  margin: 10px; }
+  line-height: 110%; }
 
 .slogan {
-  color: efefef;
+  color: #efefef;
   font-family: sans-serif;
   margin: 10px; }
 
@@ -40,25 +42,25 @@ body {
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
-
-#menu ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 0; }
-
-#menu ul > li {
-  margin: 14px;
-  padding: 0;
-  list-style: none; }
-
-#menu a {
-  color: #fff;
-  text-decoration: none; }
+  justify-content: center;
+  margin-bottom: 30px; }
+  #menu a {
+    color: #fff;
+    text-decoration: none; }
+  #menu a:hover {
+    color: #b78a15;
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none; }
+  #menu ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  #menu li {
+    margin: 0 10px;
+    list-style: none; }
 
 #content {
-  width: 980px;
+  width: 100%;
   margin: 0 auto; }
 
 #contentImg {
@@ -69,12 +71,8 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
-
-#contentImg p {
-  width: 90%; }
-
-.btm {
-  margin: 10px auto 50px; }
+  #contentImg p {
+    width: 90%; }
 
 .btm a {
   color: #b78a15;
@@ -85,6 +83,11 @@ body {
   color: #6f00d2;
   -webkit-text-decoration-line: none;
   text-decoration-line: none; }
+
+.imgDiv {
+  margin: 10px auto 50px; }
+  .imgDiv p {
+    margin-bottom: 10px; }
 
 .hour {
   background-color: #b78a15;
@@ -101,15 +104,16 @@ body {
   font-size: 25px; }
 
 #reservation {
-  width: 980px;
+  width: 100%;
   margin: 0 auto 20px;
   padding: 50px 0;
   border-top: #fff thin solid;
   border-bottom: #fff thin solid; }
 
-h1 {
+.reservation_title {
   text-align: center;
-  margin: 20px 0 70px; }
+  margin: 20px 0 70px;
+  font-size: 30px; }
 
 .form {
   width: 700px; }
@@ -119,49 +123,58 @@ h1 {
   height: 40px;
   padding-left: 1em;
   margin-right: 1em;
-  color: #FFF;
+  color: #fff;
   border: #fff thin solid;
-  background-color: #000000; }
+  background-color: #000; }
 
 .formbtn {
   width: 150px;
   height: 40px;
-  padding-left: 1em;
-  margin-right: 1em;
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 2px;
   background-color: #b78a15; }
 
 #footer {
-  width: 980px;
-  margin: 0 auto; }
-
-h3 {
-  color: #b78a15; }
-
-.footer_left {
-  float: left;
-  width: 490px; }
-
-.findus {
-  float: right;
-  width: 490px; }
-
-.contact {
-  float: left;
-  width: 50%; }
-
-.openinghour {
-  float: right;
-  width: 50%; }
-
-.copyright {
-  float: left;
   width: 100%;
-  margin: 35px 0 60px; }
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  #footer .footer_left {
+    display: grid;
+    width: 100%; }
+  #footer .footer_left_contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    #footer .footer_left_contact .contact {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 100%; }
+    #footer .footer_left_contact .openinghour {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 100%; }
+    #footer .footer_left_contact .findus {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 100%; }
+    #footer .footer_left_contact .copyright {
+      width: 100%;
+      margin: 35px 0 60px; }
+
+.footer_title {
+  color: #b78a15;
+  margin-bottom: 10px; }
 
 .link {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   margin: 0 5px; }
+
+.space {
+  margin-bottom: 10px; }
