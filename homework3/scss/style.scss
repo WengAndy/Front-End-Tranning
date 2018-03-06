@@ -25,7 +25,7 @@ body {
 
   #logo {
     margin: 30px auto;
-    width: 25%;
+    width: 30%;
     text-align: center; 
 
     .decoLine {
@@ -42,7 +42,7 @@ body {
     .slogan {
       color: $shadeColor;
       font-family: sans-serif;
-      margin-top: 3px; 
+      padding-top: 3px; 
     }
   }
 
@@ -82,7 +82,7 @@ body {
     justify-content: center;
 
     .imgDiv {
-      margin: 10px auto 50px;
+      margin-bottom: 50px;
       
       .imgTitle{
         font-size: 24px;
@@ -170,7 +170,7 @@ body {
   margin-bottom: 50px;
 
   .footer_left{
-    width: 50%;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;   
     flex-wrap: wrap;
@@ -178,11 +178,11 @@ body {
 
     .contact, .openinghour {
       flex: 1 1 50%;
+      margin-bottom: 50px;
     }
     
     .copyright {
-      flex:1 2 100%;
-      margin-top: 50px;
+      flex:2 1 auto;
 
       .sociallink {
         color: $primaryColor;
