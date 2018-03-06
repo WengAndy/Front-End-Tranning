@@ -1,15 +1,15 @@
 
 @import url("../css/reset.css");
 
-$white-color: #fff;
-$black-color: #000;
-$brown-color: #b78a15;
-$purple-color: #6f00d2;
-$lightgray-color: #efefef;
+$primaryColor: #fff;
+$secondaryColor: #b78a15;
+$hoverColor: #6f00d2;
+$shadeColor: #efefef;
+$backGroundColor: #000;
 
 body {
-  background: $black-color;
-  color: $white-color;
+  background: $backGroundColor;
+  color: $primaryColor;
   font-size: 15px;
   line-height: 150%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
@@ -22,140 +22,144 @@ body {
 
 #header {
   width: 100%;
-}
 
-#logo {
-  margin: 30px auto;
-  width: 25%;
-  text-align: center; 
-}
+  #logo {
+    margin: 30px auto;
+    width: 25%;
+    text-align: center; 
 
-.decoLine {
-  border-top: $white-color thin solid;
-  border-bottom: $white-color thin solid;
-  padding: 6px; 
-}
+    .decoLine {
+      border-top: $primaryColor thin solid;
+      border-bottom: $primaryColor thin solid;
+      padding: 6px; 
+    }
 
-.logoname {
-  font-size: 50px;
-  line-height: 40px; 
-}
+    .logoname {
+      font-size: 50px;
+      line-height: 40px; 
+    }
 
-.slogan {
-  color: $lightgray-color;
-  font-family: sans-serif;
-  margin-top: 3px; 
-}
+    .slogan {
+      color: $shadeColor;
+      font-family: sans-serif;
+      margin-top: 3px; 
+    }
+  }
 
-#menu {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px; 
+  #menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; 
+    
     a {
-      color: $white-color;
+      color: $primaryColor;
       text-decoration: none;
+      &:hover {
+        color: $secondaryColor;
+        text-decoration-line: none;
+      }
     }
-    a:hover {
-      color: $brown-color;
-      text-decoration-line: none;
-    }
-     
+       
     ul {
       display: flex;
     }
+
     li {
       margin: 0 15px;
       list-style: none;
     }
+  }
 }
+
 
 #content {
   width: 100%;
-}
 
-#contentImg {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+  #contentImg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-.imgDiv {
-  margin: 10px auto 50px;
-  
-  .imgTitle{
-    font-size: 24px;
-    line-height: 80px; 
+    .imgDiv {
+      margin: 10px auto 50px;
+      
+      .imgTitle{
+        font-size: 24px;
+        line-height: 80px; 
+      }
+
+      p {
+        width: 90%;
+        margin-bottom: 10px;
+      }
+
+      .hour {
+        background-color: $secondaryColor;
+        width: 230px;
+        height: 148px;
+        text-align: center; 
+        line-height: 40px;
+      }
+      
+      .hourtext1 {
+        font-size: 32px;
+        padding-top: 30px;
+      }
+      
+      .hourtext2 {
+        font-size: 25px;
+      }
+    }
+    .btm {
+
+      a {
+        color: $secondaryColor;
+        text-decoration-line: none;
+        &:hover {
+          color: $hoverColor;
+          text-decoration-line: none;
+        }
+      }
+    }
   }
-  p {
-    width: 90%;
-    margin-bottom: 10px;
-  }
-}
-
-.btm {
-  a {
-    color: $brown-color;
-    text-decoration-line: none;
-  }
-  a:hover {
-    color: $purple-color;
-    text-decoration-line: none;
-  }
-}
-
-.hour {
-  background-color: $brown-color;
-  width: 230px;
-  height: 148px;
-  text-align: center; 
-  line-height: 40px;
-}
-
-.hourtext1 {
-  font-size: 32px;
-  padding-top: 30px;
-}
-
-.hourtext2 {
-  font-size: 25px;
 }
 
 #reservation {
   width: 100%;
   margin: 0 auto 20px;
   padding: 50px 0;
-  border-top: $white-color thin solid;
-  border-bottom: $white-color thin solid;   
-}
+  border-top: $primaryColor thin solid;
+  border-bottom: $primaryColor thin solid; 
+  
+  .reservation_title {
+    text-align: center;
+    margin: 20px 0 70px;
+    font-size: 30px;
+  }
 
-.reservation_title {
-  text-align: center;
-  margin: 20px 0 70px;
-  font-size: 30px;
-}
+  .form {
+    width: 800px;
 
-.form {
-  width: 800px;
-}
-
-.formfill{
-  width: 160px;
-  height: 40px;
-  padding-left:1em;
-  margin-right: 1em;
-  color: $white-color; 
-  border: $white-color thin solid;
-  background-color: $black-color; 
-}
-
-.formbtn{
-  width: 160px;
-  height: 40px; 
-  color: $white-color; 
-  border: none;
-  border-radius: 2px;   
-  background-color: $brown-color; 
+    .formfill {
+      width: 160px;
+      height: 40px;
+      padding-left:1em;
+      margin-right: 1em;
+      color: $primaryColor; 
+      border: $primaryColor thin solid;
+      background-color: $backGroundColor; 
+    }
+    
+    .formbtn {
+      width: 160px;
+      height: 40px; 
+      color: $primaryColor; 
+      border: none;
+      border-radius: 2px;   
+      background-color: $secondaryColor; 
+    }  
+  }
 }
 
 #footer {
@@ -164,39 +168,40 @@ body {
   flex-direction: row;   
   align-content:flex-start;
   margin-bottom: 50px;
-}
 
-.footer_left{
-  width: 50%;
-  display: flex;
-  flex-direction: row;   
-  flex-wrap: wrap;
-  align-content:flex-start;
-}
-.contact, .openinghour {
-  width: 50%;
-}
+  .footer_left{
+    width: 50%;
+    display: flex;
+    flex-direction: row;   
+    flex-wrap: wrap;
+    align-content:flex-start;
 
-.copyright {
-  width: 100%;
-  margin-top: 50px;
-}
+    .contact, .openinghour {
+      flex: 1 1 50%;
+    }
+    
+    .copyright {
+      flex:1 2 100%;
+      margin-top: 50px;
 
-.findus {
-  width: 50%;
-}
+      .sociallink {
+        color: $primaryColor;
+        font-size: 20px;
+        margin: 0 5px;
+      }
+    }
+    
+    .findus {
+      width: 50%;
+    }
 
-.footer_title {
-  color: $brown-color;
-  margin-bottom: 15px;
-}
-
-.sociallink {
-  color: $white-color;
-  font-size: 20px;
-  margin: 0 5px;
-}
-
-.space {
-  margin-bottom: 10px;
+    .footer_title {
+      color: $secondaryColor;
+      margin-bottom: 15px;
+    }
+      
+    .space {
+      margin-bottom: 10px;
+    }
+  }
 }

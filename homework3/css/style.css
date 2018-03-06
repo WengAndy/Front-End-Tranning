@@ -12,94 +12,82 @@ body {
 
 #header {
   width: 100%; }
-
-#logo {
-  margin: 30px auto;
-  width: 25%;
-  text-align: center; }
-
-.decoLine {
-  border-top: #fff thin solid;
-  border-bottom: #fff thin solid;
-  padding: 6px; }
-
-.logoname {
-  font-size: 50px;
-  line-height: 40px; }
-
-.slogan {
-  color: #efefef;
-  font-family: sans-serif;
-  margin-top: 3px; }
-
-#menu {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-bottom: 30px; }
-  #menu a {
-    color: #fff;
-    text-decoration: none; }
-  #menu a:hover {
-    color: #b78a15;
-    -webkit-text-decoration-line: none;
-    text-decoration-line: none; }
-  #menu ul {
+  #header #logo {
+    margin: 30px auto;
+    width: 25%;
+    text-align: center; }
+    #header #logo .decoLine {
+      border-top: #fff thin solid;
+      border-bottom: #fff thin solid;
+      padding: 6px; }
+    #header #logo .logoname {
+      font-size: 50px;
+      line-height: 40px; }
+    #header #logo .slogan {
+      color: #efefef;
+      font-family: sans-serif;
+      margin-top: 3px; }
+  #header #menu {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
-  #menu li {
-    margin: 0 15px;
-    list-style: none; }
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 30px; }
+    #header #menu a {
+      color: #fff;
+      text-decoration: none; }
+      #header #menu a:hover {
+        color: #b78a15;
+        -webkit-text-decoration-line: none;
+        text-decoration-line: none; }
+    #header #menu ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    #header #menu li {
+      margin: 0 15px;
+      list-style: none; }
 
 #content {
   width: 100%; }
-
-#contentImg {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
-
-.imgDiv {
-  margin: 10px auto 50px; }
-  .imgDiv .imgTitle {
-    font-size: 24px;
-    line-height: 80px; }
-  .imgDiv p {
-    width: 90%;
-    margin-bottom: 10px; }
-
-.btm a {
-  color: #b78a15;
-  -webkit-text-decoration-line: none;
-  text-decoration-line: none; }
-
-.btm a:hover {
-  color: #6f00d2;
-  -webkit-text-decoration-line: none;
-  text-decoration-line: none; }
-
-.hour {
-  background-color: #b78a15;
-  width: 230px;
-  height: 148px;
-  text-align: center;
-  line-height: 40px; }
-
-.hourtext1 {
-  font-size: 32px;
-  padding-top: 30px; }
-
-.hourtext2 {
-  font-size: 25px; }
+  #content #contentImg {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    #content #contentImg .imgDiv {
+      margin: 10px auto 50px; }
+      #content #contentImg .imgDiv .imgTitle {
+        font-size: 24px;
+        line-height: 80px; }
+      #content #contentImg .imgDiv p {
+        width: 90%;
+        margin-bottom: 10px; }
+      #content #contentImg .imgDiv .hour {
+        background-color: #b78a15;
+        width: 230px;
+        height: 148px;
+        text-align: center;
+        line-height: 40px; }
+      #content #contentImg .imgDiv .hourtext1 {
+        font-size: 32px;
+        padding-top: 30px; }
+      #content #contentImg .imgDiv .hourtext2 {
+        font-size: 25px; }
+    #content #contentImg .btm a {
+      color: #b78a15;
+      -webkit-text-decoration-line: none;
+      text-decoration-line: none; }
+      #content #contentImg .btm a:hover {
+        color: #6f00d2;
+        -webkit-text-decoration-line: none;
+        text-decoration-line: none; }
 
 #reservation {
   width: 100%;
@@ -107,31 +95,27 @@ body {
   padding: 50px 0;
   border-top: #fff thin solid;
   border-bottom: #fff thin solid; }
-
-.reservation_title {
-  text-align: center;
-  margin: 20px 0 70px;
-  font-size: 30px; }
-
-.form {
-  width: 800px; }
-
-.formfill {
-  width: 160px;
-  height: 40px;
-  padding-left: 1em;
-  margin-right: 1em;
-  color: #fff;
-  border: #fff thin solid;
-  background-color: #000; }
-
-.formbtn {
-  width: 160px;
-  height: 40px;
-  color: #fff;
-  border: none;
-  border-radius: 2px;
-  background-color: #b78a15; }
+  #reservation .reservation_title {
+    text-align: center;
+    margin: 20px 0 70px;
+    font-size: 30px; }
+  #reservation .form {
+    width: 800px; }
+    #reservation .form .formfill {
+      width: 160px;
+      height: 40px;
+      padding-left: 1em;
+      margin-right: 1em;
+      color: #fff;
+      border: #fff thin solid;
+      background-color: #000; }
+    #reservation .form .formbtn {
+      width: 160px;
+      height: 40px;
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      background-color: #b78a15; }
 
 #footer {
   width: 100%;
@@ -145,39 +129,36 @@ body {
   -ms-flex-line-pack: start;
   align-content: flex-start;
   margin-bottom: 50px; }
-
-.footer_left {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-line-pack: start;
-  align-content: flex-start; }
-
-.contact, .openinghour {
-  width: 50%; }
-
-.copyright {
-  width: 100%;
-  margin-top: 50px; }
-
-.findus {
-  width: 50%; }
-
-.footer_title {
-  color: #b78a15;
-  margin-bottom: 15px; }
-
-.sociallink {
-  color: #fff;
-  font-size: 20px;
-  margin: 0 5px; }
-
-.space {
-  margin-bottom: 10px; }
+  #footer .footer_left {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-line-pack: start;
+    align-content: flex-start; }
+    #footer .footer_left .contact, #footer .footer_left .openinghour {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+      flex: 1 1 50%; }
+    #footer .footer_left .copyright {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 2 100%;
+      flex: 1 2 100%;
+      margin-top: 50px; }
+      #footer .footer_left .copyright .sociallink {
+        color: #fff;
+        font-size: 20px;
+        margin: 0 5px; }
+    #footer .footer_left .findus {
+      width: 50%; }
+    #footer .footer_left .footer_title {
+      color: #b78a15;
+      margin-bottom: 15px; }
+    #footer .footer_left .space {
+      margin-bottom: 10px; }
