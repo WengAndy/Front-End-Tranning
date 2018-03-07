@@ -10,111 +10,176 @@
 </head>
 <body>
     <div id="container">
-        <div class="top_block">
-            <div class="gray_block"></div>
-            <div class="pinky_block"></div>
-            <div class="green_block"></div>
-            <div class="gray_block"></div>
-            <div class="pinky_block"></div>
-            <div class="green_block"></div>
-            <div class="gray_block"></div>
+        <div class="colorbar">
+            <div class="gray-block"></div>
+            <div class="pinky-block"></div>
+            <div class="green-block"></div>
+            <div class="gray-block"></div>
+            <div class="pinky-block"></div>
+            <div class="green-block"></div>
+            <div class="gray-block"></div>
         </div>
+
         <div id="header">
-            <div id="logo">
-                <img class="logo_img" src="./images/logo_deco.png"></img>
-                <div class="logo_left">Lingo</div>
-                <div class="logo_right">|Language school</div>
+            <div class="logo">
+                <img class="logo-img" src="./images/logo_deco.png"></img>
+                <div class="logo-text1">Lingo</div>
+                <div class="logo-text2">|Language school</div>
             </div> 
-            <ul id="menu">
+            <ul class="menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Our School</a></li>
                 <li><a href="#">Fees</a></li>
                 <li><a href="#">Book a Class</a></li>
             </ul>
         </div>
-        <div id="content">
-            <div class="banner">
-                <div class="banner_deco">
-                    <img src="./images/comma.png"></img>
-                </div>
-                <div class="banner_word">
-                    Those who know nothing of foreign languages, know nothing of their own.”
-                    <p class="banner_author">Johann Wolfgang von Goethe </p>  
-                </div>
+
+        <div id="banner">
+            <div class="banner-deco">
+                <img src="./images/comma.png"></img>
+            </div>
+            <div class="banner-word">
+                Those who know nothing of foreign languages, know nothing of their own.”
+                <p class="banner-author">Johann Wolfgang von Goethe </p>  
             </div>
         </div>
 
         <div id="content">
             <div class="grid-element about">
-                <div class="about_left">    
-                    <p>About</p>
+                <div class="about-left">    
+                    <div class="icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="slogan">About</div>   
                 </div>
-                <div class="about_right">
-                    <p>About</p>     
-                    <p>I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+                <div class="about-right">
+                    <p class="title">About</p>     
+                    <p class="text">I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+                    <div class="morebtn">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
                 </div>
             </div>
             <div class="grid-element class">
-                <div class="class_left">
-                    <p>Study at any level, from beginner to expert. </p>
+                <div class="class-left">
+                    <div class="icon">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <div class="slogan">
+                        Study at any level, from beginner to expert.
+                    </div>
                 </div>
-                <div class="classes_right">
-                    <p>About</p>     
-                    <p>I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p> 
+                <div class="class-right">
+                    <p class="title">Classes</p>     
+                    <p class="text">I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p> 
+                    <div class="morebtn">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
                 </div>
             </div>
-            <div class="grid-element corporate">3</div>
+            <div class="grid-element corporate">
+                <div class="icon icon-dark">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="slogan">Teaching business people how to communicate effectively</div>
+                <div class="title">Corporate</div>  
+                <p class="text">
+                    I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes
+                </p>
+                <div class="morebtn">
+                    <i class="fas fa-plus-circle"></i>                    
+                </div>
+            </div>
             <div class="grid-element form">
                 <img src="./images/woman.jpg">
             </div>
-            <div class="grid-element lab">5</div>
+            <div class="grid-element lab">
+                <div class="lab-left">
+                    <div class="icon icon-dark">
+                        <i class="fas fa-flask"></i>
+                    </div>                    
+                    <div class="slogan">
+                        Enlarge your vocabulary and range of expressions
+                    </div>
+                </div>
+                <div class="lab-right">
+                    <p class="title">Conversation Lab</p>     
+                    <p class="text">
+                        I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.
+                    </p>
+                    <div class="morebtn">
+                        <i class="fas fa-plus-circle"></i>                    
+                    </div>
+                </div>
+            </div>
             <div class="grid-element schedule">
-                <div>Daily Schedule<div>
-                <ul>
-                    <li>4pm | Japanese Elementary</li>
-                    <li>6pm | Russian Advanced</li>
-                    <li>8pm | Business English</li>
+                <div class="dailytitle">Daily Schedule</div>
+                <ul class="dailytext"> 
+                    <li><span>4pm</span> | Japanese Elementary</li>
+                    <li><span>6pm</span> | Russian Advanced</li>
+                    <li><span>8pm</span> | Business English</li>
                 </ul>
             </div>
             <div class="grid-element video">
-                <img src="./images/building.png">
+                    <iframe src="//player.vimeo.com/video/18886355" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>   
             </div>
             <div class="grid-element picture">
                 <img src="./images/building.png">
             </div>
-            <div class="grid-element exam">9</div>
+            <div class="grid-element exam">
+                <div class="icon icon-dark">
+                    <i class="fas fa-rocket "></i>
+                </div>
+                <div class="slogan">
+                    Strengthen your English and get the best TOEFL score
+                </div>                
+                <div class="title">Exam Preparation</div>                   
+                <p class="text">
+                    I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add
+                    your own content add make changes
+                </p>
+                <div class="morebtn">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+            </div>
         </div>
 
         <div id="footer">
-            <div class="footer_left">
-                <p>Lingo|Language School</p>
-                <p>500 Terry Francois Street, 6th</p>
-                <p class="btmspace">Floor San Francisco, CA  94158</p>
-                <p>Tel: 123-456-7890</p>
-                <p>Fax: 123-456-7890</p>
+            <div class="contact">
+                <div class="contact-title">Lingo|Language School</div>
+                <p class="contact-text space">
+                    500 Terry Francois Street, 6th Floor San Francisco, CA  94158
+                </p>
+                <p class="contact-text">Tel: 123-456-7890</p>
+                <p class="contact-text">Fax: 123-456-7890</p>
             </div>
-            <div class="footer_center">
-                <div> <input type="text" placeholder="名稱"> </div>
-                <div> <input class="email" type="text" placeholder="電子郵件"> </div>
-                <div> <input type="text" placeholder="主旨"> </div>
-                <div> <textarea name placeholder="訊息"></textarea> </div>
-                <div> <button type="submit">send</button> </div>
+            <div class="mail">
+                <div class="mail-left">
+                    <input type="text" placeholder="名稱" />
+                    <input type="email" placeholder="電子郵件" />
+                    <input type="text" placeholder="主旨" />
+                </div>
+                <div class="mail-right">
+                    <textarea name="" placeholder="訊息"></textarea>
+                    <button type="submit">send</button>
+                </div>
             </div>
-            <div class="footer_right">
-                <p>Join us on:</p>
-                <div class="icon">
-                    <a href="#"><img src="./images/fb.png"></a>
-                    <a href="#"><img src="./images/twitter.png"></a>
-                    <a href="#"><img src="./images/youtube.png"></a>
+            <div class="socialmedia">
+                <div class="social-title">Join us on:</div>
+                <div>
+                    <a href="#"><img src="./images/fb.png" class="sociallink"></a>
+                    <a href="#"><img src="./images/twitter.png" class="sociallink"></a>
+                    <a href="#"><img src="./images/youtube.png"class="sociallink"></a>
                 </div>           
             </div>
-            <div class="footer_copyright">
-                <ul class="link">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our School</a></li>
-                    <li><a href="#">More</a></li>
-                </ul>
-                <div>©2023 by INDOOR. Proudly created with <a href="#">Wix.com</a></div>
+            <div class="copyright">
+                <div class="link">
+                    <a href="#" class="active">Home</a>
+                    <a href="#">Our School</a>
+                    <a href="#">More</a>
+                </div>
+                <p>© 2023 by Lingo. Proudly created with</p>
+                <p>Wix.com</p>
             </div>
         </div>
     </div>
