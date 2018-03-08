@@ -8,6 +8,8 @@ $shadeColor: #a09e9e;
 $backGroundColor: #fff;
 $bodyBackGroundColor: #f5f5f5;
 
+$subTitle: 18px;
+
 body {
   background: $bodyBackGroundColor;
 }
@@ -19,16 +21,17 @@ body {
   color: $textColor; 
   line-height: 150%;
   font-family: sans-serif, Arial, Helvetica,;
-  background: $backGroundColor;
 }
 
 #header {
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px 0 40px;
-  display: flex;
-  align-items: baseline;
-  border-bottom: $bodyBackGroundColor 15px solid; 
+  margin-bottom: 15px;
+
+  .header-bg {
+    display: flex;
+    align-items: baseline;
+    padding: 20px 0 40px;
+    background: $backGroundColor;
+  }
   
   .logo {
     display: flex;
@@ -49,14 +52,17 @@ body {
     .logo-text2 {
       color: $primaryColor;
       font-size: 30px; 
-      letter-spacing: 1px; 
+      letter-spacing: 1px;
+      border-left: 2px $primaryColor solid;
+      margin-left: 5px;
+      padding-left: 5px;
     }
 
   .menu {
     display: flex;
     flex: 1 1 50%;
     justify-content: space-around;  
-      
+    
     ul {
       display: flex;
     }
@@ -75,28 +81,31 @@ body {
         text-decoration-line: none;
       }
     }
+
+    .active {
+      color: $secondaryColor;
+    }
   }  
 }
 
 .colorbar {
-  width: 100%;
   display: flex;
   justify-content: center;
 
   .gray-block {
-    width: 125px;
+    flex: 1 1 100px;
     height:7px;
     background: #a09e9e;
   }
   
   .pinky-block {
-    width: 150px;
+    flex: 1 1 100px;
     height:7px;
     background: #ef9a9a;
   }
   
   .green-block {
-    width: 150px;
+    flex: 1 1 100px;
     height:7px;
     background:#66c2c9;
   }
@@ -104,6 +113,7 @@ body {
 
 #banner {
   display: flex;
+  background: $backGroundColor;
 
   .banner-deco {
     width: 100%;
@@ -132,9 +142,9 @@ body {
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
 	grid-template-rows: 25% 25% 25% 25%;
-	width: 100%;
 	min-height: 100vh;
   margin: 0 auto;
+  background: $backGroundColor;
 
   .about {
     grid-column: 1/span 2;
@@ -289,10 +299,8 @@ body {
 }
 
 #footer {
-  width: 100%;
   display: flex;
-  flex-direction: row;  
-  flex-wrap: wrap;
+  flex-flow: row wrap; 
   justify-content: space-around;
   background-color: $bodyBackGroundColor;
   padding: 50px 0;
@@ -371,7 +379,7 @@ body {
   }
 
   .copyright {
-    display: grid;
+    display: flex;
     justify-content: center;
     flex: 1 1 100%;
     text-align: center;
@@ -389,6 +397,10 @@ body {
           color: $hoverColor;
           text-decoration-line: none;
         }
+      }
+
+      .active {
+        color: $secondaryColor;
       }
     }
   }
