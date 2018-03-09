@@ -9,14 +9,14 @@ $backGroundColor: #fff;
 $bodyBackGroundColor: #f5f5f5;;
 $subTitle: 18px;
 
-$xxxs: '13px';
-$xxs:  '15px';
-$xs:   '18px';
-$s:    '25px';
-$sm:   '26px';
-$md:   '30px';
-$lg:   '48px';
-$xl:   '50px';
+$xxxs: 13px;
+$xxs:  15px;
+$xs:   18px;
+$s:    25px;
+$sm:   26px;
+$md:   30px;
+$lg:   48px;
+$xl:   50px;
 
 @mixin flexStyle {
   flex: 1 1 50%;
@@ -141,7 +141,7 @@ body {
   }
 
   .banner-word {
-    font-size: $xl;
+    font-size: 50px;
     font-family: georgia, 'book antiqua', 'palatino linotype';
     font-weight: bold;
     color: $primaryColor;
