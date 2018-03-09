@@ -6,13 +6,13 @@ body {
 #container {
   width: 980px;
   margin: 0 auto;
-  font-size: 15px;
+  font-size: "15px";
   color: #7b7b7b;
   line-height: 150%;
   font-family: sans-serif, Arial, Helvetica; }
 
 #header {
-  margin-bottom: 15px; }
+  margin-bottom: "15px"; }
   #header .header-bg {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -23,12 +23,12 @@ body {
     padding: 20px 0 40px;
     background: #fff; }
   #header .logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 50%;
     flex: 1 1 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -ms-flex-line-pack: start;
     align-content: flex-start;
     -webkit-box-align: baseline;
@@ -38,22 +38,22 @@ body {
     margin: 0 1em; }
   #header .logo-text1 {
     color: #7b7b7b;
-    font-size: 30px;
+    font-size: "30px";
     letter-spacing: 1px; }
   #header .logo-text2 {
     color: #de5454;
-    font-size: 30px;
+    font-size: "30px";
     letter-spacing: 1px;
     border-left: 2px #de5454 solid;
     margin-left: 5px;
     padding-left: 5px; }
   #header .menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 50%;
     flex: 1 1 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -ms-flex-pack: distribute;
     justify-content: space-around; }
     #header .menu ul {
@@ -109,14 +109,14 @@ body {
     height: 100%;
     margin: 40px 0 0 0; }
   #banner .banner-word {
-    font-size: 50px;
+    font-size: "50px";
     font-family: georgia, 'book antiqua', 'palatino linotype';
     font-weight: bold;
     color: #de5454;
     line-height: 120%;
     padding: 50px 150px; }
   #banner .banner-author {
-    font-size: 13px;
+    font-size: "13px";
     color: #a09e9e; }
 
 /* main content */
@@ -200,13 +200,13 @@ body {
     margin: 10px; }
     #content .schedule .dailytitle {
       padding-left: 1em;
-      font-size: 26PX;
+      font-size: "26px";
       line-height: 2;
       color: #fff;
       background-color: #de5454; }
     #content .schedule .dailytext {
       padding: 1em;
-      font-size: 25PX;
+      font-size: "25px";
       line-height: 1.5;
       color: #a09e9e;
       list-style-position: inside; }
@@ -232,7 +232,7 @@ body {
     margin: 10px 0 20px 10px; }
   #content .slogan {
     padding: 0 10px 20px 20px;
-    font-size: 26px;
+    font-size: "26px";
     line-height: 1.2; }
   #content .title {
     padding: 0 10px 10px 20px;
@@ -240,13 +240,13 @@ body {
   #content .text {
     padding: 0 20px; }
   #content .icon {
-    font-size: 48px;
+    font-size: "48px";
     padding: 20px; }
   #content .icon-dark {
     color: #000;
     opacity: 0.3; }
   #content .morebtn {
-    font-size: 30px;
+    font-size: "30px";
     padding: 20px; }
 
 #footer {
@@ -267,7 +267,7 @@ body {
     flex: 1 1 25%; }
     #footer .contact .contact-title {
       padding: 10px;
-      font-size: 18px;
+      font-size: "18px";
       color: #11a2ae; }
     #footer .contact .contact-text {
       padding: 0 20px 0 10px; }
@@ -326,7 +326,7 @@ body {
     flex: 1 1 25%;
     padding: 0 10px 0 30px; }
     #footer .socialmedia .social-title {
-      font-size: 18px; }
+      font-size: "18px"; }
     #footer .socialmedia .sociallink {
       padding: 10px 5px; }
   #footer .copyright {
