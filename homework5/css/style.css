@@ -129,12 +129,12 @@ body {
   background: #fff;
   /* common css 共用樣式 */ }
   #content .about {
-    grid-column: 1/span 2;
     grid-row: 1/2;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin: 20px 0; }
+    margin: 20px 0;
+    grid-column: 1/span 2; }
     #content .about .about-left {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
@@ -147,13 +147,13 @@ body {
       color: #7b7b7b;
       border-left: 2px solid #a09e9e; }
   #content .class {
-    grid-column: 3/span 2;
     grid-row: 1/2;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    color: #de5454;
-    margin: 20px 0; }
+    margin: 20px 0;
+    grid-column: 3/span 2;
+    color: #de5454; }
     #content .class .class-left {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;

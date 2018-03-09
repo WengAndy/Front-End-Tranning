@@ -32,6 +32,11 @@ $xl:   50px;
   letter-spacing: 1px; 
 }
 
+@mixin conentStyle {
+  grid-row: 1/2; 
+  display: flex;
+  margin: 20px 0;
+}
 
 
 body {
@@ -166,10 +171,8 @@ body {
   background: $backGroundColor;
 
   .about {
+    @include conentStyle;
     grid-column: 1/span 2;
-    grid-row: 1/2; 
-    display: flex;
-    margin: 20px 0;
      
     .about-left {
       @include flexStyle;
@@ -184,11 +187,10 @@ body {
   }
   
   .class {
+    @include conentStyle;
     grid-column: 3/span 2;
-    grid-row: 1/2; 
-    display: flex;
     color: $primaryColor;
-    margin: 20px 0;
+   
           
     .class-left {
       @include flexStyle;
