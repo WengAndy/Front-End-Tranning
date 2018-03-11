@@ -312,14 +312,12 @@ body {
       padding: 10px;
       font-size: 18px;
       color: #11a2ae; }
-    #footer .contact .contact-text {
-      padding: 0 20px 0 10px; }
     #footer .contact .contact-word {
       border-left: #11a2ae 2px solid;
       padding-left: 6px;
       margin-left: 5px;
       height: 18px; }
-    #footer .contact .space {
+    #footer .contact .contact-text-space {
       margin-bottom: 10px; }
   #footer .mail {
     border-left: #11a2ae 2px solid;
