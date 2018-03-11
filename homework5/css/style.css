@@ -128,6 +128,34 @@ body {
   margin-bottom: 20px;
   background: #fff;
   /* common css 共用樣式 */ }
+  #content .ribbon {
+    width: 245px;
+    position: relative;
+    text-align: center; }
+    #content .ribbon .text {
+      opacity: 0.9;
+      position: absolute;
+      left: -6px;
+      top: 200px;
+      width: 256px;
+      padding: 20px 0;
+      font-size: 18px;
+      background: #de5454;
+      color: #fff; }
+      #content .ribbon .text:before {
+        font-size: 1px;
+        position: absolute;
+        left: 0px;
+        top: 57px;
+        content: '◥';
+        color: #471d1d; }
+      #content .ribbon .text:after {
+        font-size: 1px;
+        position: absolute;
+        right: 0px;
+        top: 57px;
+        color: #471d1d;
+        content: '◤'; }
   #content .about {
     grid-row: 1/2;
     display: -webkit-box;
@@ -309,7 +337,7 @@ body {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      padding: 10px;
+      margin-bottom: 20px;
       font-size: 18px;
       color: #11a2ae; }
     #footer .contact .contact-word {
@@ -335,33 +363,38 @@ body {
     #footer .mail .mail-left {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
-      flex: 1 1 50%; }
+      flex: 1 1 50%;
+      padding-left: 55px; }
       #footer .mail .mail-left input {
-        width: 70%;
+        width: 90%;
         height: 20%;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         padding: 5px;
-        margin: 0 0 5px 50px;
+        margin-bottom: 5px;
         border: 0;
         border-radius: 8px; }
     #footer .mail .mail-right {
-      -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-      flex: 1 1 50%; }
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      margin-right: 49px; }
       #footer .mail .mail-right textarea {
-        width: 70%;
+        width: 100%;
         height: 60%;
         padding: 5px;
-        margin: 0 50px 0 0;
         resize: none;
         border: 0;
         border-radius: 8px; }
       #footer .mail .mail-right button {
-        width: 20%;
+        width: 35%;
         height: 25%;
         border-radius: 8px;
-        margin-left: 122px;
         color: #fff;
         background: #11a2ae; }
   #footer .socialmedia {
