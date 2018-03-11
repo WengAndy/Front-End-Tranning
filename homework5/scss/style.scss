@@ -38,6 +38,15 @@ $xl:   50px;
   margin: 20px 0;
 }
 
+@mixin dailyContent {
+  display: flex;
+  border-left: $shadeColor 2px solid;
+  align-items: center;
+  margin: 8px 0 0 8px;
+  padding-left: 8px;
+  height: 22px;
+}
+
 
 body {
   background: $bodyBackGroundColor;
@@ -167,7 +176,7 @@ body {
 	grid-template-columns: 25% 25% 25% 25%;
 	grid-template-rows: 25% 25% 25% 25%;
 	min-height: 100vh;
-  margin: 0 auto;
+  margin-bottom: 20px;
   background: $backGroundColor;
 
   .about {
@@ -230,7 +239,11 @@ body {
     
     .lab-right {
       @include flexStyle;
-      border-left: 2px solid $backGroundColor;
+      
+    }
+
+    .lab-right-line {
+      border-right: 2px solid $backGroundColor;
     }
   }
   
@@ -254,6 +267,10 @@ body {
       color: $shadeColor;
       list-style-position: inside;
 
+      li {
+        display: flex;
+      }
+
       li::before {
         content: "•";
         color: $primaryColor;
@@ -263,6 +280,18 @@ body {
       
       span {
         font-weight: bold;
+      }
+
+      .daily-Jan {
+        @include dailyContent;
+      }
+
+      .daily-Rus {
+        @include dailyContent;
+      }
+
+      .daily-Bus {
+        @include dailyContent;
       }
     }
   }
@@ -290,7 +319,7 @@ body {
 
   .slogan {
     padding: 0 10px 20px 20px;
-    font-size: $sm;
+    font-size: $md;
     line-height: 1.2;
   }
 
@@ -324,30 +353,39 @@ body {
   flex-flow: row wrap; 
   justify-content: space-around;
   background-color: $bodyBackGroundColor;
-  padding: 50px 0;
   
   .contact {
     flex: 1 1 25%;    
 
     .contact-title {
+      display: flex;
+      align-items: center;
       padding: 10px;
       font-size: $xs;
       color: $secondaryColor;
     }
+
     .contact-text {
       padding: 0 20px 0 10px;
     }
+
+    .contact-word {
+      border-left: #11a2ae 2px solid;
+      padding-left: 6px;
+      margin-left: 5px;
+      height: 18px;
+    }
+
     .space {
       margin-bottom: 10px;
     }
   }
    
   .mail {
-    border-left: #11a2ae 2px solid;
-    border-right: #11a2ae 2px solid;
+    border-left: $secondaryColor 2px solid;
+    border-right: $secondaryColor 2px solid;
     display: flex;
     flex-direction: row;   
-    flex-wrap: wrap;
     flex: 2 1 45%;
     
     .mail-left{
