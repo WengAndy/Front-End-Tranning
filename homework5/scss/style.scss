@@ -9,26 +9,24 @@ $backGroundColor: #fff;
 $bodyBackGroundColor: #f5f5f5;
 $ribbonTriangleColor: #471d1d;
 
-$xxxs: 13px;
-$xxs:  15px;
-$xs:   18px;
-$s:    25px;
-$sm:   26px;
-$md:   30px;
+$text: 15px;
+$title: 30px;
+$sm:   18px;
+$md:   25px;
 $lg:   48px;
-$xl:   50px;
 
 @mixin flexStyle {
-  flex: 1 1 50%;
+  width: 50%;
+  flex: 1 1 1;
 }
 
 @mixin blockStyle {
+  height: 7px;
   flex: 1 1 100px;
-  height:7px;
 }
 
 @mixin logoText {
-  font-size: $md;
+  font-size: $title;
   letter-spacing: 1px; 
 }
 
@@ -55,14 +53,14 @@ body {
 #container {
   width: 980px;
   margin: 0 auto;
-  font-size: $xxs;
+  font-size: $text;
   color: $textColor; 
   line-height: 150%;
   font-family: sans-serif, Arial, Helvetica,;
 }
 
 #header {
-  margin-bottom: $xxs;
+  margin-bottom: 15px;
 
   .header-bg {
     display: flex;
@@ -161,7 +159,7 @@ body {
   }
   
   .banner-author {
-    font-size: $xxxs;
+    font-size: $sm;
     color: $shadeColor;
   }
 }
@@ -177,11 +175,13 @@ body {
   padding-bottom: 20px;
   background: $backGroundColor;
   grid-gap: 20px;
+
   .ribbon {
     width: 241px;
     position: relative;
     text-align: center;
     margin-top: -10px;
+
     .text {
       opacity: 0.9;
       position: absolute;
@@ -192,6 +192,7 @@ body {
       font-size: 18px;
       background: $primaryColor;
       color: $backGroundColor;
+
         &:before {
           font-size: 1px;
           position: absolute;
@@ -200,6 +201,7 @@ body {
           content: '◥';
           color: $ribbonTriangleColor;
         }
+
         &:after {
           font-size: 1px;
           position: absolute;
@@ -210,7 +212,6 @@ body {
         }
     }
 }
-
 
   .about {
     @include conentStyle;
@@ -233,8 +234,7 @@ body {
   .class {
     @include conentStyle;
     grid-column: 3/span 2;
-    color: $primaryColor;
-   
+    color: $primaryColor;   
           
     .class-left {
       @include flexStyle;
@@ -289,16 +289,18 @@ body {
     grid-row: 3/4;
     background-color: $backGroundColor;
     margin: 10px;
+
     .dailytitle {
       padding-left: 1em;
-      font-size: $sm;
+      font-size: $md;
       line-height: 2;  
       color: $backGroundColor;     
       background-color: $primaryColor;
     }
+
     .dailytext{
       padding: 1em;
-      font-size: $s;
+      font-size: $md;
       line-height: 1.5; 
       color: $shadeColor;
       list-style-position: inside;
@@ -352,7 +354,7 @@ body {
   /* common css 共用樣式 */
 
   .slogan {
-    font-size: $md;
+    font-size: $title;
     line-height: 1.2;
   }
 
@@ -372,7 +374,7 @@ body {
   }
 
   .morebtn {
-    font-size: $md;
+    font-size: $title;
     padding: 20px;
   }
 }
@@ -391,7 +393,7 @@ body {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
-      font-size: $xs;
+      font-size: $sm;
       color: $secondaryColor;
     }
 
@@ -401,6 +403,7 @@ body {
       margin-left: 5px;
       height: 18px;
     }
+
     .contact-text-space {
       margin-bottom: 10px;
     }
@@ -417,6 +420,7 @@ body {
     .mail-left{
       @include flexStyle;
       padding-left: 55px;
+
       input {
         width: 90%;
         height: 20%;
@@ -442,6 +446,7 @@ body {
         border: 0;
         border-radius: 8px;
       }    
+
       button {
         width: 35%;
         height: 25%;
@@ -458,8 +463,9 @@ body {
     padding-left: 20px;
     
     .social-title {
-      font-size: $xs;
+      font-size: $sm;
     }
+
     .sociallink {
       padding: 10px 5px;
     }
