@@ -147,20 +147,17 @@ body {
 #banner {
   display: flex;
   background: $backGroundColor;
-
-  .banner-deco {
-    width: 100%;
-    height: 100%;
-    margin: 40px 0 0 0;
-  }
+  background-image: url('../images/comma.png');
+  background-repeat: no-repeat;
+  background-position-y: 35px;
 
   .banner-word {
-    font-size: 50px;
+    font-size: 46px;
     font-family: georgia, 'book antiqua', 'palatino linotype';
     font-weight: bold;
     color: $primaryColor;
     line-height: 120%;
-    padding: 50px 150px;
+    padding: 50px 220px;
   }
   
   .banner-author {
@@ -173,22 +170,24 @@ body {
 
 #content {
 	display: grid;
-	grid-template-columns: 25% 25% 25% 25%;
-	grid-template-rows: 25% 25% 25% 25%;
+	grid-template-columns: 230px 230px 230px 230px;
+	grid-template-rows: 280px 300px 220px 250px;
 	min-height: 100vh;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
   background: $backGroundColor;
-
+  grid-gap: 20px;
   .ribbon {
-    width: 245px;
+    width: 241px;
     position: relative;
     text-align: center;
+    margin-top: -10px;
     .text {
       opacity: 0.9;
       position: absolute;
       left: -6px;
       top: 200px;
-      width: 256px;
+      width: 248px;
       padding: 20px 0;
       font-size: 18px;
       background: $primaryColor;
@@ -220,10 +219,12 @@ body {
     .about-left {
       @include flexStyle;
       color: $shadeColor;
+      padding-left: 20px;
     }
   
     .about-right {
       @include flexStyle;
+      padding: 0 20px;
       color: $textColor; 
       border-left: 2px solid $shadeColor;
     }
@@ -241,6 +242,7 @@ body {
   
     .class-right {
       @include flexStyle;
+      padding: 0 20px;
       border-left: 2px solid $primaryColor;
     }
   }
@@ -250,7 +252,7 @@ body {
     grid-row: 2/4;
     color: $backGroundColor;
     background-color: $secondaryColor;
-    margin: 10px 10px 10px 0; 
+    padding: 0 10px 20px 20px;
   }
 
   .form {
@@ -265,7 +267,7 @@ body {
     background: $textColor;
     display: flex;
     align-items: baseline;
-    margin: 10px 0 10px 10px; 
+    padding: 0 10px 20px 20px;
 
     .lab-left{
       @include flexStyle;
@@ -273,6 +275,7 @@ body {
     
     .lab-right {
       @include flexStyle;
+      padding: 0 20px;
       
     }
 
@@ -286,7 +289,6 @@ body {
     grid-row: 3/4;
     background-color: $backGroundColor;
     margin: 10px;
-
     .dailytitle {
       padding-left: 1em;
       font-size: $sm;
@@ -333,26 +335,23 @@ body {
   .video {
     grid-column: 1/span 2;	
     grid-row: 4/5;
-    margin: 10px 10px 20px 10px ; 
   }
   
   .picture {
     grid-column: 3/4;	
     grid-row: 4/5;	
-    margin: 10px 10px 20px 10px ; 
   }
   
   .exam {
     grid-row: span 2 /5;
     color: $backGroundColor;
     background-color: $secondaryColor;
-    margin: 10px 0 20px 10px; 
+    padding: 0 10px 20px 20px;
   }
 
   /* common css 共用樣式 */
 
   .slogan {
-    padding: 0 10px 20px 20px;
     font-size: $md;
     line-height: 1.2;
   }
@@ -362,13 +361,9 @@ body {
     font-weight: bold;
   }
 
-  .text {
-    padding: 0 20px;
-  }
-
   .icon {
     font-size: $lg;
-    padding: 20px;
+    margin: 20px 0;
   } 
 
   .icon-dark {
@@ -389,7 +384,8 @@ body {
   background-color: $bodyBackGroundColor;
   
   .contact {
-    flex: 1 1 25%;    
+    width: 24%;
+    flex: 1 1 auto;    
 
     .contact-title {
       display: flex;
@@ -414,8 +410,9 @@ body {
     border-left: $secondaryColor 2px solid;
     border-right: $secondaryColor 2px solid;
     display: flex;
-    flex-direction: row;   
-    flex: 2 1 45%;
+    flex-direction: row;
+    width: 48%;   
+    flex: 2 1 auto;
     
     .mail-left{
       @include flexStyle;
@@ -456,8 +453,9 @@ body {
   }
 
   .socialmedia {
-    flex: 1 1 25%; 
-    padding: 0 10px 0 30px;
+    width: 24%;
+    flex: 1 1 auto; 
+    padding-left: 20px;
     
     .social-title {
       font-size: $xs;
@@ -468,9 +466,6 @@ body {
   }
 
   .copyright {
-    display: flex;
-    justify-content: center;
-    flex: 1 1 100%;
     text-align: center;
 
     .link {

@@ -103,18 +103,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #fff; }
-  #banner .banner-deco {
-    width: 100%;
-    height: 100%;
-    margin: 40px 0 0 0; }
+  background: #fff;
+  background-image: url("../images/comma.png");
+  background-repeat: no-repeat;
+  background-position-y: 35px; }
   #banner .banner-word {
-    font-size: 50px;
+    font-size: 46px;
     font-family: georgia, 'book antiqua', 'palatino linotype';
     font-weight: bold;
     color: #de5454;
     line-height: 120%;
-    padding: 50px 150px; }
+    padding: 50px 220px; }
   #banner .banner-author {
     font-size: 13px;
     color: #a09e9e; }
@@ -122,22 +121,25 @@ body {
 /* main content */
 #content {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-columns: 230px 230px 230px 230px;
+  grid-template-rows: 280px 300px 220px 250px;
   min-height: 100vh;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
   background: #fff;
+  grid-gap: 20px;
   /* common css 共用樣式 */ }
   #content .ribbon {
-    width: 245px;
+    width: 241px;
     position: relative;
-    text-align: center; }
+    text-align: center;
+    margin-top: -10px; }
     #content .ribbon .text {
       opacity: 0.9;
       position: absolute;
       left: -6px;
       top: 200px;
-      width: 256px;
+      width: 248px;
       padding: 20px 0;
       font-size: 18px;
       background: #de5454;
@@ -167,11 +169,13 @@ body {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
       flex: 1 1 50%;
-      color: #a09e9e; }
+      color: #a09e9e;
+      padding-left: 20px; }
     #content .about .about-right {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
       flex: 1 1 50%;
+      padding: 0 20px;
       color: #7b7b7b;
       border-left: 2px solid #a09e9e; }
   #content .class {
@@ -190,13 +194,14 @@ body {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
       flex: 1 1 50%;
+      padding: 0 20px;
       border-left: 2px solid #de5454; }
   #content .corporate {
     grid-column: 1/2;
     grid-row: 2/4;
     color: #fff;
     background-color: #11a2ae;
-    margin: 10px 10px 10px 0; }
+    padding: 0 10px 20px 20px; }
   #content .form {
     grid-area: 2 / 2 / 3 / 3;
     text-align: center; }
@@ -211,7 +216,7 @@ body {
     -webkit-box-align: baseline;
     -ms-flex-align: baseline;
     align-items: baseline;
-    margin: 10px 0 10px 10px; }
+    padding: 0 10px 20px 20px; }
     #content .lab .lab-left {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
@@ -219,7 +224,8 @@ body {
     #content .lab .lab-right {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
-      flex: 1 1 50%; }
+      flex: 1 1 50%;
+      padding: 0 20px; }
     #content .lab .lab-right-line {
       border-right: 2px solid #fff; }
   #content .schedule {
@@ -285,29 +291,24 @@ body {
         height: 22px; }
   #content .video {
     grid-column: 1/span 2;
-    grid-row: 4/5;
-    margin: 10px 10px 20px 10px; }
+    grid-row: 4/5; }
   #content .picture {
     grid-column: 3/4;
-    grid-row: 4/5;
-    margin: 10px 10px 20px 10px; }
+    grid-row: 4/5; }
   #content .exam {
     grid-row: span 2 /5;
     color: #fff;
     background-color: #11a2ae;
-    margin: 10px 0 20px 10px; }
+    padding: 0 10px 20px 20px; }
   #content .slogan {
-    padding: 0 10px 20px 20px;
     font-size: 30px;
     line-height: 1.2; }
   #content .title {
     padding: 0 10px 10px 20px;
     font-weight: bold; }
-  #content .text {
-    padding: 0 20px; }
   #content .icon {
     font-size: 48px;
-    padding: 20px; }
+    margin: 20px 0; }
   #content .icon-dark {
     color: #000;
     opacity: 0.3; }
@@ -327,9 +328,10 @@ body {
   justify-content: space-around;
   background-color: #f5f5f5; }
   #footer .contact {
+    width: 24%;
     -webkit-box-flex: 1;
-    -ms-flex: 1 1 25%;
-    flex: 1 1 25%; }
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto; }
     #footer .contact .contact-title {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -357,9 +359,10 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+    width: 48%;
     -webkit-box-flex: 2;
-    -ms-flex: 2 1 45%;
-    flex: 2 1 45%; }
+    -ms-flex: 2 1 auto;
+    flex: 2 1 auto; }
     #footer .mail .mail-left {
       -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
@@ -398,24 +401,16 @@ body {
         color: #fff;
         background: #11a2ae; }
   #footer .socialmedia {
+    width: 24%;
     -webkit-box-flex: 1;
-    -ms-flex: 1 1 25%;
-    flex: 1 1 25%;
-    padding: 0 10px 0 30px; }
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-left: 20px; }
     #footer .socialmedia .social-title {
       font-size: 18px; }
     #footer .socialmedia .sociallink {
       padding: 10px 5px; }
   #footer .copyright {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
     text-align: center; }
     #footer .copyright .link {
       display: -webkit-box;
