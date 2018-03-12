@@ -1,5 +1,6 @@
 @import url("../css/reset.css");
 
+/* color */
 $primaryColor: #de5454;
 $secondaryColor: #11a2ae;
 $textColor: #7b7b7b;
@@ -9,18 +10,19 @@ $backGroundColor: #fff;
 $bodyBackGroundColor: #f5f5f5;
 $ribbonTriangleColor: #471d1d;
 
+/* font size */
 $text: 15px;
-$title: 30px;
+$title: 28px;
 $sm:   18px;
 $md:   25px;
-$lg:   48px;
+$lg:   46px;
 
 @mixin flexStyle {
   width: 50%;
   flex: 1 1 1;
 }
 
-@mixin blockStyle {
+@mixin colorbarStyle {
   height: 7px;
   flex: 1 1 100px;
 }
@@ -52,7 +54,7 @@ body {
 
 #container {
   width: 980px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   font-size: $text;
   color: $textColor; 
   line-height: 150%;
@@ -72,7 +74,6 @@ body {
   .logo {
     @include flexStyle;
     display: flex;
-    align-content: flex-start;
     align-items: baseline;
   }
     .logo-img {
@@ -124,20 +125,19 @@ body {
 
 .colorbar {
   display: flex;
-  justify-content: center;
 
   .gray-block {
-    @include blockStyle;
+    @include colorbarStyle();
     background: #a09e9e;
   }
   
   .pinky-block {
-    @include blockStyle;
+    @include colorbarStyle();
     background: #ef9a9a;
   }
   
   .green-block {
-    @include blockStyle;
+    @include colorbarStyle();
     background:#66c2c9;
   }
 }
@@ -150,7 +150,7 @@ body {
   background-position-y: 35px;
 
   .banner-word {
-    font-size: 46px;
+    font-size: $lg;
     font-family: georgia, 'book antiqua', 'palatino linotype';
     font-weight: bold;
     color: $primaryColor;
@@ -159,7 +159,7 @@ body {
   }
   
   .banner-author {
-    font-size: $sm;
+    font-size: $text;
     color: $shadeColor;
   }
 }
@@ -170,48 +170,11 @@ body {
 	display: grid;
 	grid-template-columns: 230px 230px 230px 230px;
 	grid-template-rows: 280px 300px 220px 250px;
-	min-height: 100vh;
+  grid-gap: 20px;
+  min-height: 100vh;
   margin-bottom: 50px;
   padding-bottom: 20px;
   background: $backGroundColor;
-  grid-gap: 20px;
-
-  .ribbon {
-    width: 241px;
-    position: relative;
-    text-align: center;
-    margin-top: -10px;
-
-    .text {
-      opacity: 0.9;
-      position: absolute;
-      left: -6px;
-      top: 200px;
-      width: 248px;
-      padding: 20px 0;
-      font-size: 18px;
-      background: $primaryColor;
-      color: $backGroundColor;
-
-        &:before {
-          font-size: 1px;
-          position: absolute;
-          left: 0px;
-          top: 57px;
-          content: '◥';
-          color: $ribbonTriangleColor;
-        }
-
-        &:after {
-          font-size: 1px;
-          position: absolute;
-          right: 0px;
-          top: 57px;
-          color: $ribbonTriangleColor;
-          content: '◤';
-        }
-    }
-}
 
   .about {
     @include conentStyle;
@@ -219,8 +182,8 @@ body {
      
     .about-left {
       @include flexStyle;
+      padding: 0 20px;
       color: $shadeColor;
-      padding-left: 20px;
     }
   
     .about-right {
@@ -238,6 +201,7 @@ body {
           
     .class-left {
       @include flexStyle;
+      padding: 0 20px;
     }
   
     .class-right {
@@ -252,12 +216,49 @@ body {
     grid-row: 2/4;
     color: $backGroundColor;
     background-color: $secondaryColor;
-    padding: 0 10px 20px 20px;
+    padding: 0 15px 10px 20px;
   }
 
   .form {
     grid-area: 2 / 2 / 3 / 3;
     text-align: center;
+
+    .ribbon {
+      width: 241px;
+      position: relative;
+      text-align: center;
+      margin-top: -10px;
+    }
+  
+    .ribbontext {
+      opacity: 0.9;
+      position: absolute;
+      left: -6px;
+      top: 200px;
+      width: 248px;
+      padding: 20px 0;
+      font-size: 18px;
+      background: $primaryColor;
+      color: $backGroundColor;
+
+      &:before {
+        font-size: 1px;
+        position: absolute;
+        left: 0px;
+        top: 57px;
+        content: '◥';
+        color: $ribbonTriangleColor;
+      }
+
+      &:after {
+        font-size: 1px;
+        position: absolute;
+        right: 0px;
+        top: 57px;
+        content: '◤';
+        color: $ribbonTriangleColor;
+      }
+    }
   }
   
   .lab {
@@ -267,20 +268,22 @@ body {
     background: $textColor;
     display: flex;
     align-items: baseline;
-    padding: 0 10px 20px 20px;
 
     .lab-left{
-      @include flexStyle;
+      width: 45%;
+      flex: 1 1 1;
+      padding-left:20px;
     }
     
     .lab-right {
-      @include flexStyle;
-      padding: 0 20px;
-      
+      width: 55%;
+      flex: 1 1 1;
+      padding: 0 20px;   
     }
 
     .lab-right-line {
-      border-right: 2px solid $backGroundColor;
+      border-left: 2px solid $shadeColor;
+      padding-left: 20px;
     }
   }
   
@@ -288,7 +291,6 @@ body {
     grid-column: 2/span 2;	
     grid-row: 3/4;
     background-color: $backGroundColor;
-    margin: 10px;
 
     .dailytitle {
       padding-left: 1em;
@@ -320,17 +322,11 @@ body {
         font-weight: bold;
       }
 
-      .daily-Jan {
-        @include dailyContent;
-      }
-
-      .daily-Rus {
-        @include dailyContent;
-      }
-
+      .daily-Jan,
+      .daily-Rus,
       .daily-Bus {
         @include dailyContent;
-      }
+      }   
     }
   }
   
@@ -348,19 +344,24 @@ body {
     grid-row: span 2 /5;
     color: $backGroundColor;
     background-color: $secondaryColor;
-    padding: 0 10px 20px 20px;
+    padding: 0 15px 10px 20px;
   }
 
   /* common css 共用樣式 */
 
   .slogan {
     font-size: $title;
-    line-height: 1.2;
+    line-height: 1.1;
+    padding-bottom: 20px;
   }
 
   .title {
-    padding: 0 10px 10px 20px;
+    padding-bottom: 10px;
     font-weight: bold;
+  }
+
+  .text{
+    padding-bottom: 20px;
   }
 
   .icon {
@@ -375,7 +376,6 @@ body {
 
   .morebtn {
     font-size: $title;
-    padding: 20px;
   }
 }
 
@@ -386,9 +386,10 @@ body {
   background-color: $bodyBackGroundColor;
   
   .contact {
-    width: 24%;
-    flex: 1 1 auto;    
-
+    width: 20%;
+    flex: 1 1 auto;
+    padding-right: 20px;
+    
     .contact-title {
       display: flex;
       align-items: center;
@@ -398,31 +399,30 @@ body {
     }
 
     .contact-word {
-      border-left: #11a2ae 2px solid;
+      border-left: $secondaryColor 2px solid;
       padding-left: 6px;
       margin-left: 5px;
       height: 18px;
     }
 
-    .contact-text-space {
+    .contact-text {
       margin-bottom: 10px;
     }
   }
    
   .mail {
+    display: flex;
+    width: 50%;   
+    flex: 2 1 auto;
     border-left: $secondaryColor 2px solid;
     border-right: $secondaryColor 2px solid;
-    display: flex;
-    flex-direction: row;
-    width: 48%;   
-    flex: 2 1 auto;
-    
+        
     .mail-left{
       @include flexStyle;
       padding-left: 55px;
 
       input {
-        width: 90%;
+        width: 95%;
         height: 20%;
         box-sizing: border-box;
         padding: 5px;
@@ -433,8 +433,8 @@ body {
     }
     
     .mail-right{
-      flex-wrap: wrap;
       display: flex;
+      flex-wrap: wrap;
       justify-content: flex-end;
       margin-right: 49px;
   
@@ -450,6 +450,7 @@ body {
       button {
         width: 35%;
         height: 25%;
+        border: 0;
         border-radius: 8px;
         color: $backGroundColor;
         background: $secondaryColor;
@@ -458,7 +459,7 @@ body {
   }
 
   .socialmedia {
-    width: 24%;
+    width: 20%;
     flex: 1 1 auto; 
     padding-left: 20px;
     
