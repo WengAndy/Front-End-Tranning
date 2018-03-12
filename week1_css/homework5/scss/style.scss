@@ -9,6 +9,8 @@ $shadeColor: #a09e9e;
 $backGroundColor: #fff;
 $bodyBackGroundColor: #f5f5f5;
 $ribbonTriangleColor: #471d1d;
+$topBlueBlockColor: #66c2c9;
+$topPinkyBlockColor:#ef9a9a;
 
 /* font size */
 $text: 15px;
@@ -17,28 +19,28 @@ $sm:   18px;
 $md:   25px;
 $lg:   46px;
 
-@mixin flexStyle {
+%flexStyle {
   width: 50%;
   flex: 1 1 1;
 }
 
-@mixin colorbarStyle {
+%colorbarStyle {
   height: 7px;
   flex: 1 1 100px;
 }
 
-@mixin logoText {
+%logoText {
   font-size: $title;
   letter-spacing: 1px; 
 }
 
-@mixin conentStyle {
+%conentStyle {
   grid-row: 1/2; 
   display: flex;
   margin: 20px 0;
 }
 
-@mixin dailyContent {
+%dailyContent {
   display: flex;
   border-left: $shadeColor 2px solid;
   align-items: center;
@@ -46,6 +48,27 @@ $lg:   46px;
   padding-left: 8px;
   height: 22px;
 }
+
+
+%class {
+  width: 50%;
+  flex: 1 1 1;
+  padding: 0 20px;
+}
+
+@mixin blockColorParameter($blockColor) {
+  background: $blockColor;
+}
+
+@mixin logoTextColor($textColor) {
+  color: $textColor;
+}
+
+@mixin about($color) {
+  padding: 0 20px;
+  color: $color;
+}
+
 
 
 body {
@@ -72,7 +95,7 @@ body {
   }
   
   .logo {
-    @include flexStyle;
+    @extend %flexStyle;
     display: flex;
     align-items: baseline;
   }
@@ -81,20 +104,20 @@ body {
     }
 
     .logo-text1 {
-      color: $textColor;
-      @include logoText;
+      @include logoTextColor($textColor);
+      @extend %logoText;
     }
 
     .logo-text2 {
-      color: $primaryColor;
-      @include logoText;
+      @include logoTextColor($primaryColor);
+      @extend %logoText;
       border-left: 2px $primaryColor solid;
       margin-left: 5px;
       padding-left: 5px;
     }
 
   .menu {
-    @include flexStyle;
+    @extend %flexStyle;
     display: flex;
     justify-content: space-around;  
     
@@ -127,18 +150,18 @@ body {
   display: flex;
 
   .gray-block {
-    @include colorbarStyle();
-    background: #a09e9e;
+    @extend %colorbarStyle;
+    @include blockColorParameter($shadeColor)
   }
   
   .pinky-block {
-    @include colorbarStyle();
-    background: #ef9a9a;
+    @extend %colorbarStyle;
+    @include blockColorParameter($topPinkyBlockColor);
   }
   
   .green-block {
-    @include colorbarStyle();
-    background:#66c2c9;
+    @extend %colorbarStyle;
+    @include blockColorParameter($topBlueBlockColor);
   }
 }
 
@@ -177,36 +200,32 @@ body {
   background: $backGroundColor;
 
   .about {
-    @include conentStyle;
+    @extend %conentStyle;
     grid-column: 1/span 2;
      
     .about-left {
-      @include flexStyle;
-      padding: 0 20px;
-      color: $shadeColor;
+      @extend %flexStyle;
+      @include about($shadeColor);
     }
   
     .about-right {
-      @include flexStyle;
-      padding: 0 20px;
-      color: $textColor; 
+      @extend %flexStyle;
+      @include about($textColor);
       border-left: 2px solid $shadeColor;
     }
   }
   
   .class {
-    @include conentStyle;
+    @extend %conentStyle;
     grid-column: 3/span 2;
     color: $primaryColor;   
           
     .class-left {
-      @include flexStyle;
-      padding: 0 20px;
+      @extend %class;
     }
   
     .class-right {
-      @include flexStyle;
-      padding: 0 20px;
+      @extend %class;
       border-left: 2px solid $primaryColor;
     }
   }
@@ -325,7 +344,7 @@ body {
       .daily-Jan,
       .daily-Rus,
       .daily-Bus {
-        @include dailyContent;
+        @extend %dailyContent;
       }   
     }
   }
@@ -352,16 +371,16 @@ body {
   .slogan {
     font-size: $title;
     line-height: 1.1;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   .title {
-    padding-bottom: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
   }
 
   .text{
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   .icon {
@@ -392,7 +411,6 @@ body {
     
     .contact-title {
       display: flex;
-      align-items: center;
       margin-bottom: 20px;
       font-size: $sm;
       color: $secondaryColor;
@@ -418,7 +436,7 @@ body {
     border-right: $secondaryColor 2px solid;
         
     .mail-left{
-      @include flexStyle;
+      @extend %flexStyle;
       padding-left: 55px;
 
       input {
