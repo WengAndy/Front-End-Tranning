@@ -72,11 +72,11 @@ console.log('odj4', replaceTest);
 // 'wistron@wistron.com' return true
 // 'wistron.com' return false
 
-const emailValid = () => {
-  const testEmail = 'AndyWeng@wistron.com';
+const emailValid = (testEmail) => {
   const emailRegexp = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
   if (testEmail.match(emailRegexp)) return true;
   return false;
 };
-console.log('odj5', emailValid());
+const testEmail = 'AndyWeng@wistron.com';
+console.log('odj5', emailValid(testEmail));
 
