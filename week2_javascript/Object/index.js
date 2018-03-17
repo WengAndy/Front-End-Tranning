@@ -16,12 +16,12 @@ console.log('odj1', b.text);
 // 輸入：new Date().format()
 // 輸出：'2018-02-25'
 
-  Date.prototype.format = function() {
-    const year = this.getFullYear();
-    const month = this.getMonth();
-    const date = this.getDate();
-    return `${year}-${month}-${date}`;
-  };
+Date.prototype.format = function() {
+  const year = this.getFullYear();
+  const month = this.getMonth() + 1;
+  const date = this.getDate();
+  return `${year}-${month}-${date}`;
+};
 const value = new Date().format();
 console.log('Obj2', value);
 
@@ -38,8 +38,8 @@ console.log('Obj2', value);
 
 class Person {
   constructor(name, old) {
-    this.name = name;
-    this.old = old;
+    this.name = name || 'Andy';
+    this.old = old || '18';
   }
   sayhi() {
     const sayhi = `hi I'm ${this.name}, ${this.old} years old`;
@@ -50,7 +50,7 @@ class Person {
     return sayhello;
   }
 }
-const hyman = new Person('hyman', 25);
+const hyman = new Person();
 const john = new Person('john', 30);
 console.log('obj3', hyman.sayhi());
 console.log('obj3', john.sayhello());
