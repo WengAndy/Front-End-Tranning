@@ -134,13 +134,10 @@ const editIdObj = async (id, data) => {
 const delIdObj = async (id) => {
   const value = await request();
   const res = (await value.clone().json());
-  const result = [
-    ...res.splice(id - 1, 1),
-    ...res,
-  ];
+  const result = [...res];
+  result.splice(id - 1, 1);
   return result;
 };
-
 
 // 7. 依照價格排序
 
@@ -165,10 +162,10 @@ const sortIdObj = async (sortData) => {
 
 // 使用立即函式(IIFE)執行
 (async () => {
-  // console.log('Array2', await searchId(14));
-  // console.log('Array3', await findTitle('城市'));
-  // console.log('Array4', await addOtherObj({ id: 99, img: ' ', title: ' ', desc: ' ', price: 100 }));
-  // console.log('Array5', await editIdObj(12, { title: '修改title', desc: '修改desc' }));
+  console.log('Array2', await searchId(14));
+  console.log('Array3', await findTitle('城市'));
+  console.log('Array4', await addOtherObj({ id: 99, img: ' ', title: ' ', desc: ' ', price: 100 }));
+  console.log('Array5', await editIdObj(12, { title: '修改title', desc: '修改desc' }));
   console.log('Array6', await delIdObj(5));
-  // console.log('Array7', await sortIdObj('esc'));
+  console.log('Array7', await sortIdObj('esc'));
 })();
