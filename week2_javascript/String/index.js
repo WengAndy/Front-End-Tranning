@@ -7,7 +7,7 @@ const sameTitle = (testArray) => {
   if (testArray == null || testArray.length === 0) return '';
   let same = testArray[0];
   testArray.forEach((tar) => {
-    same.split('').forEach((b, index2) => {
+    Array.from(same).forEach((b, index2) => {
       if (b !== tar.charAt(index2)) {
         same = same.slice(0, index2);
       }
@@ -27,7 +27,7 @@ console.log('result1:', result1);
 
 const reverseParameter = (parameter) => {
   if (typeof parameter !== 'string') return 'data error';
-  const reverseResult = parameter.split('').reverse().join('');
+  const reverseResult = Array.from(String(parameter)).reverse().join('');
   return reverseResult;
 };
 
@@ -47,8 +47,8 @@ const prepareString = (s, t) => {
   if (typeof s !== 'string' || typeof t !== 'string') return 'data error';
   let result;
   if (s.length !== t.length) return false;
-  s = s.split('').sort().join('');
-  t = t.split('').sort().join('');
+  s = Array.from(s).sort().join('');
+  t = Array.from(t).sort().join('');
   if (s === t) return true;
   return result;
 };
@@ -71,12 +71,12 @@ console.log('result3:', result3);
 const reverseDigits = (data) => {
   if (typeof data !== 'string') return 'data error';
   let vowels = [];
-  data.split('').forEach((a) => {
+  Array.from(data).forEach((a) => {
     if ((/[aeiou]/i).test(a)) {
       vowels = [...vowels, a];
     }
   });
-  const sAry = s.split('');
+  const sAry = Array.from(data);
   let v = vowels.length - 1;
   sAry.forEach((a, index) => {
     if ((/[aeiou]/i).test(sAry[index])) {
@@ -98,7 +98,7 @@ console.log('result4:', result4);
 //  */
 
 const transformdecimal = (data) => {
-  const mdecimal = data.split('');
+  const mdecimal = Array.from(data);
   if (mdecimal.length > 8) return 'data error';
   let total = 0;
   mdecimal.reverse().forEach((a, index) => {
@@ -141,22 +141,22 @@ console.log('result6', result6);
 //  */
 
 const addDigit = (num) => {
-  const result = String(num).split('');
+  const result = Array.from(String(num));
   const parseValue = parseInt(result, 10);
-  while (result.length > 1) {
+  if (result.length > 1) {
     const reducer = (acc, current) => parseInt(acc, 10) + parseInt(current, 10);
     const value = result.reduce(reducer, 0);
-    const getResult = String(value).split('');
+    const getResult = Array.from(String(num));
     if (getResult.length > 1) {
       const secValue = getResult.reduce(reducer, 0);
-      return secValue;
+      return addDigit(secValue);
     }
     return value;
   }
   return parseValue;
 };
 
-const num = 1234;
+const num = 12358;
 const result7 = addDigit(num);
 console.log('result7:', result7);
 
