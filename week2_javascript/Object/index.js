@@ -16,7 +16,7 @@ console.log('odj1', b.text);
 // 輸入：new Date().format()
 // 輸出：'2018-02-25'
 
-Date.prototype.format = function() {
+Date.prototype.format = function () {
   const year = this.getFullYear();
   const month = this.getMonth() + 1;
   const date = this.getDate();
@@ -61,6 +61,7 @@ console.log('obj3', john.sayhello());
 // 輸入： 'abacadaeaf', 'a', '123'
 // 輸出： '123b123c123d123e123f'
 const replaceFun = (str, replaceString, replace) => {
+  if (typeof str !== 'string' || typeof replaceString !== 'string' || typeof replace !== 'string') return 'data error';
   const replaceValue = str.replace(new RegExp(replaceString, 'g'), replace); // 'g': Global search.
   return replaceValue;
 };
@@ -73,6 +74,7 @@ console.log('odj4', replaceTest);
 // 'wistron.com' return false
 
 const emailValid = (testEmail) => {
+  if (typeof testEmail !== 'string') return 'data error';
   const emailRegexp = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
   if (testEmail.match(emailRegexp)) return true;
   return false;
