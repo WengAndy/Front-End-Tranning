@@ -37,9 +37,9 @@ console.log('Obj2', value);
 // hyman.sayhi(); // "hi I'm hyman, 25 years old"
 
 class Person {
-  constructor(name, old) {
-    this.name = name || 'Andy';
-    this.old = old || '18';
+  constructor(name = 'Andy', old = '18') {
+    this.name = name;
+    this.old = old;
   }
   sayhi() {
     const sayhi = `hi I'm ${this.name}, ${this.old} years old`;
