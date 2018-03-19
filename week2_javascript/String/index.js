@@ -161,6 +161,22 @@ const result7 = addDigit(num);
 console.log('result7:', result7);
 
 
+const addDigitW = (data) => {
+  let total;
+  if (data >= 10) {
+    const dataArray = Array.from(String(data));
+    const reducer = (acc, current) => parseInt(acc, 10) + parseInt(current, 10);
+    total = dataArray.reduce(reducer);
+    data = total;
+  }
+  return data;
+};
+
+const nums = 12358;
+const result7W = addDigitW(nums);
+console.log('result7_While:', result7W);
+
+
 // /**
 //  * 8. 反轉一個int整數。
 //  * 範例：
