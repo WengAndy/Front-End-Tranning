@@ -26,6 +26,7 @@ console.log('result1:', result1);
  */
 
 const reverseParameter = (parameter) => {
+  if (typeof parameter !== 'string') return 'data error';
   const reverseResult = parameter.split('').reverse().join('');
   return reverseResult;
 };
@@ -42,23 +43,19 @@ console.log('result2:', result2);
 //  * s = "rat", t = "car" 回傳false
 //  */
 
-const prepareString = () => {
-  let s = 'anagram';
-  let t = 'nagaram';
+const prepareString = (s, t) => {
+  if (typeof s !== 'string' || typeof t !== 'string') return 'data error';
   let result;
   if (s.length !== t.length) return false;
-
   s = s.split('').sort().join('');
   t = t.split('').sort().join('');
-  if (s === t) {
-    result = true;
-  } else {
-    result = false;
-  }
+  if (s === t) return true;
   return result;
 };
 
-const result3 = prepareString();
+const s = 'anagram';
+const t = 'nagaram';
+const result3 = prepareString(s, t);
 console.log('result3:', result3);
 
 
@@ -72,9 +69,8 @@ console.log('result3:', result3);
 //  */
 
 const reverseDigits = (data) => {
-  const s = 'hello'; //return "holle"
+  if (typeof data !== 'string') return 'data error';
   let vowels = [];
-  // const s = 'leetcode';// , return "leotcede".
   data.split('').forEach((a) => {
     if ((/[aeiou]/i).test(a)) {
       vowels = [...vowels, a];
@@ -101,14 +97,42 @@ console.log('result4:', result4);
 //  * 輸入：'11000000' 輸出：192
 //  */
 
+const transformdecimal = (data) => {
+  const mdecimal = data.split('');
+  if (mdecimal.length > 8) return 'data error';
+  let total = 0;
+  mdecimal.reverse().forEach((a, index) => {
+    if (a === '1') {
+      const number = 2 ** index;
+      total += number;
+    }
+  });
+  return total;
+};
 
+const str5 = '11000000';
+const result5 = transformdecimal(str5);
+console.log('result5', result5);
 
 // /**
 //  * 6. 將給定數字轉換成二進制字串。如果字串長度不足 8 位，則在前面補 0 到滿8位。
 //  * 範例：
 //  * 輸入：65 輸出：'01000001'
 //  */
+const transformBinary = (data) => {
+  let total = '';
+  const zero = '0';
+  const transform = data.toString(2);
+  if (transform.length <= 7) {
+    total = zero + transform;
+    return transformBinary(total);
+  }
+  return transform;
+};
 
+const str6 = 65;
+const result6 = transformBinary(str6);
+console.log('result6', result6);
 
 // /**
 //  * 7. 將一個數字每個位數相加，直到剩個位數為止。
@@ -132,7 +156,7 @@ const addDigit = (num) => {
   return parseValue;
 };
 
-const num = 9999;
+const num = 1234;
 const result7 = addDigit(num);
 console.log('result7:', result7);
 
@@ -143,11 +167,11 @@ console.log('result7:', result7);
 //  * x = 123 , return 321 x = -123 , return -321
 //  */
 
-const reverseInt = (num) => {
-  const Num = String(num);
+const reverseInt = (data) => {
+  const Num = String(data);
   const Str = Array.from(Num).reverse().join('');
   let result = parseInt(Str, 10);
-  if (num < 0) {
+  if (data < 0) {
     result *= -1;
   }
   return result;
