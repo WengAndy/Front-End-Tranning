@@ -100,17 +100,22 @@ console.log('result4:', result4);
 const transformdecimal = (data) => {
   const mdecimal = Array.from(data);
   if (mdecimal.length > 8) return 'data error';
-  let total = 0;
+  let total = [];
+  let result = '';
   mdecimal.reverse().forEach((a, index) => {
+    const reducer = (acc, current) => parseInt(acc, 10) + parseInt(current, 10);
     if (a === '1') {
       const number = 2 ** index;
-      total += number;
+      const sum = String(number);
+      total = [...total, sum];
+      result = total.reduce(reducer, 0);
+      // total += number;
     }
   });
-  return total;
+  return result;
 };
 
-const str5 = '11000000';
+const str5 = '00001010';
 const result5 = transformdecimal(str5);
 console.log('result5', result5);
 
