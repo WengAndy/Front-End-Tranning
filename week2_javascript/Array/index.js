@@ -92,9 +92,9 @@ const findTitle = async (data) => {
 const addOtherObj = async (sample) => {
   const value = await request();
   const res = (await value.clone().json());
-  const findIndex = res.find(result => (result.id === 10));
+  const findIndex = res.findIndex(result => result.id === 10);
   const result = [
-    ...res.splice(findIndex.id, 0, sample),
+    ...res.splice(findIndex + 1, 0, sample),
     ...res,
   ];
   return result;
@@ -135,9 +135,9 @@ const editIdObj = async (id, data) => {
 const delIdObj = async (id) => {
   const value = await request();
   const res = (await value.clone().json());
-  const findIndex = res.find(result => (result.id === id));
+  const findIndex = res.findIndex(result => result.id === id);
   const result = [...res];
-  result.splice(findIndex.id - 1, 1);
+  result.splice(findIndex, 1);
   return result;
 };
 

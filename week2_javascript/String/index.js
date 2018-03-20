@@ -136,7 +136,7 @@ const transformBinaryFun = (data) => {
     dividend = divisor;
     binaryArr = [...binaryArr, remainder];
   }
-  return binaryArr.join('');
+  return binaryArr.reverse().join('');
 };
 
 const transformBinary = (data) => {
