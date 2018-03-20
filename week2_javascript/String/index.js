@@ -119,18 +119,33 @@ console.log('result5', result5);
 //  * 範例：
 //  * 輸入：65 輸出：'01000001'
 //  */
+
+const transformBinaryFun = (data) => {
+  let dividend = data;
+  let divisor = 2;
+  let remainder = null;
+  let binaryArr = [];
+  while (divisor !== 0) {
+    remainder = dividend % 2;
+    divisor = parseInt(dividend / 2, 10);
+    dividend = divisor;
+    binaryArr = [...binaryArr, remainder];
+  }
+  return binaryArr.join('');
+};
+
 const transformBinary = (data) => {
   let total = '';
   const zero = '0';
-  const transform = data.toString(2);
-  if (transform.length <= 7) {
+  let transform = transformBinaryFun(data);
+  while (transform.length <= 7) {
     total = zero + transform;
-    return transformBinary(total);
+    transform = total;
   }
   return transform;
 };
 
-const str6 = 65;
+const str6 = 10;
 const result6 = transformBinary(str6);
 console.log('result6', result6);
 
@@ -163,7 +178,7 @@ console.log('result7:', result7);
 
 const addDigitW = (data) => {
   let total;
-  if (data >= 10) {
+  while (data >= 10) {
     const dataArray = Array.from(String(data));
     const reducer = (acc, current) => parseInt(acc, 10) + parseInt(current, 10);
     total = dataArray.reduce(reducer);
