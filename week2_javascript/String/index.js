@@ -4,7 +4,9 @@
  * 範例： ['abcd','abccc','abdec'] --> 共同字首為 'ab' 。
  */
 const sameTitle = (testArray) => {
-  if (testArray == null || testArray.length === 0) return '';
+  if (testArray === null || testArray.length === 0 || testArray.length < 3) return 'data error';
+  const check = testArray.find(a => typeof a !== 'string');
+  if (check) return 'data error';
   let same = testArray[0];
   testArray.forEach((tar) => {
     Array.from(same).forEach((b, index2) => {
@@ -26,7 +28,7 @@ console.log('result1:', result1);
  */
 
 const reverseParameter = (parameter) => {
-  if (typeof parameter !== 'string') return 'data error';
+  if (typeof parameter !== 'string' || parameter === '') return 'data error';
   const reverseResult = Array.from(String(parameter)).reverse().join('');
   return reverseResult;
 };
@@ -45,12 +47,10 @@ console.log('result2:', result2);
 
 const prepareString = (s, t) => {
   if (typeof s !== 'string' || typeof t !== 'string') return 'data error';
-  let result;
   if (s.length !== t.length) return false;
   s = Array.from(s).sort().join('');
   t = Array.from(t).sort().join('');
-  if (s === t) return true;
-  return result;
+  return s === t;
 };
 
 const s = 'anagram';
@@ -69,7 +69,7 @@ console.log('result3:', result3);
 //  */
 
 const reverseDigits = (data) => {
-  if (typeof data !== 'string') return 'data error';
+  if (typeof data !== 'string' || data === '') return 'data error';
   let vowels = [];
   Array.from(data).forEach((a) => {
     if ((/[aeiou]/i).test(a)) {
@@ -126,6 +126,7 @@ console.log('result5', result5);
 //  */
 
 const transformBinaryFun = (data) => {
+  if (typeof data !== 'number') return 'data error';
   let dividend = data;
   let divisor = 2;
   let remainder = null;
@@ -161,21 +162,17 @@ console.log('result6', result6);
 //  */
 
 const addDigit = (num) => {
+  if (typeof num !== 'number') return 'data error';
   const result = Array.from(String(num));
   const parseValue = parseInt(result, 10);
   if (result.length > 1) {
     const reducer = (acc, current) => parseInt(acc, 10) + parseInt(current, 10);
-    const value = result.reduce(reducer, 0);
     const getResult = Array.from(String(num));
-    if (getResult.length > 1) {
-      const secValue = getResult.reduce(reducer, 0);
-      return addDigit(secValue);
-    }
-    return value;
+    const secValue = getResult.reduce(reducer, 0);
+    return addDigit(secValue);
   }
   return parseValue;
 };
-
 const num = 12358;
 const result7 = addDigit(num);
 console.log('result7:', result7);
@@ -204,6 +201,7 @@ console.log('result7_While:', result7W);
 //  */
 
 const reverseInt = (data) => {
+  if (typeof data !== 'number') return 'data error';
   const Num = String(data);
   const Str = Array.from(Num).reverse().join('');
   let result = parseInt(Str, 10);
@@ -216,3 +214,15 @@ const reverseInt = (data) => {
 const num8 = -123;
 const result8 = reverseInt(num8);
 console.log('result8:', result8);
+
+
+module.exports = {
+  sameTitle,
+  reverseParameter,
+  prepareString,
+  reverseDigits,
+  transformdecimal,
+  transformBinary,
+  addDigit,
+  reverseInt,
+};
