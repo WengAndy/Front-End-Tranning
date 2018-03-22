@@ -16,11 +16,12 @@ const request = async () => {
 // b.push(4);
 // console.log(a); // [1,2,3,4]
 
-const a = [1, 2, 3];
-const b = [...a, 4];
-
-console.log('Array1', a);
-console.log('Array1', b);
+const deepArray = (data) => {
+  if (typeof data !== 'number') return 'data error';
+  const a = [1, 2, 3];
+  const b = [...a, data];
+  return b;
+};
 
 // 用 fetch 取得陣列到程式中
 
@@ -37,9 +38,8 @@ console.log('Array1', b);
 //         "price": 300
 //     }
 
-const searchId = async (id) => {
-  const value = await request();
-  const res = (await value.clone().json()).find(result => result.id === id);
+const searchId = async (initdata, id) => {
+  const res = (await initdata.clone().json()).find(result => result.id === id);
   return res || 'no data';
 };
 
@@ -71,10 +71,11 @@ const searchId = async (id) => {
 //         "price": 400
 //     }
 
-const findTitle = async (data) => {
-  const value = await request();
+const findTitle = async (value, data) => {
+  if (typeof data !== 'string') return 'data error';
   const res = (await value.clone().json()).filter(result => result.title.includes(data));
-  return res || 'no data';
+  if (res.length === 0) return 'no data';
+  return res;
 };
 
 // 4. 新增一筆id=99的資料(內容隨意)，於id=10和id=11中間
@@ -89,9 +90,9 @@ const findTitle = async (data) => {
 // {id: 11, img: 'xxx', title: 'xxx', desc: 'xxx', price: 2659},
 // ...
 
-const addOtherObj = async (sample) => {
-  const value = await request();
+const addOtherObj = async (value, sample) => {
   const res = (await value.clone().json());
+  if (typeof sample !== 'object' || sample.length) return 'data error';
   const findIndex = res.findIndex(result => result.id === 10);
   const result = [
     ...res.splice(findIndex + 1, 0, sample),
@@ -118,9 +119,15 @@ const addOtherObj = async (sample) => {
 // ...
 
 
-const editIdObj = async (id, data) => {
-  const value = await request();
+const editIdObj = async (value, id, data) => {
+  if (typeof id !== 'number') {
+    return 'id is error';
+  } else if (!data.hasOwnProperty('title')) {
+    return 'data error';
+  }
   const res = (await value.clone().json());
+  const findIndex = res.findIndex(result => result.id === id);
+  if (findIndex === -1) return 'no data';
   return res.map((result) => {
     if (result.id === id) {
       result.title = data.title;
@@ -132,10 +139,11 @@ const editIdObj = async (id, data) => {
 
 // 6. 刪除特定id的資料
 // 輸入 5 輸出已經刪除完 id 為 5 的陣列
-const delIdObj = async (id) => {
-  const value = await request();
+const delIdObj = async (value, id) => {
+  if (typeof id !== 'number') return 'id is error';
   const res = (await value.clone().json());
   const findIndex = res.findIndex(result => result.id === id);
+  if (findIndex === -1) return 'no data';
   const result = [...res];
   result.splice(findIndex, 1);
   return result;
@@ -146,9 +154,9 @@ const delIdObj = async (id) => {
 // 輸入 desc or asc
 // 輸出價格對應排序的陣列
 
-const sortIdObj = async (sortData) => {
-  const value = await request();
+const sortIdObj = async (value, sortData) => {
   const res = (await value.clone().json());
+  if (typeof sortData !== 'string') return 'data error';
   switch (sortData) {
     case 'desc':
       res.sort((sortA, sortB) => (sortA.price - sortB.price));
@@ -164,10 +172,22 @@ const sortIdObj = async (sortData) => {
 
 // 使用立即函式(IIFE)執行
 (async () => {
-  console.log('Array2', await searchId(14));
-  console.log('Array3', await findTitle('城市'));
-  console.log('Array4', await addOtherObj({ id: 99, img: ' ', title: ' ', desc: ' ', price: 100 }));
-  console.log('Array5', await editIdObj(12, { title: '修改title', desc: '修改desc' }));
-  console.log('Array6', await delIdObj(5));
-  console.log('Array7', await sortIdObj('esc'));
+  const value = await request();
+  console.log('Array1', await deepArray(4));
+  console.log('Array2', await searchId(value, 14));
+  console.log('Array3', await findTitle(value, '美好'));
+  console.log('Array4', await addOtherObj(value, { id: 99, img: ' ', title: ' ', desc: ' ', price: 100 }));
+  console.log('Array5', await editIdObj(value, 12, { title: '修改title', desc: '修改desc' }));
+  console.log('Array6', await delIdObj(value, 5));
+  console.log('Array7', await sortIdObj(value, 'desc'));
 })();
+
+module.exports = {
+  deepArray,
+  searchId,
+  findTitle,
+  addOtherObj,
+  editIdObj,
+  delIdObj,
+  sortIdObj,
+};
