@@ -1,11 +1,35 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
-#app {
-  // height: 100%;
-  // background: #00DDDD;
+%padding-left {
+  padding: 0 2%;
 }
 
 #container {
   display: flex;
+  #menu {
+    flex-basis: 200px;
+  }
+  #content {
+    flex: 1;
+    flex-flow: column;
+    .content_header {
+      flex: 1;
+      color: #000;
+      background: #f3f3f3;
+      min-height: 10%;
+      border: 2px solid red;
+    }
 
+    .content_content {
+      color: #000;
+      background: #DDDDDD;
+      min-height: 90%;
+    }
+  }
+}
+
+#menu{
+  color: #000;
+  background: #343434;
+  min-height: 100vh;
 }

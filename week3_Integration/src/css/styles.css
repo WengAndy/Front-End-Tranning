@@ -1,0 +1,33 @@
+@import url(../../node_modules/bootstrap/dist/css/bootstrap.css);
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  #container #menu {
+    -ms-flex-preferred-size: 200px;
+    flex-basis: 200px; }
+  #container #content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column; }
+    #container #content .content_header {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      color: #000;
+      background: #f3f3f3;
+      min-height: 10%;
+      border: 2px solid red; }
+    #container #content .content_content {
+      color: #000;
+      background: #DDDDDD;
+      min-height: 90%; }
+
+#menu {
+  color: #000;
+  background: #343434;
+  min-height: 100vh; }
