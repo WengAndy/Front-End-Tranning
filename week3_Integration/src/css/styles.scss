@@ -1,11 +1,158 @@
-@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import url("../css/reset.css");
 
-#app {
-  // height: 100%;
-  // background: #00DDDD;
+/* colors */
+
+$primaryRed: #ff6b6b;
+$secondaryRed: #ae5555;
+$primaryGray: #a3a3a3;
+$secondaryGray: #828282;
+$menuBackGround: #343434;
+$mainBackGround: #e8e8e8;
+$whiteText: #FFF;
+$darkText: #333;
+
+
+%menu-padding {
+  padding-left: 2em;
 }
+
 
 #container {
   display: flex;
 
+  #menu {
+    min-width: 250px;
+    color: $whiteText;
+    background: $menuBackGround;
+    line-height: 2.5;
+
+    .logo {
+      text-align: center;
+    }
+    .list {
+      padding-left: 2em;
+    }
+    .active-lv1{   
+      background: $primaryRed;
+      padding-left: 2em;
+    }
+    .active-lv2{
+      background: $secondaryRed;
+      padding-left: 2em;
+    }   
+    .hover-lv1{
+      background: $primaryGray;
+      padding-left: 2em;
+    }    
+    .hover-lv2{
+      background: $secondaryGray;
+      padding-left: 2em;
+    }
+  }
+
+  #main {
+    flex: 1 1 auto;
+    flex-flow: column;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      color: $darkText;
+      background: $whiteText;
+      min-height: 5%;
+      line-height: 2.5;
+      border-bottom: 1px solid $primaryGray;
+      padding: 0 1em;
+
+      .link{
+      }
+      .user{
+      }
+      .user-photo{
+        border-radius: 50%;  
+      }
+      a {
+        text-decoration:none;
+      }
+    }
+
+    .content {
+      color: $darkText;
+      background: $mainBackGround;
+      min-height: 95%;
+      padding: 0 1em;
+
+      .title {
+        font-size: 36px;
+        line-height: 2.5;
+      }
+
+      .functions {
+        display: flex;
+        justify-content: space-between;
+        color: $secondaryGray;
+        margin-bottom: 20px;
+
+        .search-box {
+          width: 300px;
+          padding:5px 15px;
+          border:0 none;
+          border-radius: 5px 0 0 5px;
+        }
+        .search-btn {
+          padding:5px 15px;
+          border:0 none;
+          border-radius: 0 5px 5px 0;
+          background: #fff;
+        }
+        .searchmore {
+          display: inline;
+        }
+        .addmore {
+        }
+      }
+  
+      .css-table {
+        display: table;
+        width: 100%;
+        line-height: 2.5;
+      }
+
+      .css-table .thead {
+        display: table-header-group;
+        color: $whiteText;
+        background-color: $menuBackGround;
+      }
+      
+      .css-table .tbody {
+        display: table-row-group;
+      }
+      
+      .css-table .tr {
+        display: table-row;
+      }
+      
+      .css-table .th {
+        display: table-cell;
+        padding: 0 1em;
+    }
+      .css-table .td {
+        display: table-cell;
+        padding: 0 1em;
+        border-bottom: $primaryGray 1px solid;
+      }
+      .error {
+        border-left: $primaryRed 5px solid;
+      }
+      .online {
+        border-left: #36b974 5px solid;
+      }
+      .offline {
+        border-left: #727171 5px solid;
+      }
+      .page {
+        text-align: right;
+      }  
+    }
+  }
 }
