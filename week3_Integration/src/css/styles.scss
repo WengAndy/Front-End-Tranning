@@ -30,7 +30,8 @@ $darkText: #333;
       text-align: center;
     }
     .list {
-      padding-left: 2em;
+      padding: 0 0 15px 30px;
+      // padding-left: 2em;
     }
     .active-lv1{   
       background: $primaryRed;
@@ -39,6 +40,7 @@ $darkText: #333;
     .active-lv2{
       background: $secondaryRed;
       padding-left: 2em;
+      display: none;
     }   
     .hover-lv1{
       background: $primaryGray;
@@ -47,6 +49,7 @@ $darkText: #333;
     .hover-lv2{
       background: $secondaryGray;
       padding-left: 2em;
+      display: none;
     }
   }
 

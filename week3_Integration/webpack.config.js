@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { jsRules, cssRules, scssRules, imageRules } = require('./webpack/commonModuleRules');
+const { jsRules, cssRules, scssRules, imageRules, rawLoaderRules } = require('./webpack/commonModuleRules');
 
 module.exports = {
   devtool: 'cheap-eval-source-map',
@@ -26,11 +26,12 @@ module.exports = {
       jsRules(false),
       cssRules,
       scssRules,
-      imageRules
+      imageRules,
+      // rawLoaderRules
     ]
   },
   devServer: {
     contentBase: './dist',
-    hot: true
+    // hot: true
   }
 };

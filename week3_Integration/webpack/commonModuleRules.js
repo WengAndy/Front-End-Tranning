@@ -117,6 +117,15 @@ const csvRules = {
   ]
 };
 
+const rawLoaderRules = {
+  test: /\.html$/,
+  use: [
+    {
+      loader: 'raw-loader'
+    }
+  ],
+};
+
 module.exports = {
-  jsRules, cssRules, scssRules, imageRules, fontRules, csvRules, svgIconRules
+  jsRules, cssRules, scssRules, imageRules, fontRules, csvRules, svgIconRules, rawLoaderRules
 };

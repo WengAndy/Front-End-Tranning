@@ -1,8 +1,7 @@
 import '../css/styles.scss';
+import Button from '../component/Button';
 
 $(() => {
-  // $('#app')
-  //   .append('<button type="button" class="btn">Basic</button>')
-  //   .append('<button type="button" class="btn btn-warning">Basic</button>')
-  //   .append('<button type="button" class="btn btn-link">Link</button>');
+  const menu = new Button();
+  menu.render();
 });
