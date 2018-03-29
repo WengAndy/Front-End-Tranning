@@ -51,10 +51,13 @@ const imageRules = {
   test: /\.(jpe?g|png|gif|svg)$/,
   use: [
     {
+      loader: 'file-loader'
+    },
+    {
       loader: 'url-loader',
       options: {
-        limit: 40000, // 單位：byte  40k以下都會被編成base64，以上就變成檔案
-        name: 'img/[hash].[ext]'
+        limit: 1000, // 單位：byte  40k以下都會被編成base64，以上就變成檔案
+        name: 'img/[name].[ext]'
       }
     }
     // {

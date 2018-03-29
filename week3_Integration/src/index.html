@@ -10,7 +10,43 @@
     <div id="container">
         <nav id="menu">
             <h1 class="logo">IVM LOGO</h1>
-            <!-- <div class="active-lv2">123</div> -->
+            <div class="list">
+                <i class="fas fa-calendar-check"></i> 
+                Dealer Management
+            </div>
+            <div class="list">
+                <i class="far fa-user"></i>  
+                User Management
+            </div>
+            <div class="active-lv1">
+                <i class="fas fa-map-marker-alt"></i> 
+                Machine Management
+            </div>
+            <div class="active-lv2">
+                Model List
+                <div class="select"></div>
+            </div>
+            
+            <div class="active-lv2">Model List</div>
+            <div class="active-lv2">Machine List</div>
+            <div class="list">
+                <i class="far fa-file-alt"></i>
+                Merchandise Management
+            </div>  
+            <div class="list">
+                <i class="fas fa-comments"></i> 
+                Advertising Management
+            </div>
+            <div class="hover-lv1">
+                <i class="fas fa-chart-pie"></i> 
+                Market Analysis
+            </div>                            
+            <div class="hover-lv2">Sale Analysis</div>
+            <div class="hover-lv2">AD Analysis</div> 
+            <div class="list">
+                <i class="fas fa-sliders-h"></i> 
+                System Setting
+            </div> 
         </nav>
 
         <div id="main">
@@ -19,7 +55,7 @@
                     <a href="#">Machine Management</a> > <a href="#">Model List</a>
                 </div>
                 <div class="user">
-                    <a href="#">User Name<img src="" class="user-photo" /></a>
+                    <a href="#">User Name<img src="./img/user.jpg" class="userphoto" /></a>                    
                 </div>
             </div>
             <div class="content">
@@ -28,74 +64,121 @@
                     <div class="search">                  
                         <input class="search-box" type="text" name="search-box" placeholder="keyword"/>
                         <input class="search-btn" type="submit" name="search-btn" value="Search"/>
-                        <div class="searchmore">Advanced Search</div>
+                        <div class="searchmore">
+                            <i class="fas fa-search-plus"></i>
+                            Advanced Search
+                        </div>
                     </div> 
-                    <div class="addmore">Add Machine</div>
+                    <div class="addmore">
+                        <i class="fas fa-plus-circle"></i>
+                        Add Machine
+                    </div>
                 </div>
-                <div id="css-table" class="css-table">
+                <div id="table" class="css-table">
                     <div  class="thead">
                         <div class="tr">
-                            <div class="th">Device ID</div>
+                            <div class="th th-left">Device ID</div>
                             <div class="th">Model</div>
                             <div class="th">Status</div>
                             <div class="th">Machine Temp.</div>
                             <div class="th">Address</div>                          
                             <div class="th">Region</div>
                             <div class="th">Details</div>
-                            <div class="th">Setup</div>  
+                            <div class="th"></div>
+                            <div class="th">Setup</div>
+                            <div class="th th-right"></div>  
                         </div>
                     </div>
+                    <div class="gate"></div>
                     <div class="tbody">
                         <div class="tr">
                             <div class="td error">001</div>
                             <div class="td">AK1</div>
-                            <div class="td">Error</div>
+                            <div class="td"><div class="status-error">Error</div></div>
                             <div class="td">4°C</div>
                             <div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
                             <div class="td">大安區</div>
-                            <div class="td">pic</div>
-                            <div class="td">pic</div>
+                            <div class="td"><div class="detail-icon"><i class="far fa-calendar-alt"></i></div></div>
+                            <div class="td"><div class="detail-icon"><i class="fas fa-pencil-alt"></i></div></div>
+                            <div class="td"><div class="detail-icon"><i class="far fa-trash-alt"></i></div></div>
+                            <div class="td"></div>
                         </div>
                         <div class="tr">
-                            <div class="td online ">001</div>
+                            <div class="td online ">002</div>
                             <div class="td">AK1</div>
-                            <div class="td">Error</div>
-                            <div class="td">4°C</div>
+                            <div class="td"><div class="status-online">Online</div></div>
+                            <div class="td">0°C</div>
                             <div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
                             <div class="td">大安區</div>
-                            <div class="td">pic</div>
-                            <div class="td">pic</div>
+                            <div class="td"><i class="far fa-calendar-alt"></i></div>
+                            <div class="td"><i class="fas fa-pencil-alt"></i></div>
+                            <div class="td"><i class="far fa-trash-alt"></i></div>
+                            <div class="td"></div>
                         </div>
-                        <div class="tr">
-                            <div class="td offline">001</div>
+                    <div class="tr">
+                            <div class="td offline ">001</div>
                             <div class="td">AK1</div>
-                            <div class="td">Error</div>
-                            <div class="td">4°C</div>
+                            <div class="td"><div class="status-offline">Offline</div></div>
+                            <div class="td">4.3°C</div>
                             <div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
                             <div class="td">大安區</div>
-                            <div class="td">pic</div>
-                            <div class="td">pic</div>
-                        </div>
+                            <div class="td"><i class="far fa-calendar-alt"></i></div>
+                            <div class="td"><i class="fas fa-pencil-alt"></i></div>
+                            <div class="td"><i class="far fa-trash-alt"></i></div>
+                            <div class="td"></div>
+                            </div>
                         <div class="tr">
-                            <div class="td online ">001</div>
+                            <div class="td online ">004</div>
                             <div class="td">AK1</div>
-                            <div class="td">Error</div>
-                            <div class="td">4°C</div>
-                            <div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
-                            <div class="td">大安區</div>
-                            <div class="td">pic</div>
-                            <div class="td">pic</div>
+                            <div class="td"><div class="status-online">Online</div></div>
+                            <div class="td">1.3°C</div>
+                            <div class="td">
+                                <input class="input-address" type="text" name="" placeholder="台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)"/>
+                            </div>
+                            <div class="td">
+                                <input class="input-region" type="text" name="" placeholder="大安"/>
+                            </div>
+                            <div class="td"></div>
+                            <div class="td"></div>
+                            <div class="td"><i class="fas fa-times"></i></div>
+                            <div class="td"><i class="fas fa-check"></i></div>
                         </div>
                     </div>
+                </div>
+                <div>
                     <div class="page">
-                        3 Models 
-                        <a class=""></a>
-                        <a class="">1</a>
-                        <a class="">2</a>
-                        <a class="">3</a>
-                        <a class="">4</a>
-                        <a class="">5</a>                           
-                        <a class=""></a>
+                        <div class="pageTotal">4 Models</div>
+                        <div class="pageNumber">
+                            <ul class="pagination">
+                                <a href="#">
+                                    <i class="fa fa-fast-backward"></i> 
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-angle-left"></i>
+                                </a>
+                                <a href="#">
+                                    <span>1</span>
+                                </a>
+                                <a href="#">
+                                    <span>2</span>
+                                </a>
+                                <a href="#">
+                                    <span>3</span>
+                                </a>
+                                <a href="#">
+                                    <span>4</span>
+                                </a>
+                                <a href="#">
+                                    <span>5</span>
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-fast-forward"></i>
+                                </a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,5 @@
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../css/styles.scss';
-import Button from '../component/Button';
+import '../img/user.jpg';
 
-$(() => {
-  const menu = new Button();
-  menu.render();
-});
+$(() => {});
