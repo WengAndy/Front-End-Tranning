@@ -20,6 +20,9 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
     }),
+    new webpack.DefinePlugin({
+      ENV: JSON.stringify('develop')
+    }),
   ],
   module: {
     rules: [
@@ -27,7 +30,7 @@ module.exports = {
       cssRules,
       scssRules,
       imageRules,
-      // rawLoaderRules
+      rawLoaderRules
     ]
   },
   devServer: {

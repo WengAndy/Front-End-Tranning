@@ -16,6 +16,8 @@ module.exports = {
         "eol-last": [0],
         "comma-dangle": [0],
         "no-prototype-builtins": [0],
-        "camelcase": [0]
+        "camelcase": [0],
+        "global-require": [0],
+        "no-undef": [0]
     }
 };

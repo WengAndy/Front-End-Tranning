@@ -3,9 +3,9 @@
 /* colors */
 
 $primaryRed: #ff6b6b;
-$secondaryRed: #ae5555;
-$primaryGray: #a3a3a3;
-$secondaryGray: #828282;
+$activity-color: #ae5555;
+$hover-color: #a3a3a3;
+$hover-lv2-color: #828282;
 $menuBackGround: #343434;
 $mainBackGround: #e8e8e8;
 $whiteText: #FFF;
@@ -72,7 +72,8 @@ $disable: #999;
     }
 
     .active-lv2{
-      background: $secondaryRed;
+      height: 65px;
+      background: $activity-color;
       padding-left: 50px;
       border-bottom: 1px solid $menuBackGround;
     }   
@@ -88,7 +89,7 @@ $disable: #999;
 
     .hover-lv1{
       display: block;
-      background: $primaryGray;
+      background: $hover-color;
       i {
         padding-left: 34px; 
       } 
@@ -98,8 +99,9 @@ $disable: #999;
       }
     }    
 
-    .hover-lv2{
-      background: $secondaryGray;
+    .hover-lv2 {
+      height: 65px;
+      background: $hover-lv2-color;
       padding-left: 50px;
       border-bottom: 1px solid $menuBackGround;
     }
@@ -148,7 +150,7 @@ $disable: #999;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: $secondaryGray;
+        color: $hover-lv2-color;
         margin-bottom: 20px;
 
         .search-box {
