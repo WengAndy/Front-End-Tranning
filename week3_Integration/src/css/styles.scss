@@ -178,6 +178,8 @@ $page-border-Color: #D7D7D7;
 
         .thead {
           display: table-header-group;
+          text-align: center;
+          vertical-align: middle;
         }
         
         .tbody {
@@ -233,6 +235,9 @@ $page-border-Color: #D7D7D7;
               border:0;
               font-size: 21px;
               background-color: transparent;
+               i {
+                color: #999;
+              }
             }
           }
 
