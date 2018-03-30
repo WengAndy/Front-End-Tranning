@@ -33,6 +33,24 @@ $page-border-Color: #D7D7D7;
   border: 1px solid $page-border-Color;
 }
 
+%thTable {
+  color: $whiteText;
+  background: $menuBackGround;
+  padding: 1em;
+  height: 20px;
+  span {
+    color: $menuBackGround;
+  }     
+}
+
+%listStatus {
+  border:0;
+  font-size: 21px;
+  background-color: transparent;
+}
+
+
+
 
 #container {
   display: flex;
@@ -53,32 +71,45 @@ $page-border-Color: #D7D7D7;
 
     .active-lv1{   
       background: $primaryRed;
-      padding-left: 2em;
+      i {
+        padding-left: 34px; 
+      } 
+
+      span {
+        padding-left: 3px; 
+      }
     }
 
     .active-lv2{
       background: $secondaryRed;
-      padding-left: 2em;
+      padding-left: 50px;
       border-bottom: 1px solid $menuBackGround;
-      display: block;
     }   
+
     .select {
       position: absolute;
       border-top: 13px solid hsla(0, 0, 0, 0);
       border-bottom: 13px solid hsla(0, 0, 0, 0);
       border-right: 15px solid $whiteText;
       height: 0;
-      margin: -35px 0 0 203px;
+      margin: -35px 0 0 185px;
     }
 
     .hover-lv1{
+      display: block;
       background: $primaryGray;
-      padding-left: 2em;
+      i {
+        padding-left: 34px; 
+      } 
+
+      span {
+        padding-left: 3px; 
+      }
     }    
 
     .hover-lv2{
       background: $secondaryGray;
-      padding-left: 2em;
+      padding-left: 50px;
       border-bottom: 1px solid $menuBackGround;
     }
   }
@@ -151,10 +182,6 @@ $page-border-Color: #D7D7D7;
         display: table;
         width: 100%;
 
-        .gate {
-          margin-top: 10px;
-        }
-
         .thead {
           display: table-header-group;
         }
@@ -177,17 +204,26 @@ $page-border-Color: #D7D7D7;
 
         .th {
           display: table-cell;
-          color: $whiteText;
-          background: $menuBackGround;
-          padding: 1em;
+          background: $mainBackGround;
         }
-
+      
         .th-left {
-          border-radius: 8px 0 0 8px;
+            border-radius: 8px 0 0 8px;
+            margin-bottom: 10px;
+            color: $whiteText;
+            background: $menuBackGround;
+            padding: 1em;
+            height: 20px;
+        }
+      
+        .th-right {
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 10px;
+            @extend %thTable;
         }
 
-        .th-right {
-          border-radius: 0 8px 8px 0;
+        .th-mid {
+            @extend %thTable;
         }
        
         .td {
@@ -195,6 +231,9 @@ $page-border-Color: #D7D7D7;
           padding: 1em;
           border-bottom: $page-border-Color 1px solid;
           line-height: 26px;
+          height: 100px;
+          text-align: center;
+          vertical-align: middle;
 
           .detail-icon{
             display: flex;
@@ -205,9 +244,9 @@ $page-border-Color: #D7D7D7;
               background-color: transparent;
             }
             .list-del {
+              margin-left: 20%; 
               border:0;
               font-size: 21px;
-              margin-left: 20%; 
               background-color: transparent;
             }
           }
@@ -216,14 +255,10 @@ $page-border-Color: #D7D7D7;
             display: flex;
 
             .list-check {
-              border:0;
-              font-size: 21px;
-              background-color: transparent;
+              @extend %listStatus;
             }
             .list-cancel {
-              border:0;
-              font-size: 21px;
-              background-color: transparent;
+              @extend %listStatus;
             }
           }
         }
