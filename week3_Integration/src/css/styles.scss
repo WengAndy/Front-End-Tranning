@@ -33,16 +33,6 @@ $page-border-Color: #D7D7D7;
   border: 1px solid $page-border-Color;
 }
 
-%thTable {
-  color: $whiteText;
-  background: $menuBackGround;
-  padding: 1em;
-  height: 20px;
-  span {
-    color: $menuBackGround;
-  }     
-}
-
 %listStatus {
   border:0;
   font-size: 21px;
@@ -182,6 +172,10 @@ $page-border-Color: #D7D7D7;
         display: table;
         width: 100%;
 
+        .gate {
+          margin-top: 10px;
+        }
+
         .thead {
           display: table-header-group;
         }
@@ -204,28 +198,19 @@ $page-border-Color: #D7D7D7;
 
         .th {
           display: table-cell;
-          background: $mainBackGround;
-        }
-      
-        .th-left {
-            border-radius: 8px 0 0 8px;
-            margin-bottom: 10px;
-            color: $whiteText;
-            background: $menuBackGround;
-            padding: 1em;
-            height: 20px;
-        }
-      
-        .th-right {
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 10px;
-            @extend %thTable;
+          color: $whiteText;
+          background: $menuBackGround;
+          padding: 1em;
         }
 
-        .th-mid {
-            @extend %thTable;
+        .th-left {
+          border-radius: 8px 0 0 8px;
         }
-       
+
+        .th-right {
+          border-radius: 0 8px 8px 0;
+        }
+      
         .td {
           display: table-cell;
           padding: 1em;
