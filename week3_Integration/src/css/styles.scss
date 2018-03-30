@@ -10,6 +10,28 @@ $menuBackGround: #343434;
 $mainBackGround: #e8e8e8;
 $whiteText: #FFF;
 $darkText: #333;
+$online: #36b974;
+$offline: #727171;
+$page-border-Color: #D7D7D7;
+
+
+@mixin status($Color) {
+  color: $whiteText;
+  background-color: $Color;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+@mixin list-border-status($Color) {
+  border-left: $Color 5px solid;
+}
+
+%editInput {
+  padding: 5px;          
+  border-radius: 5px;
+  border: 1px solid $page-border-Color;
+}
 
 
 #container {
@@ -38,15 +60,16 @@ $darkText: #333;
       background: $secondaryRed;
       padding-left: 2em;
       border-bottom: 1px solid $menuBackGround;
-      .select {
-        position: absolute;
-        border-top: 13px solid hsla(0, 0, 0, 0);
-        border-bottom: 13px solid hsla(0, 0, 0, 0);
-        border-right: 15px solid $whiteText;
-        height: 0;
-        margin: -35px 0 0 203px;
-      }
+      display: block;
     }   
+    .select {
+      position: absolute;
+      border-top: 13px solid hsla(0, 0, 0, 0);
+      border-bottom: 13px solid hsla(0, 0, 0, 0);
+      border-right: 15px solid $whiteText;
+      height: 0;
+      margin: -35px 0 0 203px;
+    }
 
     .hover-lv1{
       background: $primaryGray;
@@ -71,7 +94,7 @@ $darkText: #333;
       color: $darkText;
       background: $whiteText;
       min-height: 60px;
-      border-bottom: 1px solid #D7D7D7;
+      border-bottom: 1px solid $page-border-Color;
       padding: 0 1em;
 
       .userphoto {
@@ -101,6 +124,7 @@ $darkText: #333;
 
       .functions {
         display: flex;
+        align-items: center;
         justify-content: space-between;
         color: $secondaryGray;
         margin-bottom: 20px;
@@ -109,13 +133,13 @@ $darkText: #333;
           width: 300px;
           padding:5px 15px;
           border-radius: 5px 0 0 5px;
-          border: 1px solid #D7D7D7;
+          border: 1px solid $page-border-Color;
         }
         .search-btn {
           padding:5px 15px;
           border-radius: 0 5px 5px 0;
-          border: 1px solid #D7D7D7;
-          background: #fff;
+          border: 1px solid $page-border-Color;
+          background: $whiteText;
         }
         .searchmore {
           display: inline;
@@ -169,57 +193,72 @@ $darkText: #333;
         .td {
           display: table-cell;
           padding: 1em;
-          border-bottom: #D7D7D7 1px solid;
+          border-bottom: $page-border-Color 1px solid;
           line-height: 26px;
+
+          .detail-icon{
+            display: flex;
+
+            .list-edit {
+              border:0;
+              font-size: 21px;
+              background-color: transparent;
+            }
+            .list-del {
+              border:0;
+              font-size: 21px;
+              margin-left: 20%; 
+              background-color: transparent;
+            }
+          }
+
+          .detail-edit-icon {
+            display: flex;
+
+            .list-check {
+              border:0;
+              font-size: 21px;
+              background-color: transparent;
+            }
+            .list-cancel {
+              border:0;
+              font-size: 21px;
+              background-color: transparent;
+            }
+          }
         }
 
         .error {
-          border-left: #ff6b6b 5px solid;
+          @include list-border-status($primaryRed)
         }
         
         .online {
-          border-left: #36b974 5px solid;
+          @include list-border-status($online)
         }
         
         .offline {
-          border-left: #727171 5px solid;
+          @include list-border-status($offline)
         }
         
         .status-error {
-          color: $whiteText;
-          background-color: #ff6b6b;
-          border-radius: 5px;
-          padding: 5px;
-          text-align: center;
+          @include status($primaryRed)
         }
 
         .status-online {
-          color: $whiteText;
-          background-color: #36b974;
-          border-radius: 5px;
-          padding: 5px;
-          text-align: center;
+          @include status($online)
         }
 
         .status-offline {
-          color: $whiteText;
-          background-color: #727171;
-          border-radius: 5px;
-          padding: 5px;
-          text-align: center;
+          @include status($offline)
         }
 
         .input-address {
           width: 90%;
-          padding: 5px;          
-          border-radius: 5px;
-          border: 1px solid #D7D7D7;
+          @extend %editInput;
         }
 
         .input-region {
-          padding: 5px;
-          border-radius: 5px;
-          border: 1px solid #D7D7D7;
+          @extend %editInput;
         }
       }
 
@@ -240,12 +279,12 @@ $darkText: #333;
               height: 30px;
               line-height: 30px;
               font-size: 10pt;
-              color: #000;
+              color: $menuBackGround;
               background: none;
-              border: 1px solid #D7D7D7;
+              border: 1px solid $page-border-Color;
               &:hover {
-                color: #fff;
-                background: #343434;
+                color: $whiteText;
+                background: $menuBackGround;
               }
             }
           }
