@@ -10,44 +10,25 @@
     <div id="container">
         <nav id="menu">
             <h1 class="logo">IVM LOGO</h1>
-            <div class="list">
-                <i class="fas fa-calendar-check"></i> 
-                <span>Dealer Management</span>
-            </div>
-            <div class="list">
-                <i class="far fa-user"></i>  
-                <span>User Management</span>
-            </div>
-            <div class="active-lv1">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span>Machine Management</span>
-                <div class="active-lv2">
-                        Model List
-                        <div class="select"></div>
+        </nav>  
+        
+        <!-- 參考 css Navigation Bar  -->
+        <template id="template-menu">
+                <div>
+                    <div class="list">
+                        <div class="menuTitle">
+                            <i class="fa"></i>
+                            <span class="menuName"></span>
+                        </div>
+                        <ul class="subName"></ul>
+                    </div>
+                     <div class="subMenuItem">
+                          <li>
+                              <a href="#"></a>
+                          </li>
+                    </div>
                 </div>
-                <div class="active-lv2">Model List</div>
-                <div class="active-lv2">Model List</div>
-            </div>
-            <div class="list">
-                <i class="far fa-file-alt"></i>
-                <span>Merchandise Management</span>
-            </div>  
-            <div class="list">
-                <i class="fas fa-comments"></i> 
-                <span>Advertising Management</span>
-            </div>
-            <div class="hover-lv1">
-                <i class="fas fa-chart-pie"></i> 
-                <span>Market Analysis</span>
-                <div class="hover-lv2">Model List</div>
-                <div class="hover-lv2">Model List</div> 
-            </div>                            
-            <div class="list">
-                <i class="fas fa-sliders-h"></i> 
-                <span>System Setting</span>
-            </div> 
-        </nav>
-
+            </template>
         <div id="main">
             <div class="header">
                 <div class="link">  
