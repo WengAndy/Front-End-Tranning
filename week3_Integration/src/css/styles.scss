@@ -48,13 +48,14 @@ $disable: #999;
       color: $whiteText;
       background: $menuBackGround;
       line-height: 2.8;
+
       .logo {
           text-align: center;
           font-size: 13pt;
           font-weight: bold;
           text-align: center;
           a {
-              color: #f3f3f3;
+              color: $whiteText;
           }
       }
 
@@ -63,9 +64,9 @@ $disable: #999;
           line-height: 60px;
       }
       .list {
-          color: #f3f3f3;
+          color: $whiteText;
           font-size: 15px;
-          background: #343434;
+          background: $menuBackGround;
           &:hover {
               background: $hover-lv2-color;
               a {
@@ -75,7 +76,7 @@ $disable: #999;
                   background: $hover-color;
               }
               .subName {
-                  a {
+                  .subNameText {
                       display: block;
                   }
               }
@@ -88,9 +89,10 @@ $disable: #999;
           }
           .menuTitle {
               padding-left: 18px;
+              height: 15%;
           }
           .subName {
-              a {
+              span {
                   display: none;
                   position: relative;
                   padding: 0 0 0 58px;
@@ -101,7 +103,7 @@ $disable: #999;
                           border-top: 13px solid hsla(0, 0, 0, 0);
                           border-bottom: 13px solid hsla(0, 0, 0, 0);
                           border-right: 15px solid $whiteText;
-                          margin: 18px 0 0 104px;
+                          margin: 10px 0 0 104px;
                           content: '';
                       }
                   }
@@ -109,7 +111,7 @@ $disable: #999;
           }
           &.active {
               background: $activity-color;
-              a {
+              .subNameText {
                   display: block;
                   color: $whiteText;
               }

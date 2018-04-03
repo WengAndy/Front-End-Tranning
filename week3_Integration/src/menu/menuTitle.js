@@ -10,9 +10,9 @@ export default class MenuCard {
     menu.subMenu.forEach((submenu) => {
       const $mainTemplateSubItem = $($('#template-menu').html()).find('.subMenuItem');
       const $subTitle = $mainTemplateSubItem.find('li');
-      const $subItem = $mainTemplateSubItem.find('a').text(`${submenu.subMenuName}`);
+      const $subItem = $mainTemplateSubItem.find('span').text(`${submenu.subMenuName}`);
       $subItem.click(() => {
-        $('a').removeClass('focus');
+        $('span').removeClass('focus');
         $subItem.addClass('focus');
       });
       $groupLink.append($subTitle);
@@ -26,7 +26,7 @@ export default class MenuCard {
     });
 
     $menuTitle.click(() => {
-      $('a').removeClass('focus');
+      $('span').removeClass('focus');
     });
   }
 
