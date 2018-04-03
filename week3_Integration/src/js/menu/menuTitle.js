@@ -1,4 +1,4 @@
-export default class MenuCard {
+export default class MenuTitle {
   constructor(menu) {
     const $mainTemplate = $($('#template-menu').html());
     const $menuList = $mainTemplate.find('.list');
@@ -18,7 +18,7 @@ export default class MenuCard {
       $groupLink.append($subTitle);
     });
 
-    this.MenuCard = $menuList;
+    this.MenuTitle = $menuList;
 
     $menuList.click(() => {
       $('.list').removeClass('active');
@@ -31,6 +31,6 @@ export default class MenuCard {
   }
 
   result() {
-    return this.MenuCard;
+    return this.MenuTitle;
   }
 }

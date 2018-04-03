@@ -26,7 +26,7 @@ module.exports = {
   ],
   module: {
     rules: [
-      jsRules(false),
+      jsRules(true),
       cssRules,
       scssRules,
       imageRules,
@@ -35,6 +35,9 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    // hot: true
+    overlay: {
+      warnings: false,
+      errors: true
+    }
   }
 };

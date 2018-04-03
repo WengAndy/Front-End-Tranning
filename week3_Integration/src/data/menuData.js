@@ -108,7 +108,7 @@ const menuData = [
       },
       {
         subId: 17,
-        subMenuName: 'Model List', 
+        subMenuName: 'Model List',
       },
       {
         subId: 18,
