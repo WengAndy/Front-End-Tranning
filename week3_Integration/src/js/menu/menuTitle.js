@@ -3,7 +3,7 @@ export default class MenuTitle {
     const $mainTemplate = $($('#template-menu').html());
     const $menuList = $mainTemplate.find('.list');
     const $menuTitle = $menuList.find('.menuTitle');
-    const $groupLink = $mainTemplate.find('.subName');
+    const $subName = $mainTemplate.find('.subName');
     $menuTitle.find('i').addClass(`${menu.icon}`);
     $menuTitle.find('.menuName').text(`${menu.menuName}`);
 
@@ -12,10 +12,10 @@ export default class MenuTitle {
       const $subTitle = $mainTemplateSubItem.find('li');
       const $subItem = $mainTemplateSubItem.find('span').text(`${submenu.subMenuName}`);
       $subItem.click(() => {
-        $('span').removeClass('focus');
+        $('.subNameText').removeClass('focus');
         $subItem.addClass('focus');
       });
-      $groupLink.append($subTitle);
+      $subName.append($subTitle);
     });
 
     this.MenuTitle = $menuList;
@@ -26,7 +26,7 @@ export default class MenuTitle {
     });
 
     $menuTitle.click(() => {
-      $('span').removeClass('focus');
+      $('.menuName').removeClass('focus');
     });
   }
 
