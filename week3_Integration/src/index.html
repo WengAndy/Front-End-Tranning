@@ -5,9 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
-	<title>IVM</title>
+	<title>IVMa</title>
 </head>
-
 <body>
 	<div id="container">
 		<nav id="menu">
@@ -75,16 +74,19 @@
 						</div>
 					</div>
 					<div class="gate"></div>
-					<div class="tbody">
+					<div class="tbody"></div>
+				</div>
+				<template id="template-list">
+					<div>
 						<div class="tr">
-							<div class="td error">001</div>
-							<div class="td">AK1</div>
-							<div class="td">
-								<div class="status-error">Error</div>
+							<div class="td-device-id error"></div>
+							<div class="td-model"></div>
+							<div class="td-status">
+								<div class="status"></div>
 							</div>
-							<div class="td">4°C</div>
-							<div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
-							<div class="td">大安區</div>
+							<div class="td-machine-temp"></div>
+							<div class="td-address"></div>
+							<div class="td-region"></div>
 							<div class="td">
 								<div class="detail-icon">
 									<i class="far fa-calendar-alt"></i>
@@ -102,93 +104,9 @@
 								</div>
 							</div>
 							<div class="td"></div>
-						</div>
-						<div class="tr">
-							<div class="td online ">002</div>
-							<div class="td">AK1</div>
-							<div class="td">
-								<div class="status-online">Online</div>
-							</div>
-							<div class="td">0°C</div>
-							<div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
-							<div class="td">大安區</div>
-							<div class="td">
-								<div class="detail-icon">
-									<i class="far fa-calendar-alt"></i>
-								</div>
-							</div>
-							<div class="td"></div>
-							<div class="td">
-								<div class="detail-icon">
-									<button class="list-edit">
-										<i class="fas fa-pencil-alt"></i>
-									</button>
-									<button class="list-del">
-										<i class="far fa-trash-alt"></i>
-									</button>
-								</div>
-							</div>
-							<div class="td"></div>
-						</div>
-						<div class="tr">
-							<div class="td offline ">001</div>
-							<div class="td">AK1</div>
-							<div class="td">
-								<div class="status-offline">Offline</div>
-							</div>
-							<div class="td">4.3°C</div>
-							<div class="td">台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)</div>
-							<div class="td">大安區</div>
-							<div class="td">
-								<div class="detail-icon">
-									<i class="far fa-calendar-alt"></i>
-								</div>
-							</div>
-							<div class="td"></div>
-							<div class="td">
-								<div class="detail-icon">
-									<button class="list-edit">
-										<i class="fas fa-pencil-alt"></i>
-									</button>
-									<button class="list-del">
-										<i class="far fa-trash-alt"></i>
-									</button>
-								</div>
-							</div>
-							<div class="td"></div>
-						</div>
-						<div class="tr">
-							<div class="td online ">004</div>
-							<div class="td">AK1</div>
-							<div class="td">
-								<div class="status-online">Online</div>
-							</div>
-							<div class="td">1.3°C</div>
-							<div class="td">
-								<input class="input-address" type="text" name="" placeholder="台北市大安區大安里新生南路二段新生段1號21樓(大安森林公園─西側)" />
-							</div>
-							<div class="td">
-								<input class="input-region" type="text" name="" placeholder="大安" />
-							</div>
-							<div class="td"></div>
-							<div class="td"></div>
-							<div class="td">
-								<div class="detail-edit-icon">
-									<button class="list-cancel">
-										<i class="fas fa-times"></i>
-									</button>
-								</div>
-							</div>
-							<div class="td">
-								<div class="detail-edit-icon">
-									<button class="list-check">
-										<i class="fas fa-check"></i>
-									</button>
-								</div>
-							</div>
 						</div>
 					</div>
-				</div>
+				</template>
 				<div class="page">
 					<div class="pageTotal">4 Models</div>
 					<div class="pageNumber">

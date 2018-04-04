@@ -236,7 +236,16 @@ $disable: #999;
           border-radius: 0 8px 8px 0;
         }
       
-        .td {
+        .td,
+        .td-device-id,
+        .td-model,
+        .td-status,
+        .td-machine-temp,
+        .td-address,
+        .td-region,
+        .td-details,
+        .td-setup,
+         {
           display: table-cell;
           padding: 1em;
           border-bottom: $page-border-Color 1px solid;

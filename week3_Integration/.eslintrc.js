@@ -18,6 +18,8 @@ module.exports = {
         "no-prototype-builtins": [0],
         "camelcase": [0],
         "global-require": [0],
-        "no-undef": [0]
+        "no-undef": [0],
+        "no-useless-return": [0],
+        "no-alert": [0]
     }
 };
