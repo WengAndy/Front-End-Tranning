@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
-	<title>IVMa</title>
+	<title>IVM</title>
 </head>
 <body>
 	<div id="container">
@@ -53,10 +53,10 @@
 							Advanced Search
 						</div>
 					</div>
-					<div class="addmore">
+					<button class="addmore">
 						<i class="fas fa-plus-circle"></i>
 						Add Machine
-					</div>
+					</button>
 				</div>
 				<div id="table" class="css-table">
 					<div class="thead">
@@ -85,28 +85,60 @@
 								<div class="status"></div>
 							</div>
 							<div class="td-machine-temp"></div>
-							<div class="td-address"></div>
-							<div class="td-region"></div>
+							<div class="td-address">
+								<div class="reviewMode td-address-content"></div>
+								<input class="editMode input-address" type="text" name="address" />
+							</div>
+							<div class="td-region">
+								<div class="reviewMode td-region-content"></div>
+								<input class="editMode input-region" type="text" name="region" />
+							</div>
 							<div class="td">
-								<div class="detail-icon">
+								<button class="list-detail" data-toggle="modal" data-target="#ModalDialog">
 									<i class="far fa-calendar-alt"></i>
-								</div>
+								</button>
 							</div>
 							<div class="td"></div>
 							<div class="td">
-								<div class="detail-icon">
-									<button class="list-edit">
+								<div class="edit-icon">
+									<button class="reviewMode list-edit">
 										<i class="fas fa-pencil-alt"></i>
 									</button>
-									<button class="list-del">
+									<button class="reviewMode list-del">
 										<i class="far fa-trash-alt"></i>
 									</button>
+									<button class="editMode list-cancel">
+										<i class="fas fa-times"></i>
+									</button>
+									<button class="editMode list-check">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+
 								</div>
 							</div>
 							<div class="td"></div>
 						</div>
 					</div>
 				</template>
+				<div class="modal fade modal-model" id="ModalDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+				 aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary btn-save">Save</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="page">
 					<div class="pageTotal">4 Models</div>
 					<div class="pageNumber">

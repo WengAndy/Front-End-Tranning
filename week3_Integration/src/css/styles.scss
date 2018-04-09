@@ -1,4 +1,5 @@
 @import url("../css/reset.css");
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
 /* colors */
 
@@ -37,6 +38,7 @@ $disable: #999;
 %listStatus {
   border:0;
   font-size: 21px;
+  display: none;
   background-color: transparent;
 }
 
@@ -189,6 +191,11 @@ $disable: #999;
           display: inline;
           margin-left: 1em;
         }
+
+        .addmore {
+          border:0;
+          background-color: transparent;
+        }
       }
   
       .css-table {
@@ -248,24 +255,34 @@ $disable: #999;
          {
           display: table-cell;
           padding: 1em;
-          border-bottom: $page-border-Color 1px solid;
+          // border-bottom: $page-border-Color 1px solid;
           line-height: 26px;
           height: 100px;
           text-align: center;
           vertical-align: middle;
 
-          .detail-icon{
+          .list-detail {
             display: flex;
+            border:0;
+            font-size: 21px;
+            background-color: transparent;
+          }
 
+          .edit-icon {
+            display: flex;
+            border:0;
+            background-color: transparent;
             .list-edit {
               border:0;
               font-size: 21px;
+              display: block;
               background-color: transparent;
             }
             .list-del {
               margin-left: 20%; 
               border:0;
               font-size: 21px;
+              display: block;
               background-color: transparent;
                i {
                 color: $disable;
@@ -273,16 +290,35 @@ $disable: #999;
             }
           }
 
-          .detail-edit-icon {
-            display: flex;
-
-            .list-check {
-              @extend %listStatus;
-            }
-            .list-cancel {
-              @extend %listStatus;
-            }
+          // .detail-edit-icon {
+          //   display: flex;
+          //   border:0;
+          //   background-color: transparent;
+          .list-check {
+            @extend %listStatus;
           }
+          .list-cancel {
+            @extend %listStatus;
+            padding-right: 20px;
+          }
+
+          .input-address {
+            width: 90%;
+            display: none;
+            @extend %editInput;
+          }
+  
+          .input-region {
+            width: 90%;
+            display: none;
+            @extend %editInput;
+          }
+          
+          // .td-region-edit {
+          //   display: none;
+          // }
+
+          // }
         }
 
         .error {
@@ -307,15 +343,6 @@ $disable: #999;
 
         .status-offline {
           @include status($offline)
-        }
-
-        .input-address {
-          width: 90%;
-          @extend %editInput;
-        }
-
-        .input-region {
-          @extend %editInput;
         }
       }
 
