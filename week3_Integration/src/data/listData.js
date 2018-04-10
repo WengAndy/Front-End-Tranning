@@ -1,7 +1,6 @@
 const listData = [
   {
-    id: 1,
-    device_id: '123',
+    device_id: 1,
     model: 'AK1',
     status: 'ERROR',
     machine_temp: '4°C',
@@ -9,8 +8,7 @@ const listData = [
     region: '大安區',
   },
   {
-    id: 2,
-    device_id: '002',
+    device_id: 2,
     model: 'AK2',
     status: 'ONLINE',
     machine_temp: '4°C',
@@ -18,8 +16,7 @@ const listData = [
     region: '大安區',
   },
   {
-    id: 3,
-    device_id: '003',
+    device_id: 3,
     model: 'AK3',
     status: 'OFFLINE',
     machine_temp: '4°C',

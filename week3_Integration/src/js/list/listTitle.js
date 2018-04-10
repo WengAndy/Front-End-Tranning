@@ -1,4 +1,4 @@
-import apiListData from '../../data/listData';
+import { initData, getIndex, removeData } from '../../js/apihandle/apihandle';
 
 export default class listTitle {
   constructor(list) {
@@ -76,8 +76,8 @@ export default class listTitle {
   }
 
   check() {
-    const { editMode, reviewMode, $address, $region } = this;
-    const index = apiListData.findIndex(line => line.id === this.list.id);
+    const { list, editMode, reviewMode, $address, $region } = this;
+    const index = getIndex(list);
     editMode.hide();
     reviewMode.show();
     $('.list-del').attr('disabled', false);
@@ -95,8 +95,9 @@ export default class listTitle {
     $($('.input-address')[index]).val(this.$addressInputVal);
     $($('.input-region')[index]).val(this.$regionInputVal);
     this.initStatus = false;
-    apiListData[index].address = this.$addressInputVal;
-    apiListData[index].region = this.$regionInputVal;
+    const init = initData();
+    init[index].address = this.$addressInputVal;
+    init[index].region = this.$regionInputVal;
   }
 
   edit() {
@@ -105,7 +106,7 @@ export default class listTitle {
     $('.list-edit').attr('disabled', true);
     this.editMode.show();
     this.reviewMode.hide();
-    const index = apiListData.findIndex(line => line.id === list.id);
+    const index = getIndex(list);
     if (this.initStatus === true) {
       $($('.input-address')[index]).val(list.address);
       $($('.input-region')[index]).val(list.region);
@@ -138,7 +139,7 @@ export default class listTitle {
     const { list } = this;
     const confirm = window.confirm('Are you sure you want to delete this data?');
     if (!confirm) return;
-    apiListData.splice(apiListData.findIndex(alldata => alldata.id === list.id), 1);
+    removeData(list);
     this.$mainTemplate.remove();
   }
   // 顯示明細

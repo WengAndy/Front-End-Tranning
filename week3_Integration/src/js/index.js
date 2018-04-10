@@ -11,16 +11,20 @@ if (ENV !== 'production') {
   require('../index.html');
 }
 
+export default function commonList(data) {
+  data.forEach((list) => {
+    const $ListTitle = new ListTitle(list);
+    $('#main > .content > #table > .tbody').append($ListTitle.result());
+  });
+}
+
 $(() => {
   menuData.forEach((menu) => {
     const $MenTitle = new MenuTitle(menu);
     $('#menu').append($MenTitle.result());
   });
 
-  listData.forEach((list) => {
-    const $ListTitle = new ListTitle(list);
-    $('#main > .content > #table > .tbody').append($ListTitle.result());
-  });
+  commonList(listData);
 
   const $headerTitle = new HeaderTitle();
   $('#main > .content > .functions').append($headerTitle.result());
