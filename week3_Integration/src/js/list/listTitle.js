@@ -15,10 +15,10 @@ export default class listTitle {
     const $status = $mainTemplate.find('.td-status').find('.status');
     const $addressInputVal = '';
     const $regionInputVal = '';
-    const statusss = 0;
+    const initStatus = true;
     this.$addressInputVal = $addressInputVal;
     this.$regionInputVal = $regionInputVal;
-    this.statusss = statusss;
+    this.initStatus = initStatus;
     this.editMode = editMode;
     this.reviewMode = reviewMode;
     switch (list.status) {
@@ -76,28 +76,25 @@ export default class listTitle {
   }
 
   check() {
-    // this.check();
+    const { editMode, reviewMode, $address, $region } = this;
     const index = apiListData.findIndex(line => line.id === this.list.id);
-    this.editMode.hide();
-    this.reviewMode.show();
+    editMode.hide();
+    reviewMode.show();
     $('.list-del').attr('disabled', false);
     $('.list-edit').attr('disabled', false);
     this.$addressInputVal = $($('.input-address')[index]).val();
     this.$regionInputVal = $($('.input-region')[index]).val();
 
-    if (this.$addressInputVal === '') {
-      this.$address.text(`${this.list.address}`);
+    if (this.$addressInputVal === '' || this.$regionInputVal === '') {
+      $address.text(`${this.list.address}`);
+      $region.text(`${this.list.region}`);
     } else {
-      this.$address.text(this.$addressInputVal);
-    }
-    if (this.$regionInputVal === '') {
-      this.$region.text(`${this.list.region}`);
-    } else {
-      this.$region.text(this.$regionInputVal);
+      $address.text(this.$addressInputVal);
+      $region.text(this.$regionInputVal);
     }
     $($('.input-address')[index]).val(this.$addressInputVal);
     $($('.input-region')[index]).val(this.$regionInputVal);
-    this.statusss = 2;
+    this.initStatus = false;
     apiListData[index].address = this.$addressInputVal;
     apiListData[index].region = this.$regionInputVal;
   }
@@ -109,18 +106,15 @@ export default class listTitle {
     this.editMode.show();
     this.reviewMode.hide();
     const index = apiListData.findIndex(line => line.id === list.id);
-    if (this.statusss === 0) {
+    if (this.initStatus === true) {
       $($('.input-address')[index]).val(list.address);
       $($('.input-region')[index]).val(list.region);
-    } else if (this.statusss === 1 || this.statusss === 2) {
-      if ($addressInputVal === '') {
+    } else if (this.initStatus === false) {
+      if ($addressInputVal === '' || $regionInputVal === '') {
         $($('.input-address')[index]).val(list.address);
-      } else {
-        $($('.input-address')[index]).val($addressInputVal);
-      }
-      if ($regionInputVal === '') {
         $($('.input-region')[index]).val(list.region);
       } else {
+        $($('.input-address')[index]).val($addressInputVal);
         $($('.input-region')[index]).val($regionInputVal);
       }
     }
@@ -132,13 +126,11 @@ export default class listTitle {
     this.reviewMode.show();
     $('.list-del').attr('disabled', false);
     $('.list-edit').attr('disabled', false);
-    if ($addressInputVal === '') {
+    if ($addressInputVal === '' || $regionInputVal === '') {
       $address.text(`${list.address}`);
-    }
-    if ($regionInputVal === '') {
       $region.text(`${list.region}`);
     }
-    this.statusss = 1;
+    this.initStatus = false;
   }
 
 
@@ -152,12 +144,12 @@ export default class listTitle {
   // 顯示明細
   previewDtail() {
     const { list } = this;
-    $('.modal-title').text('Details');
+    $('.modal-title').text('詳細清單');
     $('.btn-save').hide();
     const detailRow = Object.keys(list).map(key => (
-      `<div class="detailRow">
-        <p class="detailTitle">${key.toUpperCase()}：</p>
-        <p class="detailText">${list[key]}</p>
+      `<div class="detailList">
+        <p class="detailName">${key}：</p>
+        <p class="detailContent">${list[key]}</p>
       </div>`
     ));
     $('.modal-body').html(detailRow.join(''));

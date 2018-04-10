@@ -163,6 +163,24 @@ $disable: #999;
       min-height: 95%;
       padding: 0 1em;
 
+      .detailList {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        &:nth-last-child(1) {
+          border-bottom: 0px solid #eee;
+        }
+        .detailName {
+          flex-basis: 30%;
+          text-align: center;
+        }
+        .detailContent {
+          text-align: center;
+          flex-basis: 70%;
+          margin: 0;
+        }
+      }
+
       .title {
         font-size: 36px;
         line-height: 2.5;
@@ -255,7 +273,6 @@ $disable: #999;
          {
           display: table-cell;
           padding: 1em;
-          // border-bottom: $page-border-Color 1px solid;
           line-height: 26px;
           height: 100px;
           text-align: center;
@@ -289,11 +306,6 @@ $disable: #999;
               }
             }
           }
-
-          // .detail-edit-icon {
-          //   display: flex;
-          //   border:0;
-          //   background-color: transparent;
           .list-check {
             @extend %listStatus;
           }
@@ -313,12 +325,6 @@ $disable: #999;
             display: none;
             @extend %editInput;
           }
-          
-          // .td-region-edit {
-          //   display: none;
-          // }
-
-          // }
         }
 
         .error {
