@@ -193,6 +193,10 @@ $disable: #999;
         color: $hover-lv2-color;
         margin-bottom: 20px;
 
+        .initDiv {
+          display: contents;
+        }
+
         .search-box {
           width: 300px;
           padding:5px 15px;

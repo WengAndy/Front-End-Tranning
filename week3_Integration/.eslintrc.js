@@ -20,6 +20,7 @@ module.exports = {
         "global-require": [0],
         "no-undef": [0],
         "no-useless-return": [0],
-        "no-alert": [0]
+        "no-alert": [0],
+        "no-debugger": [0]
     }
 };

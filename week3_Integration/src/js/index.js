@@ -5,6 +5,7 @@ import menuData from '../data/menuData';
 import listData from '../data/listData';
 import MenuTitle from '../js/menu/menuTitle';
 import ListTitle from '../js/list/listTitle';
+import HeaderTitle from '../js/header/headerTitle';
 
 if (ENV !== 'production') {
   require('../index.html');
@@ -20,4 +21,7 @@ $(() => {
     const $ListTitle = new ListTitle(list);
     $('#main > .content > #table > .tbody').append($ListTitle.result());
   });
+
+  const $headerTitle = new HeaderTitle();
+  $('#main > .content > .functions').append($headerTitle.result());
 });
