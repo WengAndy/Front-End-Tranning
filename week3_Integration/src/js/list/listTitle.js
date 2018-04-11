@@ -21,27 +21,13 @@ export default class listTitle {
     this.initStatus = initStatus;
     this.editMode = editMode;
     this.reviewMode = reviewMode;
-    switch (list.status) {
-      case 'ONLINE':
-        $deviceId.addClass('online');
-        $status.addClass('status-online').text(status);
-        break;
-      case 'OFFLINE':
-        $deviceId.addClass('offline');
-        $status.addClass('status-offline').text(status);
-        break;
-      case 'ERROR':
-        $deviceId.addClass('error');
-        $status.addClass('status-error').text(status);
-        break;
-      default:
-        break;
-    }
     const $machineTemp = $mainTemplate.find('.td-machine-temp');
     const $address = $mainTemplate.find('.td-address-content');
     const $region = $mainTemplate.find('.td-region-content');
     this.$address = $address;
     this.$region = $region;
+    $deviceId.addClass(`${list.status}`);
+    $status.addClass(`status-${list.status}`).text(status);
     $deviceId.text(device_id);
     $model.text(model);
     $machineTemp.text(machine_temp);

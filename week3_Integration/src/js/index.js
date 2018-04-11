@@ -12,6 +12,7 @@ if (ENV !== 'production') {
 }
 
 export default function commonList(data) {
+  $('#main > .content > #table > .tbody > .tr').remove();
   data.forEach((list) => {
     const $ListTitle = new ListTitle(list);
     $('#main > .content > #table > .tbody').append($ListTitle.result());

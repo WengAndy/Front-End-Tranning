@@ -39,7 +39,7 @@ export default class headerTitle {
     const machine = {
       device_id: $device_id || parseInt(Math.floor(Math.random() * 100), 10),
       model: $model,
-      status: $status.toUpperCase() || 'OFFLINE',
+      status: $status,
       machine_temp: $machine_temp,
       address: $address,
       region: $region,
@@ -49,7 +49,6 @@ export default class headerTitle {
       alert(validata.join(''));
     } else {
       init.push(machine);
-      $('#main > .content > #table > .tbody > .tr').remove();
       commonList(init);
       $('#ModalDialog').modal('hide');
     }
