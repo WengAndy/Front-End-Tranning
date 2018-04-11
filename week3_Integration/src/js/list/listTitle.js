@@ -18,7 +18,6 @@ export default class listTitle {
     const $machineTemp = $mainTemplate.find('.td-machine-temp');
     const $address = $mainTemplate.find('.td-address-content');
     const $region = $mainTemplate.find('.td-region-content');
-    const initStatus = true;
     $deviceId.addClass(`${list.status}`);
     $status.addClass(`status-${list.status}`).text(status);
     $deviceId.text(device_id);
@@ -28,7 +27,6 @@ export default class listTitle {
     $region.text(region);
     this.addressInputVal = '';
     this.regionInputVal = '';
-    this.initStatus = initStatus;
     this.$editMode = $editMode;
     this.$addressInput = $addressInput;
     this.$regionInput = $regionInput;
@@ -69,7 +67,6 @@ export default class listTitle {
       $region.text(this.regionInputVal);
       this.$addressInput.val(this.addressInputVal);
       this.$regionInput.val(this.regionInputVal);
-      this.initStatus = false;
       const init = apiHandle.initData();
       init[index].address = this.addressInputVal;
       init[index].region = this.regionInputVal;
@@ -79,17 +76,12 @@ export default class listTitle {
   edit() {
     const { list, $addressInput, $regionInput, addressInputVal, regionInputVal } = this;
     this.changeMode('edit');
-    if (this.initStatus === true) {
+    if (addressInputVal === '' || regionInputVal === '') {
       $addressInput.val(list.address);
       $regionInput.val(list.region);
-    } else if (this.initStatus === false) {
-      if (addressInputVal === '' || regionInputVal === '') {
-        $addressInput.val(list.address);
-        $regionInput.val(list.region);
-      } else {
-        $addressInput.val(addressInputVal);
-        $regionInput.val(regionInputVal);
-      }
+    } else {
+      $addressInput.val(addressInputVal);
+      $regionInput.val(regionInputVal);
     }
   }
 
@@ -100,7 +92,6 @@ export default class listTitle {
       $address.text(`${list.address}`);
       $region.text(`${list.region}`);
     }
-    this.initStatus = false;
   }
 
   delList() {
