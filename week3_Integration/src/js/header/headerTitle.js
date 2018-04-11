@@ -41,7 +41,7 @@ export default class headerTitle {
     const machine = {
       device_id: $device_id || parseInt(Math.floor(Math.random() * 100), 10),
       model: $model,
-      status: $status,
+      status: $status || 'offline',
       machine_temp: $machine_temp,
       address: $address,
       region: $region,
