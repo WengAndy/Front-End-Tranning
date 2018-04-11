@@ -61,7 +61,8 @@ export default class listTitle {
     this.addressInputVal = $addressInput.val();
     this.regionInputVal = $regionInput.val();
     if (this.addressInputVal === '' || this.regionInputVal === '') {
-      alert('資料不可為空');
+      const result = this.validation(this.addressInputVal, this.regionInputVal);
+      alert(result.join(''));
     } else {
       this.changeMode('review');
       $address.text(this.addressInputVal);
@@ -137,6 +138,18 @@ export default class listTitle {
       $('.list-del').attr('disabled', true);
       $('.list-edit').attr('disabled', true);
     }
+  }
+
+  validation(address, region) {
+    let warningArr = [];
+    this.warningArr = warningArr;
+    if (address === '') {
+      warningArr = [...warningArr, `${'address'}：不可以為空\n`];
+    }
+    if (region === '') {
+      warningArr = [...warningArr, `${'region'}：不可以為空\n`];
+    }
+    return warningArr;
   }
 
   result() {
