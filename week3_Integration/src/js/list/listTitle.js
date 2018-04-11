@@ -65,8 +65,8 @@ export default class listTitle {
       this.changeMode('review');
       $address.text(this.addressInputVal);
       $region.text(this.regionInputVal);
-      this.$addressInput.val(this.addressInputVal);
-      this.$regionInput.val(this.regionInputVal);
+      $addressInput.val(this.addressInputVal);
+      $regionInput.val(this.regionInputVal);
       const init = apiHandle.initData();
       init[index].address = this.addressInputVal;
       init[index].region = this.regionInputVal;
