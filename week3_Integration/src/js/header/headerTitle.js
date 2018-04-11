@@ -6,8 +6,12 @@ export default class headerTitle {
     const $mainTemplate = $($('#template-header-function').html());
     const $btnSave = $('.btn-save');
     const $addBtn = $mainTemplate.find('.addmore');
+    const $searchBtn = $mainTemplate.find('.search-btn');
+    const $searchInput = $mainTemplate.find('.search-box');
     const apihandle = new ApiHandle();
     this.apihandle = apihandle;
+    this.$searchBtn = $searchBtn;
+    this.$searchInput = $searchInput;
     const init = apihandle.initData();
     $addBtn.click(() => {
       $('.modal-title').text('新增機台');
@@ -22,6 +26,12 @@ export default class headerTitle {
 
     $btnSave.click(() => {
       this.save();
+    });
+
+    $searchBtn.click(() => {
+      const searchValue = this.$searchInput.val();
+      const search = this.apihandle.search(init, searchValue);
+      commonList(search);
     });
 
     this.headerTitle = $mainTemplate;

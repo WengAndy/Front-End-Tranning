@@ -21,6 +21,14 @@ export default class apiHandle {
       alldata.device_id === data.device_id), 1);
   }
 
+  search(value, data) {
+    this.data = data;
+    if (typeof data !== 'string') return 'data error';
+    const res = (value.filter(result => result.address.includes(data)));
+    if (res.length === 0) return 'no data';
+    return res;
+  }
+
   result() {
     return this.apiHandle;
   }
