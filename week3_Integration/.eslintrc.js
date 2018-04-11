@@ -21,6 +21,7 @@ module.exports = {
         "no-undef": [0],
         "no-useless-return": [0],
         "no-alert": [0],
-        "no-debugger": [0]
+        "no-debugger": [0],
+        "import/prefer-default-export": [0]
     }
 };

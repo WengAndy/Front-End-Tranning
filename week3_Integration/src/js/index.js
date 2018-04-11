@@ -11,7 +11,7 @@ if (ENV !== 'production') {
   require('../index.html');
 }
 
-export default function commonList(data) {
+export function commonList(data) {
   $('#main > .content > #table > .tbody > .tr').remove();
   data.forEach((list) => {
     const $ListTitle = new ListTitle(list);

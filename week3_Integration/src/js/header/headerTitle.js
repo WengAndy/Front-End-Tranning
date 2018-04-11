@@ -1,12 +1,14 @@
-import { initData, validation } from '../../js/apihandle/apihandle';
-import commonList from '../../js/index';
+import ApiHandle from '../../js/apihandle/apihandle';
+import { commonList } from '../../js/index';
 
 export default class headerTitle {
   constructor() {
     const $mainTemplate = $($('#template-header-function').html());
     const $btnSave = $('.btn-save');
     const $addBtn = $mainTemplate.find('.addmore');
-    const init = initData();
+    const apihandle = new ApiHandle();
+    this.apihandle = apihandle;
+    const init = apihandle.initData();
     $addBtn.click(() => {
       $('.modal-title').text('新增機台');
       const detailRow = Object.keys(init[0]).map(key => (
@@ -27,7 +29,7 @@ export default class headerTitle {
 
   save() {
     let { $modalModel, $device_id, $model, $status, $machine_temp, $address, $region } = this;
-    const init = initData();
+    const init = this.apihandle.initData();
     $modalModel = $('#ModalDialog').find('.modal-content').find('.modal-body');
     $device_id = $modalModel.find('.input_device_id').val();
     $model = $modalModel.find('.input_model').val();
@@ -44,7 +46,7 @@ export default class headerTitle {
       address: $address,
       region: $region,
     };
-    const validata = validation(machine);
+    const validata = this.validation(machine);
     if (validata.length > 0) {
       alert(validata.join(''));
     } else {
@@ -52,6 +54,18 @@ export default class headerTitle {
       commonList(init);
       $('#ModalDialog').modal('hide');
     }
+  }
+
+  validation(data) {
+    let warningArr = [];
+    this.warningArr = warningArr;
+    if (data.address === '') {
+      warningArr = [...warningArr, `${'address'}：不可以為空\n`];
+    }
+    if (data.region === '') {
+      warningArr = [...warningArr, `${'region'}：不可以為空\n`];
+    }
+    return warningArr;
   }
 
   result() {
