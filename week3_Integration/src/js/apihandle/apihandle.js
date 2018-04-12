@@ -21,10 +21,20 @@ export default class apiHandle {
       alldata.device_id === data.device_id), 1);
   }
 
-  search(value, data) {
+  search(value, data, status) {
+    console.log('status', status);
     this.data = data;
-    if (typeof data !== 'string') return 'data error';
-    const res = (value.filter(result => result.address.includes(data)));
+    let res = [];
+    if (status === 'search') {
+      res = (value.filter(result => result.address.includes(data.searchValue)
+      || result.region.includes(data.searchValue)));
+    }
+    if (status === 'advancedSearchValue') {
+      res = ((value.filter(result => result.status.includes(data.status)))
+      || value.filter(result => result.address.includes(data.searchValue)
+      || result.region.includes(data.searchValue)));
+      console.log('res1', res);
+    }
     if (res.length === 0) return 'no data';
     return res;
   }

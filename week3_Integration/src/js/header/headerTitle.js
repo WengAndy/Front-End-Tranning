@@ -6,13 +6,23 @@ export default class headerTitle {
     const $mainTemplate = $($('#template-header-function').html());
     const $btnSave = $('.btn-save');
     const $addBtn = $mainTemplate.find('.addmore');
+    const $searchMore = $mainTemplate.find('.searchmore');
     const $searchBtn = $mainTemplate.find('.search-btn');
     const $searchInput = $mainTemplate.find('.search-box');
+    const $advancedSearchDialog = $mainTemplate.find('.advanced-search-dialog');
+    const $advancedSearchClose = $mainTemplate.find('.btn-advanced-close');
+    const $advancedSearchBtn = $mainTemplate.find('.btn-advanced-search');
+    const $advancedSearchInput = $mainTemplate.find('.advanced-search-Input');
+    const $selectSearch = $mainTemplate.find('.select-search');
     const apihandle = new ApiHandle();
     this.apihandle = apihandle;
     this.$btnSave = $btnSave;
     this.$searchBtn = $searchBtn;
+    this.$searchMore = $searchMore;
     this.$searchInput = $searchInput;
+    this.$advancedSearchDialog = $advancedSearchDialog;
+    this.$advancedSearchInput = $advancedSearchInput;
+    this.$selectSearch = $selectSearch;
     const init = apihandle.initData();
     this.init = init;
     $addBtn.click(() => {
@@ -24,9 +34,19 @@ export default class headerTitle {
     });
 
     $searchBtn.click(() => {
-      const searchValue = this.$searchInput.val();
-      const search = this.apihandle.search(init, searchValue);
-      commonList(search);
+      this.search();
+    });
+
+    $searchMore.click(() => {
+      $advancedSearchDialog.show();
+    });
+
+    $advancedSearchClose.click(() => {
+      $advancedSearchDialog.hide();
+    });
+
+    $advancedSearchBtn.click(() => {
+      this.advancedSearch();
     });
 
     this.headerTitle = $mainTemplate;
@@ -43,6 +63,37 @@ export default class headerTitle {
     ));
     $btnSave.show();
     $('.modal-body').html(detailRow.join(''));
+  }
+
+  search() {
+    const { init, $searchInput, apihandle } = this;
+    const searchValue = $searchInput.val();
+    const parameter = {
+      searchValue,
+      status: '',
+    };
+    const search = apihandle.search(init, parameter, 'search');
+    commonList(search);
+  }
+
+  advancedSearch() {
+    const { init, $selectSearch, $advancedSearchInput, apihandle } = this;
+    const type = {
+      0: 'online',
+      1: 'offline',
+      2: 'error'
+    };
+    const searchValue = $advancedSearchInput.val();
+    let statusType = type[$selectSearch.val()];
+    if (statusType === undefined) {
+      statusType = '';
+    }
+    const parameter = {
+      searchValue,
+      status: statusType,
+    };
+    const search = apihandle.search(init, parameter, 'advancedSearchValue');
+    commonList(search);
   }
 
   save() {

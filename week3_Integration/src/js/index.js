@@ -13,10 +13,14 @@ if (ENV !== 'production') {
 
 export function commonList(data) {
   $('#main > .content > #table > .tbody > .tr').remove();
-  data.forEach((list) => {
-    const $ListTitle = new ListTitle(list);
-    $('#main > .content > #table > .tbody').append($ListTitle.result());
-  });
+  if (data === 'no data') {
+    $('#main > .content > #table > .tbody > .tr').append();
+  } else {
+    data.forEach((list) => {
+      const $ListTitle = new ListTitle(list);
+      $('#main > .content > #table > .tbody').append($ListTitle.result());
+    });
+  }
 }
 
 $(() => {
