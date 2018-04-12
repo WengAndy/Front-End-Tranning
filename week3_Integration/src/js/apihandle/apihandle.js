@@ -22,7 +22,6 @@ export default class apiHandle {
   }
 
   search(value, data, status) {
-    console.log('status', status);
     this.data = data;
     let res = [];
     if (status === 'search') {
@@ -30,10 +29,8 @@ export default class apiHandle {
       || result.region.includes(data.searchValue)));
     }
     if (status === 'advancedSearchValue') {
-      res = ((value.filter(result => result.status.includes(data.status)))
-      || value.filter(result => result.address.includes(data.searchValue)
-      || result.region.includes(data.searchValue)));
-      console.log('res1', res);
+      res = value.filter(result => result.status.includes(data.status) &&
+      (result.address.includes(data.searchValue) || result.region.includes(data.searchValue)));
     }
     if (res.length === 0) return 'no data';
     return res;
