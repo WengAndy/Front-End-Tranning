@@ -10,18 +10,13 @@ export default class headerTitle {
     const $searchInput = $mainTemplate.find('.search-box');
     const apihandle = new ApiHandle();
     this.apihandle = apihandle;
+    this.$btnSave = $btnSave;
     this.$searchBtn = $searchBtn;
     this.$searchInput = $searchInput;
     const init = apihandle.initData();
+    this.init = init;
     $addBtn.click(() => {
-      $('.modal-title').text('新增機台');
-      const detailRow = Object.keys(init[0]).map(key => (
-        `<div class="detailList">
-            <p class="detailName">${key}：</p>
-            <input class=input_${key} type="text" name="" />
-          </div>`
-      ));
-      $('.modal-body').html(detailRow.join(''));
+      this.addModal();
     });
 
     $btnSave.click(() => {
@@ -35,6 +30,19 @@ export default class headerTitle {
     });
 
     this.headerTitle = $mainTemplate;
+  }
+
+  addModal() {
+    const { init, $btnSave } = this;
+    $('.modal-title').text('新增機台');
+    const detailRow = Object.keys(init[0]).map(key => (
+      `<div class="detailList">
+          <p class="detailName">${key}：</p>
+          <input class=input_${key} type="text" name="" />
+        </div>`
+    ));
+    $btnSave.show();
+    $('.modal-body').html(detailRow.join(''));
   }
 
   save() {
