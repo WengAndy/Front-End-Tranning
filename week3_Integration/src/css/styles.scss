@@ -108,7 +108,7 @@ $disable: #999;
                           border-top: 13px solid hsla(0, 0, 0, 0);
                           border-bottom: 13px solid hsla(0, 0, 0, 0);
                           border-right: 15px solid $whiteText;
-                          margin: 25px 0 0 104px;
+                          margin: 25px 0 0 105px;
                           content: '';
                       }
                   }
@@ -245,8 +245,8 @@ $disable: #999;
               margin: 0 0 0 10px;
             }
           }
-          .btn-advanced-close,
-          .btn-advanced-search {
+          .advanced-close,
+          .advanced-search {
               min-width: 10%;
               margin: 15px 0 0 10px;
               color: #595757;
@@ -418,6 +418,9 @@ $disable: #999;
         align-items: center;
         justify-content: flex-end;
         margin-top: 25px;
+        .initPage {
+          display: flex;
+        }
         .pageNumber {
           .pagination {
             margin: 0 0 0 15px;

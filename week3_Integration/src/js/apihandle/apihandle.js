@@ -19,6 +19,7 @@ export default class apiHandle {
     this.data = data;
     apiListData.splice(apiListData.findIndex(alldata =>
       alldata.device_id === data.device_id), 1);
+    return [...apiListData];
   }
 
   search(value, data, status) {
@@ -28,7 +29,7 @@ export default class apiHandle {
       res = (value.filter(result => result.address.includes(data.searchValue)
       || result.region.includes(data.searchValue)));
     }
-    if (status === 'advancedSearchValue') {
+    if (status === 'advancedSearch') {
       res = value.filter(result => result.status.includes(data.status) &&
       (result.address.includes(data.searchValue) || result.region.includes(data.searchValue)));
     }

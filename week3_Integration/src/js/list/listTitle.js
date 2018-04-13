@@ -1,4 +1,5 @@
 import Apihandle from '../../js/apihandle/apihandle';
+import { commonList } from '../../js/index';
 
 export default class listTitle {
   constructor(list) {
@@ -99,8 +100,9 @@ export default class listTitle {
     const confirm = window.confirm('Are you sure you want to delete this data?');
     if (!confirm) return;
     const apiHandle = new Apihandle();
-    apiHandle.removeData(list);
-    this.$mainTemplate.remove();
+    const result = apiHandle.removeData(list);
+    commonList(result);
+    // this.$mainTemplate.remove();
   }
   // 顯示明細
   previewDtail() {

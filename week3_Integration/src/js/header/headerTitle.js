@@ -1,5 +1,5 @@
 import ApiHandle from '../../js/apihandle/apihandle';
-import { commonList } from '../../js/index';
+import { commonList, page } from '../../js/index';
 
 export default class headerTitle {
   constructor() {
@@ -10,8 +10,8 @@ export default class headerTitle {
     const $searchBtn = $mainTemplate.find('.search-btn');
     const $searchInput = $mainTemplate.find('.search-box');
     const $advancedSearchDialog = $mainTemplate.find('.advanced-search-dialog');
-    const $advancedSearchClose = $mainTemplate.find('.btn-advanced-close');
-    const $advancedSearchBtn = $mainTemplate.find('.btn-advanced-search');
+    const $advancedSearchClose = $mainTemplate.find('.advanced-close');
+    const $advancedSearchBtn = $mainTemplate.find('.advanced-search');
     const $advancedSearchInput = $mainTemplate.find('.advanced-search-Input');
     const $selectSearch = $mainTemplate.find('.select-search');
     const apihandle = new ApiHandle();
@@ -74,6 +74,7 @@ export default class headerTitle {
     };
     const search = apihandle.search(init, parameter, 'search');
     commonList(search);
+    page(search);
   }
 
   advancedSearch() {
@@ -92,7 +93,7 @@ export default class headerTitle {
       searchValue,
       status: statusType,
     };
-    const search = apihandle.search(init, parameter, 'advancedSearchValue');
+    const search = apihandle.search(init, parameter, 'advancedSearch');
     commonList(search);
   }
 
