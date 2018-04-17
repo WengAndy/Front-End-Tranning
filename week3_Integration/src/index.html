@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 	<title>IVM</title>
 </head>
+
 <body>
 	<div id="container">
 		<nav id="menu">
@@ -130,8 +131,8 @@
 										<i class="fas fa-times"></i>
 									</button>
 									<button class="editMode list-check">
-                                        <i class="fas fa-check"></i>
-                                    </button>
+										<i class="fas fa-check"></i>
+									</button>
 
 								</div>
 							</div>
@@ -139,8 +140,7 @@
 						</div>
 					</div>
 				</template>
-				<div class="modal fade modal-model" id="ModalDialog" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
-				 aria-hidden="true">
+				<div class="modal fade modal-model" id="ModalDialog" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -158,45 +158,55 @@
 						</div>
 					</div>
 				</div>
-				<div class="page"></div>
+				<div class="page">
+					<div class="pageTotal"></div>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li class="page-top">
+								<a class="th-page-link" href="#" aria-label="Previous">
+									<span aria-hidden="true">
+										<i class="fas fa-angle-double-left"></i>
+									</span>
+								</a>
+							</li>
+							<li class="page-prev">
+								<a class="th-page-link" href="#" aria-label="Previous">
+									<span aria-hidden="true">
+										<i class="fas fa-angle-left"></i>
+									</span>
+								</a>
+							</li>
+							<li class="page-item"></li>
+							<li class="page-next">
+								<a class="th-page-link" href="#" aria-label="Next">
+									<span aria-hidden="true">
+										<i class="fas fa-angle-right"></i>
+									</span>
+								</a>
+							</li>
+							<li class="page-end">
+								<a class="th-page-link" href="#" aria-label="Next">
+									<span aria-hidden="true">
+										<i class="fas fa-angle-double-right"></i>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
 				<template id="template-page">
-					<div class="initPage">
+					<div>
 						<div class="pageTotal"></div>
-						<div class="pageNumber">
-							<ul class="pagination">
-								<a href="#">
-									<i class="fa fa-fast-backward"></i>
-								</a>
-								<a href="#">
-									<i class="fas fa-angle-left"></i>
-								</a>
-								<a href="#">
-									<span>1</span>
-								</a>
-								<a href="#">
-									<span>2</span>
-								</a>
-								<a href="#">
-									<span>3</span>
-								</a>
-								<a href="#">
-									<span>4</span>
-								</a>
-								<a href="#">
-									<span>5</span>
-								</a>
-								<a href="#">
-									<i class="fas fa-angle-right"></i>
-								</a>
-								<a href="#">
-									<i class="fas fa-fast-forward"></i>
-								</a>
-							</ul>
-						</div>
 					</div>
+				</template>
+				<template id="template-page-item">
+					<div>
+						<a class="th-page-link" href="#"></a>
+					</div>>
 				</template>
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>

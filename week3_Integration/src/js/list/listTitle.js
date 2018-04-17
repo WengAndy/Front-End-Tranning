@@ -1,5 +1,5 @@
 import Apihandle from '../../js/apihandle/apihandle';
-import { commonList } from '../../js/index';
+import { commonList, pageTotal, pageItems } from '../../js/index';
 
 export default class listTitle {
   constructor(list) {
@@ -101,7 +101,12 @@ export default class listTitle {
     if (!confirm) return;
     const apiHandle = new Apihandle();
     const result = apiHandle.removeData(list);
-    commonList(result);
+    const aaa = apiHandle.pagination(1, result);
+    // console.log('aaa890890', JSON.parse(window.localStorage.getItem('search')));
+    console.log('aaa', window.localStorage.getItem('search'));
+    commonList(aaa);
+    pageTotal(result);
+    pageItems(result);
     // this.$mainTemplate.remove();
   }
   // 顯示明細

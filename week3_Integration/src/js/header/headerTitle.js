@@ -1,5 +1,5 @@
 import ApiHandle from '../../js/apihandle/apihandle';
-import { commonList, page } from '../../js/index';
+import { commonList, pageTotal, pageItems } from '../../js/index';
 
 export default class headerTitle {
   constructor() {
@@ -73,8 +73,14 @@ export default class headerTitle {
       status: '',
     };
     const search = apihandle.search(init, parameter, 'search');
-    commonList(search);
-    page(search);
+    const aaa = apihandle.pagination('', search);
+    console.log('aaa', aaa);
+    // commonList(aaa);
+    // pageTotal(listData);
+    // pageItems(listData);
+    commonList(aaa);
+    pageTotal(search);
+    pageItems(search);
   }
 
   advancedSearch() {
@@ -94,7 +100,10 @@ export default class headerTitle {
       status: statusType,
     };
     const search = apihandle.search(init, parameter, 'advancedSearch');
-    commonList(search);
+    const aaa = apihandle.pagination('', search);
+    commonList(aaa);
+    pageTotal(search);
+    pageItems(search);
   }
 
   save() {

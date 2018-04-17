@@ -4,6 +4,10 @@ export default class apiHandle {
   constructor(data) {
     this.data = data;
     this.apiListData = apiListData;
+    this.pageParameter = {
+      pageSize: 5,
+      currentPage: 1,
+    };
   }
 
   initData() {
@@ -34,7 +38,30 @@ export default class apiHandle {
       (result.address.includes(data.searchValue) || result.region.includes(data.searchValue)));
     }
     if (res.length === 0) return 'no data';
+    window.localStorage.setItem('search', JSON.stringify(res));
     return res;
+  }
+
+  pagination(pageNo, array) {
+    let page = pageNo;
+    const { pageParameter } = this;
+    if (page === '') {
+      page = pageParameter.currentPage;
+    }
+    const offset = (page - 1) * pageParameter.pageSize;
+    this.PageItem(array.length, pageParameter.pageSize);
+    return (offset + pageParameter.pageSize >= array.length)
+      ? array.slice(offset, array.length)
+      : array.slice(offset, offset + pageParameter.pageSize);
+  }
+
+  PageItem(pageNo) {
+    let page = pageNo;
+    const { pageParameter } = this;
+    if (page === '') {
+      page = pageParameter.currentPage;
+    }
+    return Math.ceil(pageNo / pageParameter.pageSize);
   }
 
   result() {
