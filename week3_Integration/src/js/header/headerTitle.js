@@ -1,5 +1,4 @@
 import ApiHandle from '../../js/apihandle/apihandle';
-import { commonList, pageTotal, pageItems } from '../../js/index';
 
 export default class headerTitle {
   constructor() {
@@ -24,6 +23,7 @@ export default class headerTitle {
     this.$advancedSearchInput = $advancedSearchInput;
     this.$selectSearch = $selectSearch;
     const init = apihandle.initData();
+
     this.init = init;
     $addBtn.click(() => {
       this.addModal();
@@ -72,15 +72,14 @@ export default class headerTitle {
       searchValue,
       status: '',
     };
+    console.log('init', init);
     const search = apihandle.search(init, parameter, 'search');
-    const aaa = apihandle.pagination('', search);
-    console.log('aaa', aaa);
-    // commonList(aaa);
-    // pageTotal(listData);
-    // pageItems(listData);
-    commonList(aaa);
-    pageTotal(search);
-    pageItems(search);
+    // const aaa = apihandle.pagination('', search);
+    // window.localStorage.setItem('searchData', JSON.stringify(aaa));
+    this.apihandle.reloadPage(search);
+    console.log('search', search);
+    // pageTotal(search);
+    // pageItems(search);
   }
 
   advancedSearch() {
@@ -100,10 +99,10 @@ export default class headerTitle {
       status: statusType,
     };
     const search = apihandle.search(init, parameter, 'advancedSearch');
-    const aaa = apihandle.pagination('', search);
-    commonList(aaa);
-    pageTotal(search);
-    pageItems(search);
+    // const aaa = apihandle.pagination('', search);
+    this.apihandle.reloadPage(search);
+    // pageTotal(search);
+    // pageItems(search);
   }
 
   save() {
@@ -129,8 +128,15 @@ export default class headerTitle {
     if (validata.length > 0) {
       alert(validata.join(''));
     } else {
+      // const search = apihandle.search(init, parameter, 'advancedSearch');
+      // const aaa = apihandle.pagination('', search);
+      // commonList(aaa);
       init.push(machine);
-      commonList(init);
+      // const aaa = this.apihandle.pagination('', init);
+      // commonList(aaa);
+      this.apihandle.reloadPage(init);
+      // pageTotal(init);
+      // pageItems(init);
       $('#ModalDialog').modal('hide');
     }
   }

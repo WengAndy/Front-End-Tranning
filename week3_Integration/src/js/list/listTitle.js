@@ -1,5 +1,5 @@
 import Apihandle from '../../js/apihandle/apihandle';
-import { commonList, pageTotal, pageItems } from '../../js/index';
+// import { pageTotal, pageItems } from '../../js/index';
 
 export default class listTitle {
   constructor(list) {
@@ -100,13 +100,13 @@ export default class listTitle {
     const confirm = window.confirm('Are you sure you want to delete this data?');
     if (!confirm) return;
     const apiHandle = new Apihandle();
-    const result = apiHandle.removeData(list);
-    const aaa = apiHandle.pagination(1, result);
-    // console.log('aaa890890', JSON.parse(window.localStorage.getItem('search')));
-    console.log('aaa', window.localStorage.getItem('search'));
-    commonList(aaa);
-    pageTotal(result);
-    pageItems(result);
+    // console.log('aaa123', JSON.parse(window.localStorage.getItem('searchData')));
+    const ccc = JSON.parse(window.localStorage.getItem('searchData'));
+    const result = apiHandle.removeData(ccc || list);
+    // console.log('result', result);
+    apiHandle.reloadPage(result);
+    // pageTotal(result);
+    // pageItems(result);
     // this.$mainTemplate.remove();
   }
   // 顯示明細

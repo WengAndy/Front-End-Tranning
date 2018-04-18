@@ -46,6 +46,7 @@
 			<div class="content">
 				<div class="title">Machine List</div>
 				<div class="functions"></div>
+				<div class="table"></div>
 				<template id="template-header-function">
 					<div class="initDiv">
 						<div class="search">
@@ -78,24 +79,28 @@
 						</button>
 					</div>
 				</template>
-				<div id="table" class="css-table">
-					<div class="thead">
-						<div class="tr">
-							<div class="th th-left">Device ID</div>
-							<div class="th">Model</div>
-							<div class="th">Status</div>
-							<div class="th">Machine Temp.</div>
-							<div class="th">Address</div>
-							<div class="th">Region</div>
-							<div class="th">Details</div>
-							<div class="th"></div>
-							<div class="th">Setup</div>
-							<div class="th th-right"></div>
+				<template id="template-data-table">
+					<div>
+						<div id="table" class="css-table">
+							<div class="thead">
+								<div class="tr">
+									<div class="th th-left">Device ID</div>
+									<div class="th">Model</div>
+									<div class="th">Status</div>
+									<div class="th">Machine Temp.</div>
+									<div class="th">Address</div>
+									<div class="th">Region</div>
+									<div class="th">Details</div>
+									<div class="th"></div>
+									<div class="th">Setup</div>
+									<div class="th th-right"></div>
+								</div>
+							</div>
+							<div class="gate"></div>
+							<div class="tbody"></div>
 						</div>
 					</div>
-					<div class="gate"></div>
-					<div class="tbody"></div>
-				</div>
+				</template>
 				<template id="template-list">
 					<div>
 						<div class="tr">
@@ -158,51 +163,50 @@
 						</div>
 					</div>
 				</div>
-				<div class="page">
-					<div class="pageTotal"></div>
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-top">
-								<a class="th-page-link" href="#" aria-label="Previous">
-									<span aria-hidden="true">
-										<i class="fas fa-angle-double-left"></i>
-									</span>
-								</a>
-							</li>
-							<li class="page-prev">
-								<a class="th-page-link" href="#" aria-label="Previous">
-									<span aria-hidden="true">
-										<i class="fas fa-angle-left"></i>
-									</span>
-								</a>
-							</li>
-							<li class="page-item"></li>
-							<li class="page-next">
-								<a class="th-page-link" href="#" aria-label="Next">
-									<span aria-hidden="true">
-										<i class="fas fa-angle-right"></i>
-									</span>
-								</a>
-							</li>
-							<li class="page-end">
-								<a class="th-page-link" href="#" aria-label="Next">
-									<span aria-hidden="true">
-										<i class="fas fa-angle-double-right"></i>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
+				<div class="page"></div>
 				<template id="template-page">
 					<div>
-						<div class="pageTotal"></div>
+						<div class="page-init">
+							<div class="quantity">
+								<span class="rowsPerPage"></span></div>
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+									<li class="page-top">
+										<a class="th-page-link" href="javascript:void(0)" aria-label="Previous">
+											<span aria-hidden="true">
+												<i class="fas fa-angle-double-left"></i>
+											</span>
+										</a>
+									</li>
+									<li class="page-prev">
+										<a class="th-page-link" href="javascript:void(0)" aria-label="Previous">
+											<span aria-hidden="true">
+												<i class="fas fa-angle-left"></i>
+											</span>
+										</a>
+									</li>
+									<li class="page-item"></li>
+									<li class="page-next">
+										<a class="th-page-link" href="javascript:void(0)" aria-label="Next">
+											<span aria-hidden="true">
+												<i class="fas fa-angle-right"></i>
+											</span>
+										</a>
+									</li>
+									<li class="page-end">
+										<a class="th-page-link" href="javascript:void(0)" aria-label="Next">
+											<span aria-hidden="true">
+												<i class="fas fa-angle-double-right"></i>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<li style="display: none" class="page-item">
+							<a class="th-page-link" href="javascript:void(0)"></a>
+						</li>
 					</div>
-				</template>
-				<template id="template-page-item">
-					<div>
-						<a class="th-page-link" href="#"></a>
-					</div>>
 				</template>
 			</div>
 		</div>

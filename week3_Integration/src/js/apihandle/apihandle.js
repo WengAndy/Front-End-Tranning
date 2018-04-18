@@ -1,11 +1,12 @@
 import apiListData from '../../data/listData';
+import ListTable from '../list/listTable';
+import FooterPage from '../footer/footerPage';
 
 export default class apiHandle {
-  constructor(data) {
-    this.data = data;
+  constructor() {
     this.apiListData = apiListData;
     this.pageParameter = {
-      pageSize: 5,
+      pageSize: 2,
       currentPage: 1,
     };
   }
@@ -15,19 +16,16 @@ export default class apiHandle {
   }
 
   getIndex(data) {
-    this.data = data;
     return apiListData.findIndex(line => line.device_id === data.device_id);
   }
 
   removeData(data) {
-    this.data = data;
     apiListData.splice(apiListData.findIndex(alldata =>
       alldata.device_id === data.device_id), 1);
     return [...apiListData];
   }
 
   search(value, data, status) {
-    this.data = data;
     let res = [];
     if (status === 'search') {
       res = (value.filter(result => result.address.includes(data.searchValue)
@@ -38,7 +36,6 @@ export default class apiHandle {
       (result.address.includes(data.searchValue) || result.region.includes(data.searchValue)));
     }
     if (res.length === 0) return 'no data';
-    window.localStorage.setItem('search', JSON.stringify(res));
     return res;
   }
 
@@ -62,6 +59,15 @@ export default class apiHandle {
       page = pageParameter.currentPage;
     }
     return Math.ceil(pageNo / pageParameter.pageSize);
+  }
+
+  reloadPage(data) {
+    const $ListTable = new ListTable(data);
+    const $FooterPage = new FooterPage(data);
+    $('#table').remove();
+    $('.initPage').remove();
+    $('#main > .content > .table').append($ListTable.result());
+    $('#main > .content > .page').append($FooterPage.result());
   }
 
   result() {
