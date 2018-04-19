@@ -6,7 +6,7 @@ export default class apiHandle {
   constructor() {
     this.apiListData = apiListData;
     this.pageParameter = {
-      pageSize: 2,
+      pageSize: 5,
       currentPage: 1,
     };
   }
@@ -46,26 +46,21 @@ export default class apiHandle {
       page = pageParameter.currentPage;
     }
     const offset = (page - 1) * pageParameter.pageSize;
-    this.PageItem(array.length, pageParameter.pageSize);
     return (offset + pageParameter.pageSize >= array.length)
       ? array.slice(offset, array.length)
       : array.slice(offset, offset + pageParameter.pageSize);
   }
 
-  PageItem(pageNo) {
-    let page = pageNo;
+  PageItem() {
     const { pageParameter } = this;
-    if (page === '') {
-      page = pageParameter.currentPage;
-    }
-    return Math.ceil(pageNo / pageParameter.pageSize);
+    return Math.ceil(apiListData.length / pageParameter.pageSize);
   }
 
   reloadPage(data) {
     const $ListTable = new ListTable(data);
     const $FooterPage = new FooterPage(data);
     $('#table').remove();
-    $('.initPage').remove();
+    $('.page-init').remove();
     $('#main > .content > .table').append($ListTable.result());
     $('#main > .content > .page').append($FooterPage.result());
   }

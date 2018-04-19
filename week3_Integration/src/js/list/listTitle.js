@@ -1,4 +1,5 @@
 import Apihandle from '../../js/apihandle/apihandle';
+// import apiListData from '../../data/listData';
 // import { pageTotal, pageItems } from '../../js/index';
 
 export default class listTitle {
@@ -100,14 +101,9 @@ export default class listTitle {
     const confirm = window.confirm('Are you sure you want to delete this data?');
     if (!confirm) return;
     const apiHandle = new Apihandle();
-    // console.log('aaa123', JSON.parse(window.localStorage.getItem('searchData')));
-    const ccc = JSON.parse(window.localStorage.getItem('searchData'));
-    const result = apiHandle.removeData(ccc || list);
-    // console.log('result', result);
-    apiHandle.reloadPage(result);
-    // pageTotal(result);
-    // pageItems(result);
-    // this.$mainTemplate.remove();
+    const result = apiHandle.removeData(list);
+    const aaa = apiHandle.pagination(JSON.parse(window.localStorage.getItem('currentPage')), result);
+    apiHandle.reloadPage(aaa);
   }
   // 顯示明細
   previewDtail() {

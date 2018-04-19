@@ -72,14 +72,8 @@ export default class headerTitle {
       searchValue,
       status: '',
     };
-    console.log('init', init);
     const search = apihandle.search(init, parameter, 'search');
-    // const aaa = apihandle.pagination('', search);
-    // window.localStorage.setItem('searchData', JSON.stringify(aaa));
     this.apihandle.reloadPage(search);
-    console.log('search', search);
-    // pageTotal(search);
-    // pageItems(search);
   }
 
   advancedSearch() {
@@ -99,10 +93,7 @@ export default class headerTitle {
       status: statusType,
     };
     const search = apihandle.search(init, parameter, 'advancedSearch');
-    // const aaa = apihandle.pagination('', search);
     this.apihandle.reloadPage(search);
-    // pageTotal(search);
-    // pageItems(search);
   }
 
   save() {
@@ -128,15 +119,8 @@ export default class headerTitle {
     if (validata.length > 0) {
       alert(validata.join(''));
     } else {
-      // const search = apihandle.search(init, parameter, 'advancedSearch');
-      // const aaa = apihandle.pagination('', search);
-      // commonList(aaa);
       init.push(machine);
-      // const aaa = this.apihandle.pagination('', init);
-      // commonList(aaa);
       this.apihandle.reloadPage(init);
-      // pageTotal(init);
-      // pageItems(init);
       $('#ModalDialog').modal('hide');
     }
   }

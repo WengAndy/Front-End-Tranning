@@ -437,18 +437,11 @@ $disable: #999;
             border: 1px solid #D7D7D7;
             align-items: center;
             justify-content: center;
-            // display: flex;
-            //       text-align: center;
-            //       width: 30px;
-            //       height: 30px;
-            //       line-height: 30px;
-            //       font-size: 10pt;
-            //       color: #000;
-            //       background: none;
-            //       border: 1px solid #D7D7D7;
-            //       align-items: center;
-            //       justify-content: center;
             &:hover {
+              color: #fff;
+              background: #343434;
+            }
+            &.active {
               color: #fff;
               background: #343434;
             }
@@ -475,85 +468,6 @@ $disable: #999;
           }
         }
       }
-
-      // .page {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: flex-end;
-      //   margin-top: 25px;
-      //   .initPage {
-      //     display: flex;
-      //   }
-      //   .rowsPerPage {
-      //     margin: 0 5px 0 0;
-      //   }
-      //   .pagination {
-      //     margin: 0 0 0 15px;
-      //     a {
-      //       display: flex;
-      //       text-align: center;
-      //       width: 30px;
-      //       height: 30px;
-      //       line-height: 30px;
-      //       font-size: 10pt;
-      //       color: #000;
-      //       background: none;
-      //       border: 1px solid #D7D7D7;
-      //       align-items: center;
-      //       justify-content: center;
-      //       &:hover {
-      //         color: #fff;
-      //         background: #343434;
-      //       }
-      //       &.active {
-      //         color: #fff;
-      //         background: #343434;
-      //       }
-      //     }
-      //     .page-item {
-      //       display: flex;
-      //       // &.active {
-      //       //   a {
-      //       //     color: #fff;
-      //       //     background: #343434;
-      //       //   }
-      //       // }
-      //     }
-      //     .disabled {
-      //       a {
-      //         i {
-      //             color: #ddd;
-      //         }
-      //         &:hover {
-      //             background: none;
-      //             cursor: default;
-      //         }
-      //       }
-      //     }
-      //   }
-      //   // .pageNumber {
-      //   //   .pagination {
-      //   //     margin: 0 0 0 15px;
-      //   //     display: flex;
-      //   //     a {
-      //   //       display: flex;
-      //   //       align-items: center;
-      //   //       justify-content: center;
-      //   //       width: 30px;
-      //   //       height: 30px;
-      //   //       line-height: 30px;
-      //   //       font-size: 10pt;
-      //   //       color: $menuBackGround;
-      //   //       background: none;
-      //   //       border: 1px solid $page-border-Color;
-      //   //       &:hover {
-      //   //         color: $whiteText;
-      //   //         background: $menuBackGround;
-      //   //       }
-      //   //     }
-      //   //   }
-      //   // }
-      // }  
     }
   }
 }
