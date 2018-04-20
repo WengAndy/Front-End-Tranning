@@ -7,6 +7,7 @@ export default class footerpageItem {
     const $pageItem = $mainTemplate.find('.page-item');
     const $pageLink = $pageItem.find('.th-page-link');
     const apiListData = JSON.parse(window.localStorage.getItem('apiData'));
+    this.$pageItem = $pageItem;
     this.$pageLink = $pageLink;
     this.apihandle = apihandle;
     this.apiListData = apiListData;
@@ -15,12 +16,21 @@ export default class footerpageItem {
 
     $pageLink.click(() => this.pageNumber());
 
+    $pageLink.removeClass('active');
+
+    if (window.localStorage.getItem('currentPage') === $pageLink.text()) {
+      $pageLink.toggleClass('active');
+    }
+
     this.footerpageItem = $pageLink;
   }
 
   pageNumber() {
-    const { $pageLink } = this;
+    const { $pageItem, $pageLink } = this;
     $pageLink.find('a').find('.th-page-link').addClass('active');
+    $('.th-page-link').addClass('active');
+    $pageItem.toggleClass('active');
+
     window.localStorage.setItem('currentPage', $pageLink.text());
     this.pagehandle();
   }
