@@ -70,6 +70,7 @@ export default class listTitle {
       const init = JSON.parse(window.localStorage.getItem('apiData'));
       init[index].address = this.addressInputVal;
       init[index].region = this.regionInputVal;
+      apiHandle.reloadPage(init);
       window.localStorage.setItem('apiData', JSON.stringify(init));
     }
   }
