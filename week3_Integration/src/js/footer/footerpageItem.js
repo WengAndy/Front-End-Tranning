@@ -18,8 +18,7 @@ export default class footerpageItem {
 
     $pageLink.removeClass('active');
 
-
-    if (window.localStorage.getItem('currentPage') === $pageLink.text()) {
+    if (window.localStorage.getItem('currentPage') === $pageLink.text() || apihandle.PageItem() === 1) {
       $pageLink.addClass('active');
     }
 
