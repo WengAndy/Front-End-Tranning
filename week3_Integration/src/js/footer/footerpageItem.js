@@ -18,8 +18,16 @@ export default class footerpageItem {
 
     $pageLink.removeClass('active');
 
+
     if (window.localStorage.getItem('currentPage') === $pageLink.text()) {
-      $pageLink.toggleClass('active');
+      $pageLink.addClass('active');
+    }
+
+    if (apihandle.PageItem() < window.localStorage.getItem('currentPage')) {
+      window.localStorage.setItem('currentPage', apihandle.PageItem());
+      $(document).ready(() => {
+        $('.th-page-link.active').trigger('click');
+      });
     }
 
     this.footerpageItem = $pageLink;

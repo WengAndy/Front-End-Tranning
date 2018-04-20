@@ -17,6 +17,7 @@ export default class footerPage {
     this.getItem = getItem;
     this.apiListData = apiListData;
     this.apihandle = apihandle;
+    this.totalData = totalData;
     this.PageStorage = {
       machineData: apiListData,
       pagination: {
@@ -33,9 +34,12 @@ export default class footerPage {
     }
 
     this.$pageTotal = $pageTotal;
-    if (totalData === 'no data') {
+
+    if (totalData === false) {
       $pageTotal.text(`${0} Models`);
+      $pageItem.hide();
     } else {
+      $pageItem.show();
       const result = JSON.parse(window.localStorage.getItem('searchData'));
       if (result !== null) {
         $pageTotal.text(`${result.length} Models`);
@@ -56,27 +60,37 @@ export default class footerPage {
   }
 
   topfunction() {
-    this.PageStorage.pagination.currentPage = 1;
-    this.pagehandle();
+    const { totalData } = this;
+    if (totalData !== false) {
+      this.PageStorage.pagination.currentPage = 1;
+      this.pagehandle();
+    }
   }
 
   endfunction() {
-    const { getItem } = this;
-    this.PageStorage.pagination.currentPage = getItem;
-    this.pagehandle();
+    const { totalData, getItem } = this;
+    if (totalData !== false) {
+      this.PageStorage.pagination.currentPage = getItem;
+      this.pagehandle();
+    }
   }
 
   nextfunction() {
-    const { getItem } = this;
-    if (this.PageStorage.pagination.currentPage === getItem) return;
-    this.PageStorage.pagination.currentPage += 1;
-    this.pagehandle();
+    const { totalData, getItem } = this;
+    if (totalData !== false) {
+      if (this.PageStorage.pagination.currentPage === getItem) return;
+      this.PageStorage.pagination.currentPage += 1;
+      this.pagehandle();
+    }
   }
 
   prevfunction() {
-    if (this.PageStorage.pagination.currentPage === 1) return;
-    this.PageStorage.pagination.currentPage -= 1;
-    this.pagehandle();
+    const { totalData } = this;
+    if (totalData !== false) {
+      if (this.PageStorage.pagination.currentPage === 1) return;
+      this.PageStorage.pagination.currentPage -= 1;
+      this.pagehandle();
+    }
   }
 
   pagehandle() {

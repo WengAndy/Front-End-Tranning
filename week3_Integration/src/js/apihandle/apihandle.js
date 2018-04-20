@@ -37,7 +37,7 @@ export default class apiHandle {
       res = value.filter(result => result.status.includes(data.status) &&
       (result.address.includes(data.searchValue) || result.region.includes(data.searchValue)));
     }
-    if (res.length === 0) return 'no data';
+    if (res.length === 0) return false;
     return res;
   }
 
