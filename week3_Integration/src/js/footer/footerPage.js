@@ -1,22 +1,22 @@
 import ApiHandle from '../../js/apihandle/apihandle';
 import FooterPageItem from '../footer/footerpageItem';
-import apiListData from '../../data/listData';
 
 export default class footerPage {
   constructor(totalData) {
     const $mainTemplate = $($('#template-page').html());
     const $page = $mainTemplate.find('.page-init');
-    // const $pagination = $page.find('.pagination');
     const $pageTop = $page.find('.page-top');
     const $pagePrev = $page.find('.page-prev');
     const $pageNext = $page.find('.page-next');
     const $pageEnd = $page.find('.page-end');
-    // const $pagination = $page.find('.pagination');
     const apihandle = new ApiHandle();
     const $pageTotal = $mainTemplate.find('.rowsPerPage');
     const $pageItem = $mainTemplate.find('.page-item');
-    // const $pageLink = $pageItem.find('.th-page-link');
-    const init = apihandle.initData();
+    const apiListData = JSON.parse(window.localStorage.getItem('apiData'));
+    const getItem = apihandle.PageItem();
+    this.getItem = getItem;
+    this.apiListData = apiListData;
+    this.apihandle = apihandle;
     this.PageStorage = {
       machineData: apiListData,
       pagination: {
@@ -26,53 +26,70 @@ export default class footerPage {
 
     // pageItem
     let i = 0;
-    const getItem = apihandle.PageItem();
     while (i < getItem) {
       i++;
       const $FooterPageItem = new FooterPageItem(i);
       $pageItem.append($FooterPageItem.result());
     }
 
-    this.init = init;
     this.$pageTotal = $pageTotal;
-    // this.$pageLink = $pageLink;
     if (totalData === 'no data') {
       $pageTotal.text(`${0} Models`);
     } else {
-      $pageTotal.text(`${totalData.length} Models`);
+      const result = JSON.parse(window.localStorage.getItem('searchData'));
+      if (result !== null) {
+        $pageTotal.text(`${result.length} Models`);
+      } else {
+        $pageTotal.text(`${apiListData.length} Models`);
+      }
     }
 
-    $pageTop.click(() => {
-      this.PageStorage.pagination.currentPage = 1;
-      const aaa = apihandle.pagination(this.PageStorage.pagination.currentPage, apiListData);
-      window.localStorage.setItem('currentPage', this.PageStorage.pagination.currentPage);
-      apihandle.reloadPage(aaa);
-    });
+    $pageTop.click(() => this.topfunction());
 
-    $pagePrev.click(() => {
-      if (this.PageStorage.pagination.currentPage === 1) return;
-      this.PageStorage.pagination.currentPage -= 1;
-      const aaa = apihandle.pagination(this.PageStorage.pagination.currentPage, apiListData);
-      window.localStorage.setItem('currentPage', this.PageStorage.pagination.currentPage);
-      apihandle.reloadPage(aaa);
-    });
+    $pagePrev.click(() => this.prevfunction());
 
-    $pageNext.click(() => {
-      if (this.PageStorage.pagination.currentPage === getItem) return;
-      this.PageStorage.pagination.currentPage += 1;
-      const aaa = apihandle.pagination(this.PageStorage.pagination.currentPage, apiListData);
-      window.localStorage.setItem('currentPage', this.PageStorage.pagination.currentPage);
-      apihandle.reloadPage(aaa);
-    });
+    $pageNext.click(() => this.nextfunction());
 
-    $pageEnd.click(() => {
-      this.PageStorage.pagination.currentPage = getItem;
-      const aaa = apihandle.pagination(this.PageStorage.pagination.currentPage, apiListData);
-      window.localStorage.setItem('currentPage', this.PageStorage.pagination.currentPage);
-      apihandle.reloadPage(aaa);
-    });
+    $pageEnd.click(() => this.endfunction());
 
     this.footerPage = $page;
+  }
+
+  topfunction() {
+    this.PageStorage.pagination.currentPage = 1;
+    this.pagehandle();
+  }
+
+  endfunction() {
+    const { getItem } = this;
+    this.PageStorage.pagination.currentPage = getItem;
+    this.pagehandle();
+  }
+
+  nextfunction() {
+    const { getItem } = this;
+    if (this.PageStorage.pagination.currentPage === getItem) return;
+    this.PageStorage.pagination.currentPage += 1;
+    this.pagehandle();
+  }
+
+  prevfunction() {
+    if (this.PageStorage.pagination.currentPage === 1) return;
+    this.PageStorage.pagination.currentPage -= 1;
+    this.pagehandle();
+  }
+
+  pagehandle() {
+    const { apiListData, apihandle } = this;
+    const searchData = JSON.parse(window.localStorage.getItem('searchData'));
+    let result;
+    if (searchData !== null) {
+      result = this.apihandle.pagination(this.PageStorage.pagination.currentPage, searchData);
+    } else {
+      result = this.apihandle.pagination(this.PageStorage.pagination.currentPage, apiListData);
+    }
+    window.localStorage.setItem('currentPage', this.PageStorage.pagination.currentPage);
+    apihandle.reloadPage(result);
   }
 
   result() {

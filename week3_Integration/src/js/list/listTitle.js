@@ -1,6 +1,4 @@
 import Apihandle from '../../js/apihandle/apihandle';
-// import apiListData from '../../data/listData';
-// import { pageTotal, pageItems } from '../../js/index';
 
 export default class listTitle {
   constructor(list) {
@@ -69,9 +67,10 @@ export default class listTitle {
       $region.text(this.regionInputVal);
       $addressInput.val(this.addressInputVal);
       $regionInput.val(this.regionInputVal);
-      const init = apiHandle.initData();
+      const init = JSON.parse(window.localStorage.getItem('apiData'));
       init[index].address = this.addressInputVal;
       init[index].region = this.regionInputVal;
+      window.localStorage.setItem('apiData', JSON.stringify(init));
     }
   }
 
@@ -102,8 +101,10 @@ export default class listTitle {
     if (!confirm) return;
     const apiHandle = new Apihandle();
     const result = apiHandle.removeData(list);
-    const aaa = apiHandle.pagination(JSON.parse(window.localStorage.getItem('currentPage')), result);
-    apiHandle.reloadPage(aaa);
+    window.localStorage.setItem('apiData', JSON.stringify(result));
+    window.localStorage.setItem('searchData', JSON.stringify(result));
+    const resultPage = apiHandle.pagination(JSON.parse(window.localStorage.getItem('currentPage')), result);
+    apiHandle.reloadPage(resultPage);
   }
   // 顯示明細
   previewDtail() {

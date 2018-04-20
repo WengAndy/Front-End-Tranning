@@ -1,12 +1,13 @@
-import apiListData from '../../data/listData';
+// import apiListData from '../../data/listData';
 import ListTable from '../list/listTable';
 import FooterPage from '../footer/footerPage';
 
 export default class apiHandle {
   constructor() {
+    const apiListData = JSON.parse(window.localStorage.getItem('apiData'));
     this.apiListData = apiListData;
     this.pageParameter = {
-      pageSize: 5,
+      pageSize: 2,
       currentPage: 1,
     };
   }
@@ -16,10 +17,11 @@ export default class apiHandle {
   }
 
   getIndex(data) {
-    return apiListData.findIndex(line => line.device_id === data.device_id);
+    return this.apiListData.findIndex(line => line.device_id === data.device_id);
   }
 
   removeData(data) {
+    const { apiListData } = this;
     apiListData.splice(apiListData.findIndex(alldata =>
       alldata.device_id === data.device_id), 1);
     return [...apiListData];
@@ -52,8 +54,15 @@ export default class apiHandle {
   }
 
   PageItem() {
-    const { pageParameter } = this;
-    return Math.ceil(apiListData.length / pageParameter.pageSize);
+    const searchData = JSON.parse(window.localStorage.getItem('searchData'));
+    const { pageParameter, apiListData } = this;
+    let result;
+    if (searchData !== null) {
+      result = Math.ceil(searchData.length / pageParameter.pageSize);
+    } else {
+      result = Math.ceil(apiListData.length / pageParameter.pageSize);
+    }
+    return result;
   }
 
   reloadPage(data) {

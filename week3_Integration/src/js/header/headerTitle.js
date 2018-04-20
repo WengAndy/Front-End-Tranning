@@ -22,8 +22,7 @@ export default class headerTitle {
     this.$advancedSearchDialog = $advancedSearchDialog;
     this.$advancedSearchInput = $advancedSearchInput;
     this.$selectSearch = $selectSearch;
-    const init = apihandle.initData();
-
+    const init = JSON.parse(window.localStorage.getItem('apiData'));
     this.init = init;
     $addBtn.click(() => {
       this.addModal();
@@ -66,18 +65,19 @@ export default class headerTitle {
   }
 
   search() {
-    const { init, $searchInput, apihandle } = this;
+    const { $searchInput, apihandle } = this;
     const searchValue = $searchInput.val();
     const parameter = {
       searchValue,
       status: '',
     };
-    const search = apihandle.search(init, parameter, 'search');
+    const search = apihandle.search(JSON.parse(window.localStorage.getItem('apiData')), parameter, 'search');
+    window.localStorage.setItem('searchData', JSON.stringify(search));
     this.apihandle.reloadPage(search);
   }
 
   advancedSearch() {
-    const { init, $selectSearch, $advancedSearchInput, apihandle } = this;
+    const { $selectSearch, $advancedSearchInput, apihandle } = this;
     const type = {
       0: 'online',
       1: 'offline',
@@ -92,13 +92,14 @@ export default class headerTitle {
       searchValue,
       status: statusType,
     };
-    const search = apihandle.search(init, parameter, 'advancedSearch');
+    const search = apihandle.search(JSON.parse(window.localStorage.getItem('apiData')), parameter, 'advancedSearch');
+    window.localStorage.setItem('searchData', JSON.stringify(search));
     this.apihandle.reloadPage(search);
   }
 
   save() {
     let { $modalModel, $device_id, $model, $status, $machine_temp, $address, $region } = this;
-    const init = this.apihandle.initData();
+    const init = JSON.parse(window.localStorage.getItem('apiData'));
     $modalModel = $('#ModalDialog').find('.modal-content').find('.modal-body');
     $device_id = $modalModel.find('.input_device_id').val();
     $model = $modalModel.find('.input_model').val();
@@ -120,6 +121,8 @@ export default class headerTitle {
       alert(validata.join(''));
     } else {
       init.push(machine);
+      window.localStorage.setItem('apiData', JSON.stringify(init));
+      window.localStorage.setItem('searchData', JSON.stringify(init));
       this.apihandle.reloadPage(init);
       $('#ModalDialog').modal('hide');
     }

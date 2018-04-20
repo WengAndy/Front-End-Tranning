@@ -15,6 +15,7 @@ if (ENV !== 'production') {
 $(() => {
   window.localStorage.clear();
   window.localStorage.setItem('currentPage', 1);
+  window.localStorage.setItem('apiData', JSON.stringify(listData));
   menuData.forEach((menu) => {
     const $MenTitle = new MenuTitle(menu);
     $('#menu').append($MenTitle.result());
