@@ -7,8 +7,8 @@
     "p1": "babel-node Object/index.js",
     "test": "jest --coverage",
     "build": "webpack --mode production --config webpack.config.js",
-    "dev": "webpack-dev-server --mode development --port 8888 --hot --open --inline --config webpack.config.js",
-    "start": "webpack-dev-server --mode development --port 8000 --hot --open --inline"
+    "dev": "webpack-dev-server --mode development --port 5566 --hot --open --inline --config webpack.config.js",
+    "start": "webpack-dev-server --mode development --port 5566 --hot --open --inline"
   },
   "author": "",
   "license": "ISC",

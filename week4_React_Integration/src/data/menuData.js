@@ -3,6 +3,7 @@ const menuData = [
     id: 1,
     menuName: 'Dealer Management',
     icon: 'fas fa-clipboard',
+    checkStatus: false,
     subMenu: [
       {
         subId: 1,
@@ -29,6 +30,7 @@ const menuData = [
     id: 2,
     menuName: 'User Management',
     icon: 'fas fa-user',
+    checkStatus: false,
     subMenu: [
       {
         subId: 4,
@@ -47,6 +49,7 @@ const menuData = [
     id: 3,
     menuName: 'Machine Management',
     icon: 'fas fa-map-marker-alt',
+    checkStatus: false,
     subMenu: [
       {
         subId: 7,
@@ -65,6 +68,7 @@ const menuData = [
     id: 4,
     menuName: 'Merchandise Management',
     icon: 'far fa-file-alt',
+    checkStatus: false,
     subMenu: [
       {
         subId: 10,
@@ -83,6 +87,7 @@ const menuData = [
     id: 5,
     menuName: 'Advertising Management',
     icon: 'far fa-comments',
+    checkStatus: false,
     subMenu: [
       {
         subId: 13,
@@ -101,6 +106,7 @@ const menuData = [
     id: 6,
     menuName: 'Market Analysis',
     icon: 'fas fa-chart-pie',
+    checkStatus: false,
     subMenu: [
       {
         subId: 16,
@@ -119,6 +125,7 @@ const menuData = [
     id: 7,
     menuName: 'System Setting',
     icon: 'fas fa-sliders-h',
+    checkStatus: false,
     subMenu: [
       {
         subId: 19,

@@ -20,7 +20,6 @@ export default class App extends Component {
           {/* <div id="content"> */}
           {/* <Header /> */}
           {/* <Route path="/" exact component={MachinList} />
-          <Route path="/userlist/:id" component={UserList} /> */}
           {/* </div> */}
         </div>
       </Router>

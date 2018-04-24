@@ -6,7 +6,7 @@ export const menuReducer = (state = { menu: MenuData }, action) => {
       return {
         menu: [...state.menu]
       };
-
+      break;
     default:
       return state;
   }

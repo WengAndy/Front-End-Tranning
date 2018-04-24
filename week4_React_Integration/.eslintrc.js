@@ -62,5 +62,7 @@ module.exports = {
         "react/prop-types": [1, { "ignore": ["location", "history", "actions", "handleSubmit", 
         "common", "commonAction", "connectDragSource", "connectDropTarget", "match", "loader",
         "setErrorInfo", "clearErrorInfo", "errorKey", "errorData", "getErrorInfo", "currentLang"] }],
+        "jsx-a11y/no-static-element-interactions": [0],
+        "no-unreachable": [0]
     }
 };

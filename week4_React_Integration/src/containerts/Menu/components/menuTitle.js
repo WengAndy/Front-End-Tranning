@@ -11,69 +11,50 @@ class MenuTitle extends Component {
     menu: this.props.menu,
   };
 
-  componentDidMount() {
-    console.log('BooksContainer componentDidMount');
-    // getMenu();
+  componentDidMount() {}
+
+  onClickFocusFunc = (menuData, item) => {
+    const itemData = this.state.menu.map((data) => {
+      data.subMenu.map((subMenuFocus) => {
+        if (subMenuFocus.checkStatus === true) {
+          subMenuFocus.checkStatus = false;
+        } else {
+          data.checkStatus = false;
+        }
+        menuData.checkStatus = true;
+        item.checkStatus = true;
+        return data;
+      });
+      return data;
+    });
+    this.setState({
+      menu: itemData
+    });
   }
-  // constructor(menu) {
-  //   const $mainTemplate = $($('#template-menu').html());
-  //   const $menuList = $mainTemplate.find('.list');
-  //   const $menuTitle = $menuList.find('.menuTitle');
-  //   const $subName = $mainTemplate.find('.subName');
-  //   $menuTitle.find('i').addClass(`${menu.icon}`);
-  //   $menuTitle.find('.menuName').text(`${menu.menuName}`);
-
-  //   menu.subMenu.forEach((submenu) => {
-  //     const $mainTemplateSubItem = $($('#template-menu').html()).find('.subMenuItem');
-  //     const $subTitle = $mainTemplateSubItem.find('li');
-  //     const $subItem = $mainTemplateSubItem.find('span').text(`${submenu.subMenuName}`);
-  //     $subItem.click(() => {
-  //       $('.subNameText').removeClass('focus');
-  //       $subItem.addClass('focus');
-  //     });
-  //     $subName.append($subTitle);
-  //   });
-
-  //   this.MenuTitle = $menuList;
-
-  //   $menuList.click(() => {
-  //     $('.list').removeClass('active');
-  //     $menuList.toggleClass('active');
-  //   });
-
-  //   $menuTitle.click(() => {
-  //     $('.menuName').removeClass('focus');
-  //   });
-  // }
-
-  // result() {
-  //   return this.MenuTitle;
-  // }
 
   render() {
     return (
       this.state.menu.map(menuData => (
-        <nav key={menuData.id} id="menu">
-          <div className="list">
-            <div className="menuTitle">
-              <i className={menuData.icon} />
-              <span className="menuName">
-                {menuData.menuName}
-              </span>
-            </div>
-            <ul className="subName">
-              {
-                menuData.subMenu.map(item => (
-                  <MenuItem
-                    key={item.subId}
-                    item={item}
-                    // onClickFocusFunc={this.onClickFocusFunc}
-                  />
-                ))
-              }
-            </ul>
+        <div key={menuData.id} className={`list ${menuData.checkStatus === true ? 'active' : ''}`}>
+          <div className="menuTitle">
+            <i className={menuData.icon} />
+            <span className="menuName" >
+              {menuData.menuName}
+            </span>
           </div>
-        </nav>
+          <ul className="subName">
+            {
+              menuData.subMenu.map(item => (
+                <MenuItem
+                  key={item.subId}
+                  menuData={menuData}
+                  item={item}
+                  onClickFocusFunc={this.onClickFocusFunc}
+                />
+              ))
+            }
+          </ul>
+        </div>
       ))
     );
   }
