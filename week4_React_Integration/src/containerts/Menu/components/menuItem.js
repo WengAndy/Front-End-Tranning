@@ -16,6 +16,7 @@ class MenuItem extends Component {
         <li>
           <Link
             to={`/MenuList/${item.subId}`}
+            replace={item.checkStatus}
             className="subMenuItem"
             onClick={() => this.props.onClickFocusFunc(menuData, item)}
           >

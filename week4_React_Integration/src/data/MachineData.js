@@ -1,4 +1,4 @@
-const listData = [
+const MachineData = [
   {
     device_id: 1,
     model: 'AK1',
@@ -81,4 +81,4 @@ const listData = [
   }
 ];
 
-module.exports = listData;
+module.exports = MachineData;

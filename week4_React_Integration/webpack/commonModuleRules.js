@@ -48,25 +48,12 @@ const scssRules = {
 };
 
 const imageRules = {
-  test: /\.(jpe?g|png|gif|svg)$/,
-  use: [
-    {
-      loader: 'file-loader'
-    },
-    {
-      loader: 'url-loader',
-      options: {
-        limit: 1000, // 單位：byte  40k以下都會被編成base64，以上就變成檔案
-        name: 'img/[name].[ext]'
-      }
-    }
-    // {
-    //   loader: 'image-webpack-loader',
-    //   options: {
-    //     bypassOnDebug: true,
-    //   }
-    // }
-  ],
+  test: /\.(jpe?g|png|gif|svg|jpg)$/,
+  loader: 'url-loader',
+  options: {
+    limit: 1000, // 單位：byte  40k以下都會被編成base64，以上就變成檔案
+    name: 'img/[name].[ext]' // img/[name].[ext]
+  },
   exclude: [
     path.resolve(__dirname, '../src/static/icons/open-iconic')
   ]
