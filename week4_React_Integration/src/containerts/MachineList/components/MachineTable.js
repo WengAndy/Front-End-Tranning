@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import MachineList from './MachineList';
+import { editMachine, delMachine } from '../../../actions';
 
 class MachineTable extends Component {
   state = {
     machineList: this.props.machineList,
   };
+
+  editData = (item, parameter) => {
+    const machineData = this.state.machineList;
+    this.props.editMachine(item, machineData, parameter);
+  };
+
+  delData = (data) => {
+    const confirm = window.confirm('Are you sure you want to delete this data?');
+    if (!confirm) return;
+    const machineData = this.state.machineList;
+    this.props.delMachine(data, machineData);
+  }
   // constructor(data, pageNo) {
   //   const $mainTemplate = $($('#template-data-table').html());
   //   const $mainTable = $mainTemplate.find('.tbody');
@@ -47,6 +61,9 @@ class MachineTable extends Component {
               <MachineList
                 key={item.device_id}
                 item={item}
+                showDetailModal={this.props.showDetailModal}
+                editData={this.editData}
+                delData={this.delData}
               />
             ))
           }
@@ -64,8 +81,19 @@ const mapStateToProps = (state) => {
   };
 };
 
-MachineTable.propTypes = {
-  machineList: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+const mapDispatchToProps = (dispatch) => {
+  const parameter = dispatch;
+  return bindActionCreators({
+    editMachine,
+    delMachine
+  }, parameter);
 };
 
-export default connect(mapStateToProps)(MachineTable);
+MachineTable.propTypes = {
+  machineList: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  showDetailModal: PropTypes.func.isRequired,
+  editMachine: PropTypes.func.isRequired,
+  delMachine: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MachineTable);

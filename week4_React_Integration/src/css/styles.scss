@@ -38,7 +38,6 @@ $disable: #999;
 %listStatus {
   border:0;
   font-size: 21px;
-  display: none;
   background-color: transparent;
 }
 
@@ -162,24 +161,6 @@ $disable: #999;
       background: $mainBackGround;
       min-height: 95%;
       padding: 0 1em;
-
-      .detailList {
-        display: flex;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-        &:nth-last-child(1) {
-          border-bottom: 0px solid #eee;
-        }
-        .detailName {
-          flex-basis: 30%;
-          text-align: center;
-        }
-        .detailContent {
-          text-align: center;
-          flex-basis: 70%;
-          margin: 0;
-        }
-      }
 
       .title {
         font-size: 36px;
@@ -469,5 +450,23 @@ $disable: #999;
         }
       }
     }
+  }
+}
+
+.detailList {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  &:nth-last-child(1) {
+    border-bottom: 0px solid #eee;
+  }
+  .detailName {
+    flex-basis: 30%;
+    text-align: center;
+  }
+  .detailContent {
+    text-align: center;
+    flex-basis: 70%;
+    margin: 0;
   }
 }

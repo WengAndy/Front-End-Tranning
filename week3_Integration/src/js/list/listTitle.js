@@ -56,6 +56,8 @@ export default class listTitle {
     const { list, $address, $region, $addressInput, $regionInput } = this;
     const apiHandle = new Apihandle();
     const index = apiHandle.getIndex(list);
+    console.log('list', list);
+    console.log('index', index);
     this.addressInputVal = $addressInput.val();
     this.regionInputVal = $regionInput.val();
     if (this.addressInputVal === '' || this.regionInputVal === '') {
