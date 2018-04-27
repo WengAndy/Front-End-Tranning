@@ -23,3 +23,12 @@ export function delMachine(data, machineData) {
     payload: machineData
   };
 }
+
+export function searchMachine(data, machineData) {
+  let searchArr = [];
+  searchArr = machineData.filter(result => result.address.includes(data) || result.region.includes(data));
+  return {
+    type: 'SEARCH_MACHINE',
+    payload: searchArr
+  };
+}

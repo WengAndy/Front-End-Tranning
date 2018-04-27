@@ -3,13 +3,27 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { CommonModal } from '../../../components';
-import { addMachine } from '../../../actions';
+import { addMachine, searchMachine } from '../../../actions';
 
 class SearchTitle extends Component {
   state = {
     modalStatus: false,
     detail: {},
+    searchValue: ''
   };
+
+  handleSearch = () => {
+    const machineData = this.props.machineList;
+    const parameter = this.state.searchValue;
+    window.localStorage.setItem('searchValue', parameter);
+    this.props.searchMachine(parameter, machineData);
+  }
+
+  handleSearchChange = (data) => {
+    this.setState({
+      searchValue: data
+    });
+  }
 
   showDetailModal = (status, data) => {
     this.setState({
@@ -22,7 +36,6 @@ class SearchTitle extends Component {
   }
 
   saveDetailModal = (data) => {
-    console.log('87878', data);
     const machineData = this.props.machineList;
     const parameter = data;
     this.props.addMachine(machineData, parameter);
@@ -32,20 +45,18 @@ class SearchTitle extends Component {
   }
 
   closeDetailModal = () => {
-    console.log('close');
     this.setState({
       modalStatus: false,
     });
   }
   render() {
     const item = this.props.machineList;
-    // console.log('seeee', this.props.machineList);
     return (
       <div className="functions">
         <div className="initDiv">
           <div className="search">
-            <input className="search-box" type="text" name="search-box" placeholder="keyword" />
-            <input className="search-btn" type="submit" name="search-btn" value="Search" />
+            <input className="search-box" type="text" name="search-box" placeholder="keyword" onChange={e => this.handleSearchChange(e.target.value)} />
+            <input className="search-btn" type="submit" name="search-btn" value="Search" onClick={() => this.handleSearch()} />
             <div className="advanced-search-dialog">
               <input type="text" className="form-control advanced-search-Input" placeholder="keyword" />
               <div className="search-type">
@@ -97,6 +108,7 @@ const mapDispatchToProps = (dispatch) => {
   const parameter = dispatch;
   return bindActionCreators({
     addMachine,
+    searchMachine
   }, parameter);
 };
 

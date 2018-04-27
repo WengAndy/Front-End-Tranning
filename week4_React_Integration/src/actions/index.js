@@ -1,2 +1,7 @@
 export { getMenu } from './menuAction';
-export { addMachine, editMachine, delMachine } from './tableAction';
+export {
+  addMachine,
+  editMachine,
+  delMachine,
+  searchMachine
+} from './tableAction';

@@ -3,33 +3,38 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import MachineList from './MachineList';
-import { editMachine, delMachine } from '../../../actions';
+import { editMachine, delMachine, searchMachine } from '../../../actions';
 
 class MachineTable extends Component {
   state = {
-    machineList: this.props.machineList,
+    machineList: this.props.searchmachineList || this.props.machineList,
   };
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      machineList: nextProps.machineList,
+      machineList: nextProps.searchmachineList || nextProps.machineList,
     });
   }
 
   editData = (item, parameter) => {
-    const machineData = this.state.machineList;
+    const machineData = this.props.machineList;
     this.props.editMachine(item, machineData, parameter);
+    if (window.localStorage.getItem('searchValue') !== null) {
+      this.props.searchMachine(window.localStorage.getItem('searchValue'), machineData);
+    }
   };
 
   delData = (data) => {
     const confirm = window.confirm('Are you sure you want to delete this data?');
     if (!confirm) return;
-    const machineData = this.state.machineList;
+    const machineData = this.props.machineList;
     this.props.delMachine(data, machineData);
+    if (window.localStorage.getItem('searchValue') !== null) {
+      this.props.searchMachine(window.localStorage.getItem('searchValue'), machineData);
+    }
   }
 
   render() {
-    console.log('this.state.machineList', this.state.machineList);
     return (
       <div id="table" className="css-table">
         <div className="thead">
@@ -70,6 +75,7 @@ const mapStateToProps = (state) => {
   const parameter = state;
   return {
     machineList: parameter.machineList.machineList,
+    searchmachineList: parameter.searchmachineList.searchmachineList,
   };
 };
 
@@ -77,7 +83,8 @@ const mapDispatchToProps = (dispatch) => {
   const parameter = dispatch;
   return bindActionCreators({
     editMachine,
-    delMachine
+    delMachine,
+    searchMachine
   }, parameter);
 };
 
