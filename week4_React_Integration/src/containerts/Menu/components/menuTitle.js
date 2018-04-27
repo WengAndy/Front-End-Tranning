@@ -67,16 +67,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   console.log('mapDispatchToProps');
-//   return bindActionCreators({
-//     getMenu,
-//   }, dispatch);
-// };
-
 MenuTitle.propTypes = {
   menu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  // menu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default connect(mapStateToProps)(MenuTitle);

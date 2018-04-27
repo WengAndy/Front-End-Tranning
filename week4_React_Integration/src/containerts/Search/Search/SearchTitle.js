@@ -57,14 +57,12 @@ class SearchTitle extends Component {
   }
 
   handleAdvancedSearchChange = (data) => {
-    console.log('data', data);
     this.setState({
       advancedSearch: data
     });
   }
 
   handleSelectSearchChange = (data) => {
-    console.log('data', data);
     this.setState({
       advancedSelectSearch: data
     });
@@ -95,7 +93,6 @@ class SearchTitle extends Component {
     });
   }
   render() {
-    console.log(this.state.advancedSelectSearch);
     const item = this.props.machineList;
     return (
       <div className="functions">
