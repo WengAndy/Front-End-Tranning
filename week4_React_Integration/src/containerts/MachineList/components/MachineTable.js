@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import MachineList from './MachineList';
-import { editMachine, delMachine, searchMachine } from '../../../actions';
+import { editMachine, delMachine, searchMachine, advancedSearchMachine } from '../../../actions';
 
 class MachineTable extends Component {
   state = {
@@ -20,7 +20,18 @@ class MachineTable extends Component {
     const machineData = this.props.machineList;
     this.props.editMachine(item, machineData, parameter);
     if (window.localStorage.getItem('searchValue') !== null) {
-      this.props.searchMachine(window.localStorage.getItem('searchValue'), machineData);
+      if (window.localStorage.getItem('search') === 'search') {
+        this.props.searchMachine(
+          window.localStorage.getItem('searchValue'),
+          machineData
+        );
+      } else {
+        this.props.advancedSearchMachine(
+          window.localStorage.getItem('searchValue'),
+          window.localStorage.getItem('searchSelect'),
+          machineData
+        );
+      }
     }
   };
 
@@ -30,7 +41,18 @@ class MachineTable extends Component {
     const machineData = this.props.machineList;
     this.props.delMachine(data, machineData);
     if (window.localStorage.getItem('searchValue') !== null) {
-      this.props.searchMachine(window.localStorage.getItem('searchValue'), machineData);
+      if (window.localStorage.getItem('search') === 'search') {
+        this.props.searchMachine(
+          window.localStorage.getItem('searchValue'),
+          machineData
+        );
+      } else {
+        this.props.advancedSearchMachine(
+          window.localStorage.getItem('searchValue'),
+          window.localStorage.getItem('searchSelect'),
+          machineData
+        );
+      }
     }
   }
 
@@ -84,7 +106,8 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     editMachine,
     delMachine,
-    searchMachine
+    searchMachine,
+    advancedSearchMachine
   }, parameter);
 };
 

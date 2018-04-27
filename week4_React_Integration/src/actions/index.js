@@ -3,5 +3,6 @@ export {
   addMachine,
   editMachine,
   delMachine,
-  searchMachine
+  searchMachine,
+  advancedSearchMachine
 } from './tableAction';

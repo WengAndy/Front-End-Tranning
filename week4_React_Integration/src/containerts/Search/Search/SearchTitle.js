@@ -3,25 +3,70 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { CommonModal } from '../../../components';
-import { addMachine, searchMachine } from '../../../actions';
+import { addMachine, searchMachine, advancedSearchMachine } from '../../../actions';
 
 class SearchTitle extends Component {
   state = {
     modalStatus: false,
+    advanceSearchDialog: false,
     detail: {},
-    searchValue: ''
+    searchValue: '',
+    advancedSearch: '',
+    advancedSelectSearch: ''
   };
 
   handleSearch = () => {
     const machineData = this.props.machineList;
-    const parameter = this.state.searchValue;
-    window.localStorage.setItem('searchValue', parameter);
-    this.props.searchMachine(parameter, machineData);
+    const search = this.state.searchValue;
+    window.localStorage.setItem('search', 'search');
+    window.localStorage.setItem('searchValue', search);
+    this.props.searchMachine(search, machineData);
+  }
+
+  handleAdvancedSearch = () => {
+    const machineData = this.props.machineList;
+    const advancedSearchValue = this.state.advancedSearch;
+    const advancedSearchSelectValue = this.state.advancedSelectSearch;
+    const type = {
+      0: 'online',
+      1: 'offline',
+      2: 'error'
+    };
+    window.localStorage.setItem('search', 'advancedSearch');
+    window.localStorage.setItem('searchValue', advancedSearchValue);
+    window.localStorage.setItem('searchSelect', type[advancedSearchSelectValue]);
+    this.props.advancedSearchMachine(advancedSearchValue, type[advancedSearchSelectValue], machineData);
+  }
+
+  showSearchDialog = () => {
+    this.setState({
+      advanceSearchDialog: true
+    });
+  }
+
+  closeSearchDialog = () => {
+    this.setState({
+      advanceSearchDialog: false
+    });
   }
 
   handleSearchChange = (data) => {
     this.setState({
       searchValue: data
+    });
+  }
+
+  handleAdvancedSearchChange = (data) => {
+    console.log('data', data);
+    this.setState({
+      advancedSearch: data
+    });
+  }
+
+  handleSelectSearchChange = (data) => {
+    console.log('data', data);
+    this.setState({
+      advancedSelectSearch: data
     });
   }
 
@@ -50,6 +95,7 @@ class SearchTitle extends Component {
     });
   }
   render() {
+    console.log(this.state.advancedSelectSearch);
     const item = this.props.machineList;
     return (
       <div className="functions">
@@ -57,23 +103,49 @@ class SearchTitle extends Component {
           <div className="search">
             <input className="search-box" type="text" name="search-box" placeholder="keyword" onChange={e => this.handleSearchChange(e.target.value)} />
             <input className="search-btn" type="submit" name="search-btn" value="Search" onClick={() => this.handleSearch()} />
-            <div className="advanced-search-dialog">
-              <input type="text" className="form-control advanced-search-Input" placeholder="keyword" />
-              <div className="search-type">
-                Packaging Type
-                <select className="select-search">
-                  <option value="">Select</option>
-                  <option value="0">online</option>
-                  <option value="1">offline</option>
-                  <option value="2">error</option>
-                </select>
+            {
+              this.state.advanceSearchDialog &&
+              <div className="advanced-search-dialog">
+                <input
+                  type="text"
+                  className="form-control advanced-search-Input"
+                  placeholder="keyword"
+                  onChange={e => this.handleAdvancedSearchChange(e.target.value)}
+                />
+                <div className="search-type">
+                  Packaging Type
+                  <select
+                    className="select-search"
+                    onChange={e => this.handleSelectSearchChange(e.target.value)}
+                  >
+                    <option value="">Select</option>
+                    <option value="0">online</option>
+                    <option value="1">offline</option>
+                    <option value="2">error</option>
+                  </select>
+                </div>
+                <div>
+                  <button
+                    className="btn advanced-close"
+                    type="button"
+                    onClick={() => this.closeSearchDialog()}
+                  >
+                    Close
+                  </button>
+                  <button
+                    className="btn advanced-search"
+                    type="button"
+                    onClick={() => this.handleAdvancedSearch()}
+                  >
+                    Search
+                  </button>
+                </div>
               </div>
-              <div>
-                <button className="btn advanced-close" type="button">Close</button>
-                <button className="btn advanced-search" type="button">Search</button>
-              </div>
-            </div>
-            <button className="searchmore">
+            }
+            <button
+              className="searchmore"
+              onClick={() => this.showSearchDialog()}
+            >
               <i className="fas fa-search-plus" />
               Advanced Search
             </button>
@@ -108,7 +180,8 @@ const mapDispatchToProps = (dispatch) => {
   const parameter = dispatch;
   return bindActionCreators({
     addMachine,
-    searchMachine
+    searchMachine,
+    advancedSearchMachine
   }, parameter);
 };
 

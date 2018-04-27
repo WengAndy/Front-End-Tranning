@@ -27,6 +27,12 @@ export const machineListReducer = (state = { machineList: initialState.MachineDa
         searchmachineList: [...action.payload]
       };
       break;
+    case 'ADVANCED_SEARCH_MACHINE':
+      return {
+        machineList: [...state.machineList],
+        searchmachineList: [...action.payload]
+      };
+      break;
     default:
       return state;
   }

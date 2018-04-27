@@ -24,11 +24,21 @@ export function delMachine(data, machineData) {
   };
 }
 
-export function searchMachine(data, machineData) {
+export function searchMachine(search, machineData) {
   let searchArr = [];
-  searchArr = machineData.filter(result => result.address.includes(data) || result.region.includes(data));
+  searchArr = machineData.filter(result => result.address.includes(search) || result.region.includes(search));
   return {
     type: 'SEARCH_MACHINE',
+    payload: searchArr
+  };
+}
+
+export function advancedSearchMachine(search, selectValue, machineData) {
+  let searchArr = [];
+  searchArr = machineData.filter(result => result.status.includes(selectValue) &&
+    (result.address.includes(search) || result.region.includes(search)));
+  return {
+    type: 'ADVANCED_SEARCH_MACHINE',
     payload: searchArr
   };
 }
