@@ -17,15 +17,7 @@ export default class MachineList extends Component {
     });
   }
 
-  saveDetailModal = () => {
-    console.log('save');
-    this.setState({
-      modalStatus: false,
-    });
-  }
-
   closeDetailModal = () => {
-    console.log('close');
     this.setState({
       modalStatus: false,
     });
@@ -39,7 +31,6 @@ export default class MachineList extends Component {
         />
         <CommonModal
           modalStatus={this.state.modalStatus}
-          saveDetailModal={this.saveDetailModal}
           closeDetailModal={this.closeDetailModal}
           detail={this.state.detail}
         />

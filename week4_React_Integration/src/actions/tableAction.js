@@ -1,3 +1,11 @@
+export function addMachine(machineDatas, parameter) {
+  const machineData = [...machineDatas, parameter];
+  return {
+    type: 'ADD_MACHINE',
+    payload: machineData
+  };
+}
+
 export function editMachine(item, machineData, parameter) {
   const index = machineData.findIndex(line => line.device_id === item.device_id);
   machineData[index].address = parameter.addressName;

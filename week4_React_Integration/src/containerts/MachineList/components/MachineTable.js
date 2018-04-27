@@ -10,6 +10,12 @@ class MachineTable extends Component {
     machineList: this.props.machineList,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      machineList: nextProps.machineList,
+    });
+  }
+
   editData = (item, parameter) => {
     const machineData = this.state.machineList;
     this.props.editMachine(item, machineData, parameter);
@@ -21,23 +27,9 @@ class MachineTable extends Component {
     const machineData = this.state.machineList;
     this.props.delMachine(data, machineData);
   }
-  // constructor(data, pageNo) {
-  //   const $mainTemplate = $($('#template-data-table').html());
-  //   const $mainTable = $mainTemplate.find('.tbody');
-  //   const apihandle = new ApiHandle();
-  //   if (data === false || data.length === 0) {
-  //     $mainTable.append('no data');
-  //   } else {
-  //     const countData = apihandle.pagination(pageNo || 1, data);
-  //     countData.forEach((list) => {
-  //       const $ListTitle = new ListTitle(list);
-  //       $mainTable.append($ListTitle.result());
-  //     });
-  //   }
-  //   this.listTable = $mainTemplate;
-  // }
 
   render() {
+    console.log('this.state.machineList', this.state.machineList);
     return (
       <div id="table" className="css-table">
         <div className="thead">
