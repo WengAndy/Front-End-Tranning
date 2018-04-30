@@ -1,3 +1,30 @@
+import { MachineData } from '../data/index';
+
+const pageParameter = {
+  pageSize: 5,
+  currentPage: 1,
+};
+
+function pagination(pageNo, array) {
+  let page = pageNo;
+  if (page === '') {
+    page = pageParameter.currentPage;
+  }
+  const offset = (page - 1) * pageParameter.pageSize;
+  return (offset + pageParameter.pageSize >= array.length)
+    ? array.slice(offset, array.length)
+    : array.slice(offset, offset + pageParameter.pageSize);
+}
+
+export function getMachine(page, data) {
+  const machineData = pagination(page || pageParameter.currentPage, data || MachineData);
+  return {
+    type: 'GET_MACHINE',
+    payload: machineData
+  };
+}
+
+
 export function addMachine(machineDatas, parameter) {
   const machineData = [...machineDatas, parameter];
   return {

@@ -6,6 +6,11 @@ const initialState = {
 
 export const machineListReducer = (state = { machineList: initialState.MachineData }, action) => {
   switch (action.type) {
+    case 'GET_MACHINE':
+      return {
+        machineList: [...action.payload]
+      };
+      break;
     case 'ADD_MACHINE':
       return {
         machineList: [...action.payload]

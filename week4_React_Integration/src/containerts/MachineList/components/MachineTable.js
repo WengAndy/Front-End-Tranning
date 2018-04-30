@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import MachineList from './MachineList';
-import { editMachine, delMachine, searchMachine, advancedSearchMachine } from '../../../actions';
+import { getMachine, editMachine, delMachine, searchMachine, advancedSearchMachine } from '../../../actions';
 
 class MachineTable extends Component {
   state = {
     machineList: this.props.searchmachineList || this.props.machineList,
   };
+
+  componentWillMount() {
+    this.props.getMachine();
+  }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -104,6 +108,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   const parameter = dispatch;
   return bindActionCreators({
+    getMachine,
     editMachine,
     delMachine,
     searchMachine,
