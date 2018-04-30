@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchTitle from '../../Search/Search/SearchTitle';
 import MachineList from '../../MachineList/MachineList';
+import FooterPage from '../../Footer/footerPage';
 
 class ContentTitle extends Component {
   render() {
@@ -9,6 +10,7 @@ class ContentTitle extends Component {
         <div className="title">Machine List</div>
         <SearchTitle />
         <MachineList />
+        <FooterPage />
       </div>
     );
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { CommonModal } from '../../../components';
-import { addMachine, searchMachine, advancedSearchMachine } from '../../../actions';
+import { addMachine, getMachine, searchMachine, advancedSearchMachine } from '../../../actions';
 
 class SearchTitle extends Component {
   state = {
@@ -16,15 +16,17 @@ class SearchTitle extends Component {
   };
 
   handleSearch = () => {
-    const machineData = this.props.machineList;
+    const machineData = JSON.parse(window.localStorage.getItem('machineData'));
     const search = this.state.searchValue;
+    const searchResult = this.props.searchMachine(search, machineData);
+    this.props.getMachine(1, searchResult.searchArr);
     window.localStorage.setItem('search', 'search');
     window.localStorage.setItem('searchValue', search);
-    this.props.searchMachine(search, machineData);
+    window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
   }
 
   handleAdvancedSearch = () => {
-    const machineData = this.props.machineList;
+    const machineData = JSON.parse(window.localStorage.getItem('machineData'));
     const advancedSearchValue = this.state.advancedSearch;
     const advancedSearchSelectValue = this.state.advancedSelectSearch;
     const type = {
@@ -32,10 +34,12 @@ class SearchTitle extends Component {
       1: 'offline',
       2: 'error'
     };
+    const searchResult = this.props.advancedSearchMachine(advancedSearchValue, type[advancedSearchSelectValue], machineData);
+    this.props.getMachine(1, searchResult.searchArr);
     window.localStorage.setItem('search', 'advancedSearch');
     window.localStorage.setItem('searchValue', advancedSearchValue);
     window.localStorage.setItem('searchSelect', type[advancedSearchSelectValue]);
-    this.props.advancedSearchMachine(advancedSearchValue, type[advancedSearchSelectValue], machineData);
+    window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
   }
 
   showSearchDialog = () => {
@@ -79,12 +83,14 @@ class SearchTitle extends Component {
   }
 
   saveDetailModal = (data) => {
-    const machineData = this.props.machineList;
+    const machineData = JSON.parse(window.localStorage.getItem('machineData'));
     const parameter = data;
-    this.props.addMachine(machineData, parameter);
+    const addResult = this.props.addMachine(machineData, parameter);
     this.setState({
       modalStatus: false,
     });
+    window.localStorage.setItem('machineData', JSON.stringify(addResult.machineData));
+    this.props.getMachine(1, addResult.machineData);
   }
 
   closeDetailModal = () => {
@@ -177,6 +183,7 @@ const mapDispatchToProps = (dispatch) => {
   const parameter = dispatch;
   return bindActionCreators({
     addMachine,
+    getMachine,
     searchMachine,
     advancedSearchMachine
   }, parameter);

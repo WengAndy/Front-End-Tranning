@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { getMachine } from '../../../actions';
 
 class MachineList extends Component {
   state = {
@@ -153,11 +156,18 @@ class MachineList extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  const parameter = dispatch;
+  return bindActionCreators({
+    getMachine,
+  }, parameter);
+};
+
 MachineList.propTypes = {
   item: PropTypes.shape().isRequired,
   showDetailModal: PropTypes.func.isRequired,
   editData: PropTypes.func.isRequired,
   delData: PropTypes.func.isRequired,
 };
+export default connect(mapDispatchToProps)(MachineList);
 
-export default MachineList;

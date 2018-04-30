@@ -1,4 +1,4 @@
-import { MachineData } from '../data/index';
+// import { MachineData } from '../data/index';
 
 const pageParameter = {
   pageSize: 5,
@@ -6,6 +6,7 @@ const pageParameter = {
 };
 
 function pagination(pageNo, array) {
+  console.log('aaarrr', array);
   let page = pageNo;
   if (page === '') {
     page = pageParameter.currentPage;
@@ -16,11 +17,24 @@ function pagination(pageNo, array) {
     : array.slice(offset, offset + pageParameter.pageSize);
 }
 
+// function PageItem() {
+//   const machineData = JSON.parse(window.localStorage.getItem('machineData'));
+//   const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
+//   // const { pageParameter, apiListData } = this;
+//   let result;
+//   if (searchResult !== null) {
+//     result = Math.ceil(searchResult.length / pageParameter.pageSize);
+//   } else {
+//     result = Math.ceil(machineData.length / pageParameter.pageSize);
+//   }
+//   return result;
+// }
+
 export function getMachine(page, data) {
-  const machineData = pagination(page || pageParameter.currentPage, data || MachineData);
+  const machineData = pagination(page || pageParameter.currentPage, data);
   return {
     type: 'GET_MACHINE',
-    payload: machineData
+    payload: machineData,
   };
 }
 
@@ -29,7 +43,7 @@ export function addMachine(machineDatas, parameter) {
   const machineData = [...machineDatas, parameter];
   return {
     type: 'ADD_MACHINE',
-    payload: machineData
+    machineData
   };
 }
 
@@ -39,7 +53,7 @@ export function editMachine(item, machineData, parameter) {
   machineData[index].region = parameter.regionName;
   return {
     type: 'EDIT_MACHINE',
-    payload: machineData
+    machineData
   };
 }
 
@@ -47,7 +61,7 @@ export function delMachine(data, machineData) {
   machineData.splice(machineData.findIndex(alldata => alldata.device_id === data.device_id), 1);
   return {
     type: 'DEL_MACHINE',
-    payload: machineData
+    machineData
   };
 }
 
@@ -56,7 +70,7 @@ export function searchMachine(search, machineData) {
   searchArr = machineData.filter(result => result.address.includes(search) || result.region.includes(search));
   return {
     type: 'SEARCH_MACHINE',
-    payload: searchArr
+    searchArr
   };
 }
 
@@ -66,6 +80,14 @@ export function advancedSearchMachine(search, selectValue, machineData) {
     (result.address.includes(search) || result.region.includes(search)));
   return {
     type: 'ADVANCED_SEARCH_MACHINE',
-    payload: searchArr
+    searchArr
   };
 }
+
+// export function getPageItem() {
+//   const pageItem = PageItem();
+//   return {
+//     type: 'GET_PAGE_ITEM',
+//     payload: pageItem
+//   };
+// }

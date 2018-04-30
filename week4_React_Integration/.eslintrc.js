@@ -64,6 +64,7 @@ module.exports = {
         "setErrorInfo", "clearErrorInfo", "errorKey", "errorData", "getErrorInfo", "currentLang"] }],
         "jsx-a11y/no-static-element-interactions": [0],
         "no-unreachable": [0],
-        "react/prop-types": [0]
+        "react/prop-types": [0],
+        "no-script-url": [0]
     }
 };

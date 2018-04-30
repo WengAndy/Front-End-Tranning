@@ -11,7 +11,9 @@ class MachineTable extends Component {
   };
 
   componentWillMount() {
-    this.props.getMachine();
+    const init_Data = this.props.machineList;
+    window.localStorage.setItem('machineData', JSON.stringify(init_Data));
+    this.props.getMachine(1, init_Data);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,9 +22,13 @@ class MachineTable extends Component {
     });
   }
 
+  setMachineData = (data) => {
+    window.localStorage.setItem('machineData', JSON.stringify(data));
+  }
+
   editData = (item, parameter) => {
-    const machineData = this.props.machineList;
-    this.props.editMachine(item, machineData, parameter);
+    const machineData = JSON.parse(window.localStorage.getItem('machineData'));
+    const editResult = this.props.editMachine(item, machineData, parameter);
     if (window.localStorage.getItem('searchValue') !== null) {
       if (window.localStorage.getItem('search') === 'search') {
         this.props.searchMachine(
@@ -37,13 +43,16 @@ class MachineTable extends Component {
         );
       }
     }
+    window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
+    const searchResult = this.props.searchMachine(window.localStorage.getItem('searchValue'), editResult.machineData);
+    this.props.getMachine(1, searchResult.searchArr);
   };
 
   delData = (data) => {
     const confirm = window.confirm('Are you sure you want to delete this data?');
     if (!confirm) return;
-    const machineData = this.props.machineList;
-    this.props.delMachine(data, machineData);
+    const machineData = JSON.parse(window.localStorage.getItem('machineData'));
+    const delResult = this.props.delMachine(data, machineData);
     if (window.localStorage.getItem('searchValue') !== null) {
       if (window.localStorage.getItem('search') === 'search') {
         this.props.searchMachine(
@@ -58,6 +67,9 @@ class MachineTable extends Component {
         );
       }
     }
+    window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
+    const searchResult = this.props.searchMachine(window.localStorage.getItem('searchValue'), delResult.machineData);
+    this.props.getMachine(1, searchResult.searchArr);
   }
 
   render() {
@@ -101,6 +113,7 @@ const mapStateToProps = (state) => {
   const parameter = state;
   return {
     machineList: parameter.machineList.machineList,
+    getmachineList: parameter.getmachineList.getmachineList,
     searchmachineList: parameter.searchmachineList.searchmachineList,
   };
 };
