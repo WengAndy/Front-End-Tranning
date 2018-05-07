@@ -113,7 +113,6 @@ const mapStateToProps = (state) => {
   const parameter = state;
   return {
     machineList: parameter.machineList.machineList,
-    getmachineList: parameter.getmachineList.getmachineList,
     searchmachineList: parameter.searchmachineList.searchmachineList,
   };
 };

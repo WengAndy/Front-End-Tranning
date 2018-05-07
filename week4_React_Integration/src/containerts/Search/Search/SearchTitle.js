@@ -19,10 +19,10 @@ class SearchTitle extends Component {
     const machineData = JSON.parse(window.localStorage.getItem('machineData'));
     const search = this.state.searchValue;
     const searchResult = this.props.searchMachine(search, machineData);
-    this.props.getMachine(1, searchResult.searchArr);
+    window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
     window.localStorage.setItem('search', 'search');
     window.localStorage.setItem('searchValue', search);
-    window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
+    this.props.getMachine(1, searchResult.searchArr);
   }
 
   handleAdvancedSearch = () => {
@@ -35,11 +35,11 @@ class SearchTitle extends Component {
       2: 'error'
     };
     const searchResult = this.props.advancedSearchMachine(advancedSearchValue, type[advancedSearchSelectValue], machineData);
-    this.props.getMachine(1, searchResult.searchArr);
     window.localStorage.setItem('search', 'advancedSearch');
     window.localStorage.setItem('searchValue', advancedSearchValue);
     window.localStorage.setItem('searchSelect', type[advancedSearchSelectValue]);
     window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
+    this.props.getMachine(1, searchResult.searchArr);
   }
 
   showSearchDialog = () => {

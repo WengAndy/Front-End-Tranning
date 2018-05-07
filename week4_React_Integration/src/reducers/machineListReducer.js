@@ -4,7 +4,8 @@ export const machineListReducer = (state = { machineList: MachineData }, action)
   switch (action.type) {
     case 'GET_MACHINE':
       return {
-        machineList: [...action.payload]
+        machineList: [...action.payload.machineData],
+        pageItem: action.payload.pageItem
       };
       break;
     // case 'ADD_MACHINE':

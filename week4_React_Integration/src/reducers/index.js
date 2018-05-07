@@ -7,5 +7,5 @@ export default combineReducers({
   menuList: menuReducer,
   machineList: machineListReducer,
   searchmachineList: machineListReducer,
-  getmachineList: machineListReducer
+  pageItem: machineListReducer
 });

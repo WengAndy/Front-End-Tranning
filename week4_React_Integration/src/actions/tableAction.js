@@ -1,12 +1,11 @@
 // import { MachineData } from '../data/index';
 
 const pageParameter = {
-  pageSize: 5,
+  pageSize: 2,
   currentPage: 1,
 };
 
 function pagination(pageNo, array) {
-  console.log('aaarrr', array);
   let page = pageNo;
   if (page === '') {
     page = pageParameter.currentPage;
@@ -17,24 +16,20 @@ function pagination(pageNo, array) {
     : array.slice(offset, offset + pageParameter.pageSize);
 }
 
-// function PageItem() {
-//   const machineData = JSON.parse(window.localStorage.getItem('machineData'));
-//   const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
-//   // const { pageParameter, apiListData } = this;
-//   let result;
-//   if (searchResult !== null) {
-//     result = Math.ceil(searchResult.length / pageParameter.pageSize);
-//   } else {
-//     result = Math.ceil(machineData.length / pageParameter.pageSize);
-//   }
-//   return result;
-// }
+function PageItem(data) {
+  const result = Math.ceil(data.length / pageParameter.pageSize);
+  return result;
+}
 
 export function getMachine(page, data) {
   const machineData = pagination(page || pageParameter.currentPage, data);
+  const pageItem = PageItem(data);
   return {
     type: 'GET_MACHINE',
-    payload: machineData,
+    payload: {
+      machineData,
+      pageItem
+    },
   };
 }
 
@@ -83,11 +78,3 @@ export function advancedSearchMachine(search, selectValue, machineData) {
     searchArr
   };
 }
-
-// export function getPageItem() {
-//   const pageItem = PageItem();
-//   return {
-//     type: 'GET_PAGE_ITEM',
-//     payload: pageItem
-//   };
-// }
