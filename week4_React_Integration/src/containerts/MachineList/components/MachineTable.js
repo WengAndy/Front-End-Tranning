@@ -31,21 +31,27 @@ class MachineTable extends Component {
     const editResult = this.props.editMachine(item, machineData, parameter);
     if (window.localStorage.getItem('searchValue') !== null) {
       if (window.localStorage.getItem('search') === 'search') {
-        this.props.searchMachine(
+        const search = this.props.searchMachine(
           window.localStorage.getItem('searchValue'),
           machineData
         );
+        window.localStorage.setItem('searchResult', JSON.stringify(search));
+        window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
+        this.props.getMachine(1, search.searchArr);
       } else {
-        this.props.advancedSearchMachine(
+        const advSearch = this.props.advancedSearchMachine(
           window.localStorage.getItem('searchValue'),
           window.localStorage.getItem('searchSelect'),
           machineData
         );
+        window.localStorage.setItem('searchResult', JSON.stringify(advSearch));
+        window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
+        this.props.getMachine(1, advSearch.searchArr);
       }
+    } else {
+      window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
+      this.props.getMachine(1, editResult.machineData);
     }
-    window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
-    const searchResult = this.props.searchMachine(window.localStorage.getItem('searchValue'), editResult.machineData);
-    this.props.getMachine(1, searchResult.searchArr);
   };
 
   delData = (data) => {
@@ -53,23 +59,31 @@ class MachineTable extends Component {
     if (!confirm) return;
     const machineData = JSON.parse(window.localStorage.getItem('machineData'));
     const delResult = this.props.delMachine(data, machineData);
-    if (window.localStorage.getItem('searchValue') !== null) {
+    const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
+    console.log('delResult', delResult);
+    if (searchResult !== null) {
       if (window.localStorage.getItem('search') === 'search') {
-        this.props.searchMachine(
+        const search = this.props.searchMachine(
           window.localStorage.getItem('searchValue'),
           machineData
         );
+        window.localStorage.setItem('searchResult', JSON.stringify(search));
+        window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
+        this.props.getMachine(1, search.searchArr);
       } else {
-        this.props.advancedSearchMachine(
+        const advSearch = this.props.advancedSearchMachine(
           window.localStorage.getItem('searchValue'),
           window.localStorage.getItem('searchSelect'),
           machineData
         );
+        window.localStorage.setItem('searchResult', JSON.stringify(advSearch));
+        window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
+        this.props.getMachine(1, advSearch.searchArr);
       }
+    } else {
+      window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
+      this.props.getMachine(1, delResult.machineData);
     }
-    window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
-    const searchResult = this.props.searchMachine(window.localStorage.getItem('searchValue'), delResult.machineData);
-    this.props.getMachine(1, searchResult.searchArr);
   }
 
   render() {

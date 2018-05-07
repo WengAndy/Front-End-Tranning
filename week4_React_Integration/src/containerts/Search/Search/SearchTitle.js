@@ -22,6 +22,7 @@ class SearchTitle extends Component {
     window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
     window.localStorage.setItem('search', 'search');
     window.localStorage.setItem('searchValue', search);
+    window.localStorage.setItem('currentPage', 1);
     this.props.getMachine(1, searchResult.searchArr);
   }
 
@@ -35,10 +36,11 @@ class SearchTitle extends Component {
       2: 'error'
     };
     const searchResult = this.props.advancedSearchMachine(advancedSearchValue, type[advancedSearchSelectValue], machineData);
+    window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
     window.localStorage.setItem('search', 'advancedSearch');
     window.localStorage.setItem('searchValue', advancedSearchValue);
     window.localStorage.setItem('searchSelect', type[advancedSearchSelectValue]);
-    window.localStorage.setItem('searchResult', JSON.stringify(searchResult));
+    window.localStorage.setItem('currentPage', 1);
     this.props.getMachine(1, searchResult.searchArr);
   }
 
@@ -89,6 +91,7 @@ class SearchTitle extends Component {
     this.setState({
       modalStatus: false,
     });
+    window.localStorage.setItem('currentPage', 1);
     window.localStorage.setItem('machineData', JSON.stringify(addResult.machineData));
     this.props.getMachine(1, addResult.machineData);
   }

@@ -35,7 +35,12 @@ class FooterPage extends Component {
     const nextPage = parseInt(currentPage, 10);
     window.localStorage.setItem('currentPage', nextPage + 1);
     const AllData = JSON.parse(window.localStorage.getItem('machineData'));
-    this.props.getMachine(nextPage + 1, AllData);
+    const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
+    if (searchResult !== null) {
+      this.props.getMachine(nextPage + 1, searchResult.searchArr);
+    } else {
+      this.props.getMachine(nextPage + 1, AllData);
+    }
   }
 
   prevfunction = () => {
@@ -44,17 +49,23 @@ class FooterPage extends Component {
     const nextPage = parseInt(currentPage, 10);
     window.localStorage.setItem('currentPage', nextPage - 1);
     const AllData = JSON.parse(window.localStorage.getItem('machineData'));
-    this.props.getMachine(nextPage - 1, AllData);
+    const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
+    if (searchResult !== null) {
+      this.props.getMachine(nextPage - 1, searchResult.searchArr);
+    } else {
+      this.props.getMachine(nextPage - 1, AllData);
+    }
   }
 
   pageChange = (data) => {
     const searchValue = window.localStorage.getItem('searchValue');
-    if (searchValue === '' || searchValue === null) {
-      const AllData = JSON.parse(window.localStorage.getItem('machineData'));
-      this.props.getMachine(data, AllData);
-    } else {
-      const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
+    const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
+    const AllData = JSON.parse(window.localStorage.getItem('machineData'));
+    console.log('searchValue', searchValue);
+    if (searchResult !== null) {
       this.props.getMachine(data, searchResult.searchArr);
+    } else {
+      this.props.getMachine(data, AllData);
     }
   }
 
