@@ -37,7 +37,7 @@ class MachineTable extends Component {
         );
         window.localStorage.setItem('searchResult', JSON.stringify(search));
         window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
-        this.props.getMachine(1, search.searchArr);
+        this.props.getMachine(window.localStorage.getItem('currentPage'), search.searchArr);
       } else {
         const advSearch = this.props.advancedSearchMachine(
           window.localStorage.getItem('searchValue'),
@@ -46,11 +46,11 @@ class MachineTable extends Component {
         );
         window.localStorage.setItem('searchResult', JSON.stringify(advSearch));
         window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
-        this.props.getMachine(1, advSearch.searchArr);
+        this.props.getMachine(window.localStorage.getItem('currentPage'), advSearch.searchArr);
       }
     } else {
       window.localStorage.setItem('machineData', JSON.stringify(editResult.machineData));
-      this.props.getMachine(1, editResult.machineData);
+      this.props.getMachine(window.localStorage.getItem('currentPage'), editResult.machineData);
     }
   };
 
@@ -68,7 +68,7 @@ class MachineTable extends Component {
         );
         window.localStorage.setItem('searchResult', JSON.stringify(search));
         window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
-        this.props.getMachine(1, search.searchArr);
+        this.props.getMachine(window.localStorage.getItem('currentPage'), search.searchArr);
       } else {
         const advSearch = this.props.advancedSearchMachine(
           window.localStorage.getItem('searchValue'),
@@ -77,7 +77,7 @@ class MachineTable extends Component {
         );
         window.localStorage.setItem('searchResult', JSON.stringify(advSearch));
         window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
-        this.props.getMachine(1, advSearch.searchArr);
+        this.props.getMachine(window.localStorage.getItem('currentPage'), advSearch.searchArr);
       }
     } else {
       window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
