@@ -58,10 +58,8 @@ class FooterPage extends Component {
   }
 
   pageChange = (data) => {
-    const searchValue = window.localStorage.getItem('searchValue');
     const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
     const AllData = JSON.parse(window.localStorage.getItem('machineData'));
-    console.log('searchValue', searchValue);
     if (searchResult !== null) {
       this.props.getMachine(data, searchResult.searchArr);
     } else {
@@ -70,13 +68,11 @@ class FooterPage extends Component {
   }
 
   render() {
-    const { machineList } = this.props;
+    const { machineList, pageItem } = this.props;
     const rows = [];
     let i = 0;
     let totalNumber = '';
-    const len = this.props.pageItem;
-    while (++i <= len) rows.push(i);
-
+    while (++i <= pageItem) rows.push(i);
     const searchValue = window.localStorage.getItem('searchValue');
     const AllData = JSON.parse(window.localStorage.getItem('machineData'));
     if (searchValue === '' || searchValue === null) {

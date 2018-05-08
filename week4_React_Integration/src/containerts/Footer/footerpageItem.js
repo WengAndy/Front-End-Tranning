@@ -4,12 +4,26 @@ import { bindActionCreators } from 'redux';
 import { getMachine } from '../../actions';
 
 class FooterPageItem extends Component {
+  aaa = (data) => {
+    this.props.page(data);
+  }
+
   render() {
     const { data } = this.props;
     let chooseStatus = '';
     if (window.localStorage.getItem('currentPage') === data.toString()) {
       chooseStatus = 'active';
     }
+    // if (data.toString() < window.localStorage.getItem('currentPage')) {
+    //   window.localStorage.setItem('currentPage', data.toString());
+    // }
+    // console.log('aaa', window.localStorage.getItem('currentPage'));
+    // console.log('bbb', data.toString());
+    // if (data.toString() < window.localStorage.getItem('currentPage')) {
+    //   window.localStorage.setItem('currentPage', data.toString());
+    //   chooseStatus = 'active';
+    // }
+
     return (
       <li className="page-item">
         <a

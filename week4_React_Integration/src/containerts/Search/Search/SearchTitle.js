@@ -91,6 +91,7 @@ class SearchTitle extends Component {
     this.setState({
       modalStatus: false,
     });
+    window.localStorage.clear();
     window.localStorage.setItem('currentPage', 1);
     window.localStorage.setItem('machineData', JSON.stringify(addResult.machineData));
     this.props.getMachine(1, addResult.machineData);

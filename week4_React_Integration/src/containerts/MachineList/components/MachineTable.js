@@ -60,7 +60,6 @@ class MachineTable extends Component {
     const machineData = JSON.parse(window.localStorage.getItem('machineData'));
     const delResult = this.props.delMachine(data, machineData);
     const searchResult = JSON.parse(window.localStorage.getItem('searchResult'));
-    console.log('delResult', delResult);
     if (searchResult !== null) {
       if (window.localStorage.getItem('search') === 'search') {
         const search = this.props.searchMachine(
@@ -82,7 +81,7 @@ class MachineTable extends Component {
       }
     } else {
       window.localStorage.setItem('machineData', JSON.stringify(delResult.machineData));
-      this.props.getMachine(1, delResult.machineData);
+      this.props.getMachine(window.localStorage.getItem('currentPage'), delResult.machineData);
     }
   }
 
@@ -126,6 +125,7 @@ class MachineTable extends Component {
 const mapStateToProps = (state) => {
   const parameter = state;
   return {
+    pageItem: parameter.pageItem.pageItem,
     machineList: parameter.machineList.machineList,
     searchmachineList: parameter.searchmachineList.searchmachineList,
   };

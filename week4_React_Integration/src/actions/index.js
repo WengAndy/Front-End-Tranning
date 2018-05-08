@@ -1,7 +1,6 @@
 export { getMenu } from './menuAction';
 export {
   getMachine,
-  // getPageItem,
   addMachine,
   editMachine,
   delMachine,
