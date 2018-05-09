@@ -5,14 +5,7 @@ import FooterPageItem from './footerpageItem';
 import { getMachine } from '../../actions';
 
 class FooterPage extends Component {
-  state = {
-    pageNumber: '',
-  }
-
   page = (data) => {
-    this.setState({
-      pageNumber: data
-    });
     window.localStorage.setItem('currentPage', data);
     this.pageChange(data);
   };
@@ -120,7 +113,8 @@ class FooterPage extends Component {
                     key={data}
                     data={data}
                     page={this.page}
-                    pageNumber={this.state.pageNumber}
+                    prevfunction={this.prevfunction}
+                    rows={rows}
                    />
                 ))
               }
